@@ -48,19 +48,32 @@
 #include "gpio.h"
 
 /* USER CODE BEGIN Includes */
+//includes
 #include "ILI9341_STM32_Driver.h"
 #include "ILI9341_GFX.h"
 
+#include "Audio.h"
+
+#include "Master.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
-uint8_t T_buff[800];
-uint8_t R_buff[800];
+uint8_t b;
+uint8_t a;
 
-int counter=0;
+int8_t id;
+int8_t call_id;
+uint8_t temp;
+
+MASTER_PROGRAM_STATE state=SENDING_HELLO;
+uint8_t Buff_get;
+
+uint8_t send_audio_buff[Buff_size];
+uint8_t receive_audio_buff[799];//Buff_size];
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -70,6 +83,8 @@ void SystemClock_Config(void);
 /* Private function prototypes -----------------------------------------------*/
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart);
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc);
+void HAL_DAC_ConvCpltCallbackCh1(DAC_HandleTypeDef* hdac1);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -119,34 +134,73 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_SET);
-	HAL_UART_Transmit_IT(&huart2,T_buff,800);
-	HAL_UART_Receive_IT(&huart2,R_buff,800);
-
 	ILI9341_Draw_Text("Debug", 32, 0, RED, 4, WHITE);
-	char buff[20];
 	
-	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_SET);
-	HAL_Delay(1);
-	HAL_UART_Transmit_IT(&huart2,T_buff,800);
+	id=4;
+	call_id=1;
 	
 	while (1)
   {
-		HAL_Delay(500);
-		
-		T_buff[100]++;
-		
-//		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_SET);
-//		HAL_Delay(1);
-//		HAL_UART_Transmit_IT(&huart2,T_buff,800);
-		
-		sprintf(buff,"T_buff[799] : %d   ",T_buff[100]);
-		ILI9341_Draw_Text(buff, 20, 60, BLACK, 2, WHITE);
-		
-		sprintf(buff,"R_buff[799] : %d   ",R_buff[100]);
-		ILI9341_Draw_Text(buff, 20, 90, BLACK, 2, WHITE);
-		
-  /* USER CODE END WHILE */
+		switch(state){
+			case SENDING_HELLO:
+				id--;
+				if(id<0){
+					id=5;
+					state=SENDING_AUDIO;
+					break;
+				}
+				Send_PCK(id,Normal_conv,temp,temp+1,temp*2,0,1);
+				state=GETTING_HELLO;
+				break;
+			
+			case GETTING_HELLO:
+				switch(HAL_UART_Receive(&huart2,&Buff_get,1,10)){
+					
+					case HAL_OK:
+						if(GetNewData(Buff_get,id)==PCK_Data){
+							state=SENDING_HELLO;
+						}
+						break;
+						
+					case HAL_TIMEOUT:
+						state=SENDING_HELLO;
+						Received_pck[id].DIST_PCK.timeout++;
+						break;
+					
+					default :
+						HAL_UART_Abort(&huart2);
+					
+				}
+				break;
+			
+			case SENDING_AUDIO:
+				Send_Audio(call_id,send_audio_buff,Buff_size,1);
+				state=GETTING_AUDIO;
+				break;
+			
+			case GETTING_AUDIO:
+				switch(HAL_UART_Receive(&huart2,receive_audio_buff,Buff_size,100)){
+					
+					case HAL_OK:
+						HAL_Delay(100);
+						state=SENDING_HELLO;
+						break;
+						
+					case HAL_TIMEOUT:
+						HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_11);
+						HAL_Delay(100);
+						state=SENDING_HELLO;
+						break;
+					
+					default :
+						HAL_UART_Abort(&huart2);
+				}
+				break;
+			
+			default :
+				state=SENDING_HELLO;
+		}
+	/* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
 
@@ -212,16 +266,15 @@ void SystemClock_Config(void)
 
 /* USER CODE BEGIN 4 */
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
-	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_RESET);
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
-	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_SET);
-	HAL_UART_Transmit_IT(&huart2,T_buff,800);
-	HAL_UART_Receive_IT(&huart2,R_buff,800);
-	HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_11);
-	
-	counter++;
+}
+
+void HAL_DAC_ConvCpltCallbackCh1(DAC_HandleTypeDef* hdac1){
+}
+
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 }
 
 /* USER CODE END 4 */

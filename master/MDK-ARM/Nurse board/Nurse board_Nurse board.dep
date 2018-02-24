@@ -1,8 +1,8 @@
 Dependencies for Project 'Nurse board', Target 'Nurse board': (DO NOT MODIFY !)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dac.c)(0x5A78088A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_dac.o" --omf_browse "nurse board\stm32f1xx_hal_dac.crf" --depend "nurse board\stm32f1xx_hal_dac.d")
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dac.c)(0x5A78088A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_dac.o" --omf_browse "nurse board\stm32f1xx_hal_dac.crf" --depend "nurse board\stm32f1xx_hal_dac.d")
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -31,10 +31,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c)(0x5A78088A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_flash_ex.o" --omf_browse "nurse board\stm32f1xx_hal_flash_ex.crf" --depend "nurse board\stm32f1xx_hal_flash_ex.d")
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c)(0x5A78088A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_flash_ex.o" --omf_browse "nurse board\stm32f1xx_hal_flash_ex.crf" --depend "nurse board\stm32f1xx_hal_flash_ex.d")
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -63,10 +63,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c)(0x5A78088A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_cortex.o" --omf_browse "nurse board\stm32f1xx_hal_cortex.crf" --depend "nurse board\stm32f1xx_hal_cortex.d")
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c)(0x5A78088A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_cortex.o" --omf_browse "nurse board\stm32f1xx_hal_cortex.crf" --depend "nurse board\stm32f1xx_hal_cortex.d")
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -95,10 +95,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c)(0x5A78088B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_spi.o" --omf_browse "nurse board\stm32f1xx_hal_spi.crf" --depend "nurse board\stm32f1xx_hal_spi.d")
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c)(0x5A78088B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_spi.o" --omf_browse "nurse board\stm32f1xx_hal_spi.crf" --depend "nurse board\stm32f1xx_hal_spi.d")
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -127,10 +127,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c)(0x5A78088A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_gpio.o" --omf_browse "nurse board\stm32f1xx_hal_gpio.crf" --depend "nurse board\stm32f1xx_hal_gpio.d")
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c)(0x5A78088A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_gpio.o" --omf_browse "nurse board\stm32f1xx_hal_gpio.crf" --depend "nurse board\stm32f1xx_hal_gpio.d")
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -159,10 +159,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c)(0x5A78088B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_tim_ex.o" --omf_browse "nurse board\stm32f1xx_hal_tim_ex.crf" --depend "nurse board\stm32f1xx_hal_tim_ex.d")
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c)(0x5A78088B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_tim_ex.o" --omf_browse "nurse board\stm32f1xx_hal_tim_ex.crf" --depend "nurse board\stm32f1xx_hal_tim_ex.d")
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -191,10 +191,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c)(0x5A78088B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_rcc.o" --omf_browse "nurse board\stm32f1xx_hal_rcc.crf" --depend "nurse board\stm32f1xx_hal_rcc.d")
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c)(0x5A78088B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_rcc.o" --omf_browse "nurse board\stm32f1xx_hal_rcc.crf" --depend "nurse board\stm32f1xx_hal_rcc.d")
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -223,10 +223,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c)(0x5A78088A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_flash.o" --omf_browse "nurse board\stm32f1xx_hal_flash.crf" --depend "nurse board\stm32f1xx_hal_flash.d")
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c)(0x5A78088A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_flash.o" --omf_browse "nurse board\stm32f1xx_hal_flash.crf" --depend "nurse board\stm32f1xx_hal_flash.d")
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -255,10 +255,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c)(0x5A78088B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_rcc_ex.o" --omf_browse "nurse board\stm32f1xx_hal_rcc_ex.crf" --depend "nurse board\stm32f1xx_hal_rcc_ex.d")
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c)(0x5A78088B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_rcc_ex.o" --omf_browse "nurse board\stm32f1xx_hal_rcc_ex.crf" --depend "nurse board\stm32f1xx_hal_rcc_ex.d")
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -287,10 +287,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c)(0x5A78088A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_adc.o" --omf_browse "nurse board\stm32f1xx_hal_adc.crf" --depend "nurse board\stm32f1xx_hal_adc.d")
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c)(0x5A78088A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_adc.o" --omf_browse "nurse board\stm32f1xx_hal_adc.crf" --depend "nurse board\stm32f1xx_hal_adc.d")
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -319,10 +319,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dac_ex.c)(0x5A78088A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_dac_ex.o" --omf_browse "nurse board\stm32f1xx_hal_dac_ex.crf" --depend "nurse board\stm32f1xx_hal_dac_ex.d")
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dac_ex.c)(0x5A78088A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_dac_ex.o" --omf_browse "nurse board\stm32f1xx_hal_dac_ex.crf" --depend "nurse board\stm32f1xx_hal_dac_ex.d")
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -351,10 +351,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c)(0x5A78088A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal.o" --omf_browse "nurse board\stm32f1xx_hal.crf" --depend "nurse board\stm32f1xx_hal.d")
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c)(0x5A78088A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal.o" --omf_browse "nurse board\stm32f1xx_hal.crf" --depend "nurse board\stm32f1xx_hal.d")
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -383,10 +383,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c)(0x5A78088A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_adc_ex.o" --omf_browse "nurse board\stm32f1xx_hal_adc_ex.crf" --depend "nurse board\stm32f1xx_hal_adc_ex.d")
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c)(0x5A78088A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_adc_ex.o" --omf_browse "nurse board\stm32f1xx_hal_adc_ex.crf" --depend "nurse board\stm32f1xx_hal_adc_ex.d")
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -415,10 +415,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c)(0x5A78088B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_uart.o" --omf_browse "nurse board\stm32f1xx_hal_uart.crf" --depend "nurse board\stm32f1xx_hal_uart.d")
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c)(0x5A78088B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_uart.o" --omf_browse "nurse board\stm32f1xx_hal_uart.crf" --depend "nurse board\stm32f1xx_hal_uart.d")
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -447,10 +447,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c)(0x5A78088B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_tim.o" --omf_browse "nurse board\stm32f1xx_hal_tim.crf" --depend "nurse board\stm32f1xx_hal_tim.d")
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c)(0x5A78088B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_tim.o" --omf_browse "nurse board\stm32f1xx_hal_tim.crf" --depend "nurse board\stm32f1xx_hal_tim.d")
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -479,10 +479,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c)(0x5A78088A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_dma.o" --omf_browse "nurse board\stm32f1xx_hal_dma.crf" --depend "nurse board\stm32f1xx_hal_dma.d")
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c)(0x5A78088A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_dma.o" --omf_browse "nurse board\stm32f1xx_hal_dma.crf" --depend "nurse board\stm32f1xx_hal_dma.d")
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -511,10 +511,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c)(0x5A78088A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_gpio_ex.o" --omf_browse "nurse board\stm32f1xx_hal_gpio_ex.crf" --depend "nurse board\stm32f1xx_hal_gpio_ex.d")
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c)(0x5A78088A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_gpio_ex.o" --omf_browse "nurse board\stm32f1xx_hal_gpio_ex.crf" --depend "nurse board\stm32f1xx_hal_gpio_ex.d")
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -543,10 +543,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi_ex.c)(0x5A78088B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_spi_ex.o" --omf_browse "nurse board\stm32f1xx_hal_spi_ex.crf" --depend "nurse board\stm32f1xx_hal_spi_ex.d")
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi_ex.c)(0x5A78088B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_spi_ex.o" --omf_browse "nurse board\stm32f1xx_hal_spi_ex.crf" --depend "nurse board\stm32f1xx_hal_spi_ex.d")
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -575,10 +575,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c)(0x5A78088A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_pwr.o" --omf_browse "nurse board\stm32f1xx_hal_pwr.crf" --depend "nurse board\stm32f1xx_hal_pwr.d")
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c)(0x5A78088A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_pwr.o" --omf_browse "nurse board\stm32f1xx_hal_pwr.crf" --depend "nurse board\stm32f1xx_hal_pwr.d")
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -607,11 +607,11 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (..\Src\LCD\ILI9341_GFX.c)(0x5A76FC4F)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\ili9341_gfx.o" --omf_browse "nurse board\ili9341_gfx.crf" --depend "nurse board\ili9341_gfx.d")
+F (..\Src\LCD\ILI9341_GFX.c)(0x5A76FC4F)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\ili9341_gfx.o" --omf_browse "nurse board\ili9341_gfx.crf" --depend "nurse board\ili9341_gfx.d")
 I (../Inc/ILI9341_STM32_Driver.h)(0x5A76FAC7)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -642,12 +642,12 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
 I (../Inc/ILI9341_GFX.h)(0x5A76FC4F)
 I (../Inc/5x5_font.h)(0x5A17EA62)
-I (../Inc/spi.h)(0x5A8CF8EB)
-F (..\Src\LCD\ILI9341_STM32_Driver.c)(0x5A76FAAF)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\ili9341_stm32_driver.o" --omf_browse "nurse board\ili9341_stm32_driver.crf" --depend "nurse board\ili9341_stm32_driver.d")
+I (../Inc/spi.h)(0x5A8ED763)
+F (..\Src\LCD\ILI9341_STM32_Driver.c)(0x5A76FAAF)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\ili9341_stm32_driver.o" --omf_browse "nurse board\ili9341_stm32_driver.crf" --depend "nurse board\ili9341_stm32_driver.d")
 I (../Inc/ILI9341_STM32_Driver.h)(0x5A76FAC7)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -676,17 +676,17 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-I (../Inc/spi.h)(0x5A8CF8EB)
-I (../Inc/gpio.h)(0x5A8CF8EB)
-F (..\Src\FatFS\SD_functions.c)(0x5A7DEA2C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\sd_functions.o" --omf_browse "nurse board\sd_functions.crf" --depend "nurse board\sd_functions.d")
+I (../Inc/spi.h)(0x5A8ED763)
+I (../Inc/gpio.h)(0x5A8ED762)
+F (..\Src\FatFS\SD_functions.c)(0x5A7DEA2C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\sd_functions.o" --omf_browse "nurse board\sd_functions.crf" --depend "nurse board\sd_functions.d")
 I (../Inc/SD_functions.h)(0x5A7DEA13)
 I (../Inc/diskio.h)(0x5A8169CE)
 I (../Inc/integer.h)(0x570CB85E)
 I (../Inc/ff.h)(0x5A7AC1F0)
 I (../Inc/ffconf.h)(0x5A7AD745)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -715,15 +715,15 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-I (../Inc/spi.h)(0x5A8CF8EB)
-I (../Inc/gpio.h)(0x5A8CF8EB)
-F (..\Src\FatFS\Src\unicode.c)(0x570CB85E)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\unicode.o" --omf_browse "nurse board\unicode.crf" --depend "nurse board\unicode.d")
+I (../Inc/spi.h)(0x5A8ED763)
+I (../Inc/gpio.h)(0x5A8ED762)
+F (..\Src\FatFS\Src\unicode.c)(0x570CB85E)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\unicode.o" --omf_browse "nurse board\unicode.crf" --depend "nurse board\unicode.d")
 I (../Inc/ff.h)(0x5A7AC1F0)
 I (../Inc/integer.h)(0x570CB85E)
 I (../Inc/ffconf.h)(0x5A7AD745)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -752,15 +752,15 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-I (../Inc/spi.h)(0x5A8CF8EB)
-I (../Inc/gpio.h)(0x5A8CF8EB)
-F (..\Src\FatFS\Src\syscall.c)(0x570CB85E)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\syscall.o" --omf_browse "nurse board\syscall.crf" --depend "nurse board\syscall.d")
+I (../Inc/spi.h)(0x5A8ED763)
+I (../Inc/gpio.h)(0x5A8ED762)
+F (..\Src\FatFS\Src\syscall.c)(0x570CB85E)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\syscall.o" --omf_browse "nurse board\syscall.crf" --depend "nurse board\syscall.d")
 I (../Inc/ff.h)(0x5A7AC1F0)
 I (../Inc/integer.h)(0x570CB85E)
 I (../Inc/ffconf.h)(0x5A7AD745)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -789,15 +789,15 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-I (../Inc/spi.h)(0x5A8CF8EB)
-I (../Inc/gpio.h)(0x5A8CF8EB)
-F (..\Src\FatFS\Src\ffunicode.c)(0x59E1F248)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\ffunicode.o" --omf_browse "nurse board\ffunicode.crf" --depend "nurse board\ffunicode.d")
+I (../Inc/spi.h)(0x5A8ED763)
+I (../Inc/gpio.h)(0x5A8ED762)
+F (..\Src\FatFS\Src\ffunicode.c)(0x59E1F248)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\ffunicode.o" --omf_browse "nurse board\ffunicode.crf" --depend "nurse board\ffunicode.d")
 I (../Inc/ff.h)(0x5A7AC1F0)
 I (../Inc/integer.h)(0x570CB85E)
 I (../Inc/ffconf.h)(0x5A7AD745)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -826,15 +826,15 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-I (../Inc/spi.h)(0x5A8CF8EB)
-I (../Inc/gpio.h)(0x5A8CF8EB)
-F (..\Src\FatFS\Src\ffsystem.c)(0x59E1F248)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\ffsystem.o" --omf_browse "nurse board\ffsystem.crf" --depend "nurse board\ffsystem.d")
+I (../Inc/spi.h)(0x5A8ED763)
+I (../Inc/gpio.h)(0x5A8ED762)
+F (..\Src\FatFS\Src\ffsystem.c)(0x59E1F248)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\ffsystem.o" --omf_browse "nurse board\ffsystem.crf" --depend "nurse board\ffsystem.d")
 I (../Inc/ff.h)(0x5A7AC1F0)
 I (../Inc/integer.h)(0x570CB85E)
 I (../Inc/ffconf.h)(0x5A7AD745)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -863,15 +863,15 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-I (../Inc/spi.h)(0x5A8CF8EB)
-I (../Inc/gpio.h)(0x5A8CF8EB)
-F (..\Src\FatFS\Src\ff.c)(0x5A7ADA09)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\ff.o" --omf_browse "nurse board\ff.crf" --depend "nurse board\ff.d")
+I (../Inc/spi.h)(0x5A8ED763)
+I (../Inc/gpio.h)(0x5A8ED762)
+F (..\Src\FatFS\Src\ff.c)(0x5A7ADA09)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\ff.o" --omf_browse "nurse board\ff.crf" --depend "nurse board\ff.d")
 I (../Inc/ff.h)(0x5A7AC1F0)
 I (../Inc/integer.h)(0x570CB85E)
 I (../Inc/ffconf.h)(0x5A7AD745)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -900,18 +900,18 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-I (../Inc/spi.h)(0x5A8CF8EB)
-I (../Inc/gpio.h)(0x5A8CF8EB)
+I (../Inc/spi.h)(0x5A8ED763)
+I (../Inc/gpio.h)(0x5A8ED762)
 I (../Inc/diskio.h)(0x5A8169CE)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x54762432)
-F (..\Src\FatFS\Src\fat_sd_spi.c)(0x5A7AD4E2)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\fat_sd_spi.o" --omf_browse "nurse board\fat_sd_spi.crf" --depend "nurse board\fat_sd_spi.d")
+F (..\Src\FatFS\Src\fat_sd_spi.c)(0x5A7AD4E2)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\fat_sd_spi.o" --omf_browse "nurse board\fat_sd_spi.crf" --depend "nurse board\fat_sd_spi.d")
 I (../Inc/fat_sd_spi.h)(0x5A7A0954)
 I (../Inc/diskio.h)(0x5A8169CE)
 I (../Inc/integer.h)(0x570CB85E)
-I (../Inc/spi.h)(0x5A8CF8EB)
+I (../Inc/spi.h)(0x5A8ED763)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -940,15 +940,15 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-I (../Inc/gpio.h)(0x5A8CF8EB)
-F (..\Src\FatFS\Src\diskio.c)(0x570CB85E)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\diskio.o" --omf_browse "nurse board\diskio.crf" --depend "nurse board\diskio.d")
+I (../Inc/gpio.h)(0x5A8ED762)
+F (..\Src\FatFS\Src\diskio.c)(0x570CB85E)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\diskio.o" --omf_browse "nurse board\diskio.crf" --depend "nurse board\diskio.d")
 I (../Inc/diskio.h)(0x5A8169CE)
 I (../Inc/integer.h)(0x570CB85E)
 I (../Inc/fat_sd_spi.h)(0x5A7A0954)
-I (../Inc/spi.h)(0x5A8CF8EB)
+I (../Inc/spi.h)(0x5A8ED763)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -977,12 +977,12 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-I (../Inc/gpio.h)(0x5A8CF8EB)
-F (..\Src\Master.c)(0x5A8EC034)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\master.o" --omf_browse "nurse board\master.crf" --depend "nurse board\master.d")
-I (../Inc/Master.h)(0x5A8EC005)
+I (../Inc/gpio.h)(0x5A8ED762)
+F (..\Src\Master.c)(0x5A90EF06)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\master.o" --omf_browse "nurse board\master.crf" --depend "nurse board\master.d")
+I (../Inc/Master.h)(0x5A90F59A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -1011,12 +1011,12 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-I (../Inc/usart.h)(0x5A8CF8EC)
-F (..\Src\Audio.c)(0x5A8EB2CE)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\audio.o" --omf_browse "nurse board\audio.crf" --depend "nurse board\audio.d")
-I (../Inc/Audio.h)(0x5A8EC501)
+I (../Inc/usart.h)(0x5A8ED764)
+F (..\Src\Audio.c)(0x5A8EB2CE)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\audio.o" --omf_browse "nurse board\audio.crf" --depend "nurse board\audio.d")
+I (../Inc/Audio.h)(0x5A90ECBC)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -1050,12 +1050,12 @@ I (../Inc/diskio.h)(0x5A8169CE)
 I (../Inc/integer.h)(0x570CB85E)
 I (../Inc/ff.h)(0x5A7AC1F0)
 I (../Inc/ffconf.h)(0x5A7AD745)
-I (../Inc/spi.h)(0x5A8CF8EB)
-I (../Inc/gpio.h)(0x5A8CF8EB)
+I (../Inc/spi.h)(0x5A8ED763)
+I (../Inc/gpio.h)(0x5A8ED762)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54762438)
-I (../Inc/dma.h)(0x5A8CF8EB)
-F (startup_stm32f103xe.s)(0x5A8CF8F0)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0--pd "__UVISION_VERSION SETA 514" --pd "_RTE_ SETA 1" --pd "STM32F10X_HD SETA 1"--list startup_stm32f103xe.lst --xref -o "nurse board\startup_stm32f103xe.o" --depend "nurse board\startup_stm32f103xe.d")
-F (../Src/system_stm32f1xx.c)(0x5A780867)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\system_stm32f1xx.o" --omf_browse "nurse board\system_stm32f1xx.crf" --depend "nurse board\system_stm32f1xx.d")
+I (../Inc/dma.h)(0x5A8ED763)
+F (startup_stm32f103xe.s)(0x5A8ED76C)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0--pd "__UVISION_VERSION SETA 514" --pd "_RTE_ SETA 1" --pd "STM32F10X_HD SETA 1"--list startup_stm32f103xe.lst --xref -o "nurse board\startup_stm32f103xe.o" --depend "nurse board\startup_stm32f103xe.d")
+F (../Src/system_stm32f1xx.c)(0x5A780867)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\system_stm32f1xx.o" --omf_browse "nurse board\system_stm32f1xx.crf" --depend "nurse board\system_stm32f1xx.d")
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h)(0x5A780867)
 I (../Drivers/CMSIS/Include/core_cm3.h)(0x5A780889)
@@ -1065,8 +1065,8 @@ I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A780889)
 I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h)(0x5A780867)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54762438)
@@ -1087,46 +1087,11 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Src/dac.c)(0x5A8CF8EB)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\dac.o" --omf_browse "nurse board\dac.crf" --depend "nurse board\dac.d")
-I (../Inc/dac.h)(0x5A8CF8EB)
+F (../Src/dac.c)(0x5A8ED763)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\dac.o" --omf_browse "nurse board\dac.crf" --depend "nurse board\dac.d")
+I (../Inc/dac.h)(0x5A8ED763)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
-I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
-I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h)(0x5A780867)
-I (../Drivers/CMSIS/Include/core_cm3.h)(0x5A780889)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54762438)
-I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A78088A)
-I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A780889)
-I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A78088A)
-I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h)(0x5A780867)
-I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54762438)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h)(0x5A78088A)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h)(0x5A78088A)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h)(0x5A78088A)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h)(0x5A78088A)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h)(0x5A78088A)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h)(0x5A78088A)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h)(0x5A78088A)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc_ex.h)(0x5A78088A)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dac.h)(0x5A78088A)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dac_ex.h)(0x5A78088A)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h)(0x5A78088A)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h)(0x5A78088A)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x5A78088A)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-I (../Inc/gpio.h)(0x5A8CF8EB)
-I (../Inc/dma.h)(0x5A8CF8EB)
-F (../Src/gpio.c)(0x5A8CF8EA)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\gpio.o" --omf_browse "nurse board\gpio.crf" --depend "nurse board\gpio.d")
-I (../Inc/gpio.h)(0x5A8CF8EB)
-I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -1155,11 +1120,13 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Src/dma.c)(0x5A8CF8EB)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\dma.o" --omf_browse "nurse board\dma.crf" --depend "nurse board\dma.d")
-I (../Inc/dma.h)(0x5A8CF8EB)
+I (../Inc/gpio.h)(0x5A8ED762)
+I (../Inc/dma.h)(0x5A8ED763)
+F (../Src/gpio.c)(0x5A8ED762)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\gpio.o" --omf_browse "nurse board\gpio.crf" --depend "nurse board\gpio.d")
+I (../Inc/gpio.h)(0x5A8ED762)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -1188,11 +1155,11 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Src/tim.c)(0x5A8D2D08)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\tim.o" --omf_browse "nurse board\tim.crf" --depend "nurse board\tim.d")
-I (../Inc/tim.h)(0x5A8CF8EC)
+F (../Src/dma.c)(0x5A8ED763)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\dma.o" --omf_browse "nurse board\dma.crf" --depend "nurse board\dma.d")
+I (../Inc/dma.h)(0x5A8ED763)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -1221,10 +1188,11 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Src/stm32f1xx_hal_msp.c)(0x5A8CF8EC)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_msp.o" --omf_browse "nurse board\stm32f1xx_hal_msp.crf" --depend "nurse board\stm32f1xx_hal_msp.d")
+F (../Src/tim.c)(0x5A90F2CD)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\tim.o" --omf_browse "nurse board\tim.crf" --depend "nurse board\tim.d")
+I (../Inc/tim.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -1253,11 +1221,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Src/spi.c)(0x5A8CF8EB)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\spi.o" --omf_browse "nurse board\spi.crf" --depend "nurse board\spi.d")
-I (../Inc/spi.h)(0x5A8CF8EB)
+F (../Src/stm32f1xx_hal_msp.c)(0x5A8ED764)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_hal_msp.o" --omf_browse "nurse board\stm32f1xx_hal_msp.crf" --depend "nurse board\stm32f1xx_hal_msp.d")
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -1286,12 +1253,11 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-I (../Inc/gpio.h)(0x5A8CF8EB)
-F (../Src/adc.c)(0x5A8CF8EB)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\adc.o" --omf_browse "nurse board\adc.crf" --depend "nurse board\adc.d")
-I (../Inc/adc.h)(0x5A8CF8EB)
+F (../Src/spi.c)(0x5A8ED763)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\spi.o" --omf_browse "nurse board\spi.crf" --depend "nurse board\spi.d")
+I (../Inc/spi.h)(0x5A8ED763)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -1320,12 +1286,12 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-I (../Inc/gpio.h)(0x5A8CF8EB)
-I (../Inc/dma.h)(0x5A8CF8EB)
-F (../Src/main.c)(0x5A8EC7B6)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\main.o" --omf_browse "nurse board\main.crf" --depend "nurse board\main.d")
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/gpio.h)(0x5A8ED762)
+F (../Src/adc.c)(0x5A8ED763)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\adc.o" --omf_browse "nurse board\adc.crf" --depend "nurse board\adc.d")
+I (../Inc/adc.h)(0x5A8ED763)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -1354,27 +1320,61 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-I (../Inc/adc.h)(0x5A8CF8EB)
-I (../Inc/dac.h)(0x5A8CF8EB)
-I (../Inc/dma.h)(0x5A8CF8EB)
-I (../Inc/spi.h)(0x5A8CF8EB)
-I (../Inc/tim.h)(0x5A8CF8EC)
-I (../Inc/usart.h)(0x5A8CF8EC)
-I (../Inc/gpio.h)(0x5A8CF8EB)
+I (../Inc/gpio.h)(0x5A8ED762)
+I (../Inc/dma.h)(0x5A8ED763)
+F (../Src/main.c)(0x5A90F7B1)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\main.o" --omf_browse "nurse board\main.crf" --depend "nurse board\main.d")
+I (../Inc/main.h)(0x5A8ED764)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h)(0x5A780867)
+I (../Drivers/CMSIS/Include/core_cm3.h)(0x5A780889)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54762438)
+I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x5A78088A)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x5A780889)
+I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x5A78088A)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h)(0x5A780867)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54762438)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h)(0x5A78088A)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h)(0x5A78088A)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h)(0x5A78088A)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h)(0x5A78088A)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h)(0x5A78088A)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h)(0x5A78088A)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h)(0x5A78088A)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc_ex.h)(0x5A78088A)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dac.h)(0x5A78088A)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dac_ex.h)(0x5A78088A)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h)(0x5A78088A)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h)(0x5A78088A)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x5A78088A)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
+I (../Inc/adc.h)(0x5A8ED763)
+I (../Inc/dac.h)(0x5A8ED763)
+I (../Inc/dma.h)(0x5A8ED763)
+I (../Inc/spi.h)(0x5A8ED763)
+I (../Inc/tim.h)(0x5A8ED764)
+I (../Inc/usart.h)(0x5A8ED764)
+I (../Inc/gpio.h)(0x5A8ED762)
 I (../Inc/ILI9341_STM32_Driver.h)(0x5A76FAC7)
 I (../Inc/ILI9341_GFX.h)(0x5A76FC4F)
-I (../Inc/Audio.h)(0x5A8EC501)
+I (../Inc/Audio.h)(0x5A90ECBC)
 I (../Inc/SD_functions.h)(0x5A7DEA13)
 I (../Inc/diskio.h)(0x5A8169CE)
 I (../Inc/integer.h)(0x570CB85E)
 I (../Inc/ff.h)(0x5A7AC1F0)
 I (../Inc/ffconf.h)(0x5A7AD745)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x54762438)
-I (../Inc/Master.h)(0x5A8EC005)
-F (../Src/stm32f1xx_it.c)(0x5A8CF8EC)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_it.o" --omf_browse "nurse board\stm32f1xx_it.crf" --depend "nurse board\stm32f1xx_it.d")
+I (../Inc/Master.h)(0x5A90F59A)
+F (../Src/stm32f1xx_it.c)(0x5A8ED764)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\stm32f1xx_it.o" --omf_browse "nurse board\stm32f1xx_it.crf" --depend "nurse board\stm32f1xx_it.d")
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -1403,12 +1403,12 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-I (../Inc/stm32f1xx_it.h)(0x5A8CF8EC)
-F (../Src/usart.c)(0x5A8CF8EC)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Backups\Basic communication\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\usart.o" --omf_browse "nurse board\usart.crf" --depend "nurse board\usart.d")
-I (../Inc/usart.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_it.h)(0x5A8ED764)
+F (../Src/usart.c)(0x5A8ED764)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o "nurse board\usart.o" --omf_browse "nurse board\usart.crf" --depend "nurse board\usart.d")
+I (../Inc/usart.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
-I (../Inc/stm32f1xx_hal_conf.h)(0x5A8CF8EC)
-I (../Inc/main.h)(0x5A8CF8EC)
+I (../Inc/stm32f1xx_hal_conf.h)(0x5A8ED764)
+I (../Inc/main.h)(0x5A8ED764)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x5A78088A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x5A780867)
@@ -1437,5 +1437,5 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-I (../Inc/gpio.h)(0x5A8CF8EB)
-I (../Inc/dma.h)(0x5A8CF8EB)
+I (../Inc/gpio.h)(0x5A8ED762)
+I (../Inc/dma.h)(0x5A8ED763)

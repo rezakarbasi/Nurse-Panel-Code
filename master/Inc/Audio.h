@@ -11,7 +11,7 @@
 #define NumChannels			1
 #define SampleRate 			8000
 
-#define Buff_size 799
+#define Buff_size 800
 
 #define NumSampleGiri			100
 #define NumPerSampling		Buff_size

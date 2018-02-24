@@ -14,6 +14,8 @@
 #define Buffer_Size Packet_Length
 #define USER_NUMBER	10
 
+#define TIMEOUT_RECEIVE_HELLO	1
+
 //Types
 
 // state of packet enumeration
@@ -33,11 +35,12 @@ typedef enum{
 	SENDING_HELLO,
 	GETTING_HELLO,
 	SENDING_AUDIO,
-	GETTING_AUDIO,
+	WAITING_FOR_SENDING_AUDIO,
+	WAITING_FOR_RECEIVING_AUDIO,
 	WAITING,
-	REFRESHING_LCD,
-	TRANSFERRING_SD
 }MASTER_PROGRAM_STATE;
+
+
 
 //conversation packet struct and union
 typedef union
@@ -71,4 +74,4 @@ void Init_PCK(PCK_CONV * pck,uint8_t address,FUNCTION function,uint8_t data1,uin
 //PCK_STATE Check_PCK(uint8_t * buff);
 PCK_STATE GetNewData(uint8_t data,uint8_t id);
 HAL_StatusTypeDef Send_PCK(uint8_t address,FUNCTION function,uint8_t data1,uint8_t data2,uint8_t data3,uint8_t data4,int timeout);
-uint8_t Send_Audio(uint8_t address,uint8_t * audio,int audio_size,int timeout);
+uint8_t Send_Audio(uint8_t address,uint8_t * audio_send,uint8_t * audio_receive,int audio_size);//,int timeout);

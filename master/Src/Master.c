@@ -98,16 +98,16 @@ HAL_StatusTypeDef Send_PCK(uint8_t address,FUNCTION function,uint8_t data1,uint8
 	return out;
 }
 
-uint8_t Send_Audio(uint8_t address,uint8_t * audio,int audio_size,int timeout){
+uint8_t Send_Audio(uint8_t address,uint8_t * audio_send,uint8_t * audio_receive,int audio_size){//,int timeout){
 	Init_PCK(&Send_pck,address,Speak_req,0,0,0,0);
 		
 	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_SET);
-	uint8_t out1= HAL_UART_Transmit(&huart2,Send_pck.ASS_PCK,Packet_Length,timeout);
-	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_RESET);
-	
-	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_SET);
-	uint8_t out2= HAL_UART_Transmit(&huart2,audio,audio_size,timeout);
-	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_RESET);
+	uint8_t out1= HAL_UART_Transmit(&huart2,Send_pck.ASS_PCK,Packet_Length,1);
+
+	HAL_UART_Abort(&huart2);
+	uint8_t out2= HAL_UART_Transmit_DMA(&huart2,audio_send,audio_size);
+	HAL_UART_Receive_DMA(&huart2,audio_receive,audio_size);
+//	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_RESET);
 	
 	return ((out1<<1)+out2);
 }

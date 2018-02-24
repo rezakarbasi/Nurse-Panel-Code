@@ -74,6 +74,8 @@ uint8_t Buff_get;
 uint8_t send_audio_buff[Buff_size];
 uint8_t receive_audio_buff[799];//Buff_size];
 
+int aa=0;
+char buff[20];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -85,6 +87,7 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart);
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc);
 void HAL_DAC_ConvCpltCallbackCh1(DAC_HandleTypeDef* hdac1);
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -123,6 +126,7 @@ int main(void)
   MX_SPI2_Init();
   MX_TIM8_Init();
   MX_USART2_UART_Init();
+  MX_TIM7_Init();
 
   /* USER CODE BEGIN 2 */
 	ILI9341_Init();//initial driver setup to drive ili9341
@@ -135,17 +139,20 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	ILI9341_Draw_Text("Debug", 32, 0, RED, 4, WHITE);
+	char lcd_buff[20];
+	int cc=0;
 	
-	id=4;
+	id=2;//4;
 	call_id=1;
 	
+	HAL_TIM_Base_Start_IT(&htim7);
 	while (1)
   {
 		switch(state){
 			case SENDING_HELLO:
 				id--;
-				if(id<0){
-					id=5;
+				if(id<1){//0){
+					id=2;//5;
 					state=SENDING_AUDIO;
 					break;
 				}
@@ -154,7 +161,7 @@ int main(void)
 				break;
 			
 			case GETTING_HELLO:
-				switch(HAL_UART_Receive(&huart2,&Buff_get,1,10)){
+				switch(HAL_UART_Receive(&huart2,&Buff_get,1,1)){
 					
 					case HAL_OK:
 						if(GetNewData(Buff_get,id)==PCK_Data){
@@ -164,6 +171,7 @@ int main(void)
 						
 					case HAL_TIMEOUT:
 						state=SENDING_HELLO;
+						HAL_UART_Abort(&huart2);
 						Received_pck[id].DIST_PCK.timeout++;
 						break;
 					
@@ -174,33 +182,20 @@ int main(void)
 				break;
 			
 			case SENDING_AUDIO:
-				Send_Audio(call_id,send_audio_buff,Buff_size,1);
-				state=GETTING_AUDIO;
+				Send_Audio(call_id,send_audio_buff,receive_audio_buff,Buffer_Size);
+				state=WAITING_FOR_SENDING_AUDIO;
 				break;
 			
-			case GETTING_AUDIO:
-				switch(HAL_UART_Receive(&huart2,receive_audio_buff,Buff_size,100)){
-					
-					case HAL_OK:
-						HAL_Delay(100);
-						state=SENDING_HELLO;
-						break;
-						
-					case HAL_TIMEOUT:
-						HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_11);
-						HAL_Delay(100);
-						state=SENDING_HELLO;
-						break;
-					
-					default :
-						HAL_UART_Abort(&huart2);
-				}
+			case WAITING_FOR_RECEIVING_AUDIO:
+			case WAITING_FOR_SENDING_AUDIO:
+			case WAITING:
+				// SD			LCD			Keypad
+				
+				sprintf(lcd_buff,"received pck : %d",cc);
+				ILI9341_Draw_Text(lcd_buff,20,60,BLACK,2,WHITE);
 				break;
-			
-			default :
-				state=SENDING_HELLO;
 		}
-	/* USER CODE END WHILE */
+  /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
 
@@ -266,9 +261,13 @@ void SystemClock_Config(void)
 
 /* USER CODE BEGIN 4 */
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
+	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_RESET);
+	state=WAITING_FOR_RECEIVING_AUDIO;
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
+	HAL_UART_Abort(&huart2);
+	state=WAITING;
 }
 
 void HAL_DAC_ConvCpltCallbackCh1(DAC_HandleTypeDef* hdac1){
@@ -277,6 +276,10 @@ void HAL_DAC_ConvCpltCallbackCh1(DAC_HandleTypeDef* hdac1){
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 }
 
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
+	HAL_UART_Abort(&huart2);
+	state=SENDING_HELLO;
+}
 /* USER CODE END 4 */
 
 /**
