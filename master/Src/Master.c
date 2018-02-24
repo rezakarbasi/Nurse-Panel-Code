@@ -2,9 +2,10 @@
 
 //variables
 PCK_CONV Send_pck;
-PCK_CONV Received_pck[USER_NUMBER];
+PCK_CONV User_state[USER_NUMBER];
 PCK_CONV Req_pck;
 uint8_t PCK_RCV;
+MASTER_HANDLER master;
 
 // functions
 void Init_PCK(PCK_CONV * pck,uint8_t address,FUNCTION function,uint8_t data1,uint8_t data2,uint8_t data3,uint8_t data4){
@@ -32,7 +33,7 @@ PCK_STATE GetNewData(uint8_t data,uint8_t id){
 		if (data == START_BYTE0)
 		{
 			PCK_RCV++;
-			Received_pck[id].ASS_PCK[PCK_RCV]=data;
+			User_state[id].ASS_PCK[PCK_RCV]=data;
 		}
 		else {
 			PCK_RCV=0;
@@ -44,7 +45,7 @@ PCK_STATE GetNewData(uint8_t data,uint8_t id){
 		if (data == START_BYTE1)
 		{
 			PCK_RCV++;
-			Received_pck[id].ASS_PCK[PCK_RCV]=data;
+			User_state[id].ASS_PCK[PCK_RCV]=data;
 		}
 		else
 		{
@@ -54,8 +55,8 @@ PCK_STATE GetNewData(uint8_t data,uint8_t id){
 		break;
 	
 	case 2:
-		Received_pck[id].ASS_PCK[PCK_RCV] = data;
-		Received_pck[id].DIST_PCK.cksum = data;
+		User_state[id].ASS_PCK[PCK_RCV] = data;
+		User_state[id].DIST_PCK.cksum = data;
 		PCK_RCV++;
 		break;
 	
@@ -64,13 +65,13 @@ PCK_STATE GetNewData(uint8_t data,uint8_t id){
 	case 5:
 	case 6:
 	case 7:
-		Received_pck[id].ASS_PCK[PCK_RCV] = data;
-		Received_pck[id].DIST_PCK.cksum+= data;
+		User_state[id].ASS_PCK[PCK_RCV] = data;
+		User_state[id].DIST_PCK.cksum+= data;
 		PCK_RCV++;
 		break;
 		
 	case 8:
-		if((Received_pck[id].DIST_PCK.cksum-data) == 0) PCK_RCV++;
+		if((User_state[id].DIST_PCK.cksum-data) == 0) PCK_RCV++;
 		else {
 			PCK_RCV = 0;
 			return PCK_Unknown;
@@ -79,8 +80,8 @@ PCK_STATE GetNewData(uint8_t data,uint8_t id){
 	
 	case 9:
 		PCK_RCV=0;
-		if (data == STOP_BYTE && Received_pck[id].DIST_PCK.addr == id){
-			Received_pck[id].DIST_PCK.timeout=0;
+		if (data == STOP_BYTE && User_state[id].DIST_PCK.addr == id){
+			User_state[id].DIST_PCK.timeout=0;
 			return PCK_Data;
 		}
 		return PCK_Unknown;
@@ -107,9 +108,16 @@ uint8_t Send_Audio(uint8_t address,uint8_t * audio_send,uint8_t * audio_receive,
 	HAL_UART_Abort(&huart2);
 	uint8_t out2= HAL_UART_Transmit_DMA(&huart2,audio_send,audio_size);
 	HAL_UART_Receive_DMA(&huart2,audio_receive,audio_size);
-//	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_RESET);
 	
 	return ((out1<<1)+out2);
+}
+
+void Master_Init(void){
+	master.state=WAITING;
+	master.hello_id=0;
+	master.call_id=1;
+	master.call_flag=FLAG_ENABLE;
+	master.hello_counter=0;
 }
 
 

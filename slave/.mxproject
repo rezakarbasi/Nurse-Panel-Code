@@ -1,7 +1,7 @@
 [PreviousGenFiles]
-HeaderPath=C:/Users/Reza Karbasi/Google Drive/Important Projects/Raiwan_Proj/Telephone_hospital_Proj/Final/Slave/Repeater/Repeater/Inc
+HeaderPath=C:/Users/Reza Karbasi/Google Drive/Important Projects/Raiwan_Proj/Telephone_hospital_Proj/Final/Slave/Inc
 HeaderFiles=gpio.h;usart.h;stm32f1xx_it.h;stm32f1xx_hal_conf.h;main.h;tim.h;dma.h;
-SourcePath=C:/Users/Reza Karbasi/Google Drive/Important Projects/Raiwan_Proj/Telephone_hospital_Proj/Final/Slave/Repeater/Repeater/Src
+SourcePath=C:/Users/Reza Karbasi/Google Drive/Important Projects/Raiwan_Proj/Telephone_hospital_Proj/Final/Slave/Src
 SourceFiles=gpio.c;usart.c;stm32f1xx_it.c;stm32f1xx_hal_msp.c;main.c;tim.c;dma.c;
 
 [PreviousLibFiles]

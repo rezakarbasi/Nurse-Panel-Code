@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project>
-<ProjectName>C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Slave\Repeater\Repeater\\Repeater</ProjectName>
+<ProjectName>C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Slave\\Repeater</ProjectName>
 <CMSIS>..\Drivers\CMSIS</CMSIS>
 <HAL_Driver>C:\Users\Reza Karbasi\STM32Cube\Repository\STM32Cube_FW_F1_V1.6.0\Drivers\CMSIS</HAL_Driver>
 

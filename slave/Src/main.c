@@ -106,6 +106,7 @@ int main(void)
   MX_DMA_Init();
   MX_USART1_UART_Init();
   MX_TIM2_Init();
+  MX_TIM1_Init();
 
   /* USER CODE BEGIN 2 */
 
@@ -116,6 +117,8 @@ int main(void)
 	state=WAITING_PCK;
 	PCK_RCV=0;
 	HAL_UART_Receive_IT(&huart1,&buff,1);
+	
+	HAL_TIM_Base_Start(&htim1);
 	
   while (1)
   {
@@ -134,7 +137,6 @@ int main(void)
 void SystemClock_Config(void)
 {
 
-	
   RCC_OscInitTypeDef RCC_OscInitStruct;
   RCC_ClkInitTypeDef RCC_ClkInitStruct;
 
@@ -204,11 +206,12 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 			break;
 		
 		case GETTING_AUDIO:
+		
 			// timer end
 			HAL_TIM_Base_Stop_IT(&htim2);
 			htim2.Instance->CNT=0;
 			
-			Send_Audio(audio_buff,800);
+		Send_Audio(audio_buff,800);
 			state=SENDING_AUDIO;
 			break;
 		

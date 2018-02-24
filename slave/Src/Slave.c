@@ -102,8 +102,7 @@ HAL_StatusTypeDef Send_PCK(FUNCTION function,uint8_t data1,uint8_t data2,uint8_t
 		
 	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_11,GPIO_PIN_SET);
 	uint8_t out= HAL_UART_Transmit_DMA(&huart1,Send_pck.ASS_PCK,Packet_Length);
-	//HAL_GPIO_WritePin(GPIOA,GPIO_PIN_11,GPIO_PIN_RESET);
-	state=SENDING_HELLO;
+
 	return out;
 }
 
@@ -111,7 +110,6 @@ uint8_t Send_Audio(uint8_t * audio,int audio_size){//,int timeout){
 	
 	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_11,GPIO_PIN_SET);
 	uint8_t out= HAL_UART_Transmit_DMA(&huart1,audio,audio_size);
-	//HAL_GPIO_WritePin(GPIOA,GPIO_PIN_11,GPIO_PIN_RESET);
-	state=SENDING_AUDIO;
+
 	return out;
 }

@@ -7,7 +7,7 @@ FIL fil;
 //uint8_t play_audio[2][audio_size];
 
 int flag;
-uint16_t SD_buff[NumPerSampling];
+uint16_t SD_buff[Date_Per_100ms];
 
 /**
   * @brief  Initialize the wave header file

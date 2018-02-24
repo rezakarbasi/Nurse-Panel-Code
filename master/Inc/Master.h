@@ -12,9 +12,13 @@
 #define START_BYTE3 0xFF
 #define STOP_BYTE 0x80
 #define Buffer_Size Packet_Length
-#define USER_NUMBER	10
+#define USER_NUMBER	100
 
-#define TIMEOUT_RECEIVE_HELLO	1
+#define HELLO_TIMEOUT	1
+
+#define HELLO_COUNTER_PER_CYCLE	5
+
+#define MAX_TIMEOUT	10
 
 //Types
 
@@ -40,7 +44,18 @@ typedef enum{
 	WAITING,
 }MASTER_PROGRAM_STATE;
 
+typedef enum{
+	FLAG_ENABLE,
+	FLAG_DISABLE,
+}FLAG;
 
+typedef struct{
+	MASTER_PROGRAM_STATE state;
+	FLAG call_flag;
+	uint8_t call_id;
+	uint8_t hello_id;
+	uint8_t hello_counter;
+}MASTER_HANDLER;
 
 //conversation packet struct and union
 typedef union
@@ -65,9 +80,9 @@ typedef union
 
 // Variables
 extern PCK_CONV Send_pck;
-extern PCK_CONV Received_pck[USER_NUMBER];
-extern PCK_CONV Req_pck;
+extern PCK_CONV User_state[USER_NUMBER];
 extern uint8_t PCK_RCV;
+extern MASTER_HANDLER master;
 
 // Functions
 void Init_PCK(PCK_CONV * pck,uint8_t address,FUNCTION function,uint8_t data1,uint8_t data2,uint8_t data3,uint8_t data4);
@@ -75,3 +90,4 @@ void Init_PCK(PCK_CONV * pck,uint8_t address,FUNCTION function,uint8_t data1,uin
 PCK_STATE GetNewData(uint8_t data,uint8_t id);
 HAL_StatusTypeDef Send_PCK(uint8_t address,FUNCTION function,uint8_t data1,uint8_t data2,uint8_t data3,uint8_t data4,int timeout);
 uint8_t Send_Audio(uint8_t address,uint8_t * audio_send,uint8_t * audio_receive,int audio_size);//,int timeout);
+void Master_Init(void);

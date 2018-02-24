@@ -1,98 +1,71 @@
 //includes
 #include "stm32f1xx_hal.h"
-
+#include "usart.h"
 
 //defines
-#define Packet_Lenght 10
+#define ADDRESS		1
+
+#define Packet_Length 10
 #define START_BYTE0 0xA5
 #define START_BYTE1 0x5A
 #define START_BYTE2 0x00
 #define START_BYTE3 0xFF
 #define STOP_BYTE 0x80
-#define Buffer_Size Max_Packet_Lenght
+#define Buffer_Size Packet_Length
 
 //Types
-typedef union PCK_c
+
+// state of packet enumeration
+typedef enum{
+	WAITING_PCK,
+	SENDING_HELLO,
+	SENDING_AUDIO,
+	GETTING_AUDIO,
+}SLAVE_PROGRAM_STATE;
+
+typedef enum {
+	PCK_WAIT=0,
+	PCK_Unknown =1,
+	PCK_Without_Me=2 ,
+	PCK_With_Me=3 ,
+	PCK_REQ_ME=4
+}PCK_STATE;
+
+typedef enum{
+	Normal_conv,
+	Speak_req
+}FUNCTION;
+
+//conversation packet struct and union
+typedef union
 {
-  struct Data_c
+	struct DATA_CONV
   {
-    uint8_t st0;
-    uint8_t st1;
+    uint8_t ST0;
+    uint8_t ST1;
+    uint8_t addr;
+    uint8_t func;
+		uint8_t data1;
+		uint8_t data2;
+		uint8_t data3;
+		uint8_t data4;
+		uint8_t cksum;
+		uint8_t stp;
+  }DIST_PCK;															// Distributed packet
 	
-    uint8_t address; //ADDRESS
-	//	uint8_t data_type; //CTRL OR DATA FOR VOICE
-    uint8_t function; //ERROR or FUNCTION TABLE
-	uint8_t data1;
-	uint8_t data2;
-	uint8_t data3;
-	uint8_t data4;
-	uint8_t cksum;
-	uint8_t stp;
-		//uint8_t OTHER[Max_Packet_Lenght-10];
-	
-  }CTRL;
-//	struct Data_v
-//  {
-//    uint8_t st0;
-//    uint8_t st1;
-//	
-//    uint8_t address; //ADDRESS
-//		uint8_t data_type; //CTRL OR DATA FOR VOICE
-//		uint8_t tmp1; //ERROR or FUNCTION TABLE
-//		uint8_t tmp2;
-//		uint16_t cksumcrc;
-//		uint16_t tmp3;
-//		uint8_t dataV[Max_Packet_Lenght-12];
-//		uint16_t stp;
-//	
-//  }VOICE;
-//  
-  uint8_t pck[Packet_Lenght];//max 1000BYTEs
-}PCK;
-//typedef union UNION_10									
-//{
-//  
-//	struct Data_10
-//  {
-//    uint8_t ST0;
-//    uint8_t ST1;
-//    uint8_t address;
-//    uint8_t function;
-//		uint8_t data1;
-//		uint8_t data2;
-//		uint8_t data3;
-//		uint8_t data4;
-//		uint8_t cksum;
-//		uint8_t stp;
-//  }Dist_PCK_10;															// Distributed packet
-//	
-//  uint8_t Ass_pck_10[Packet_Lenght];				// Associated  packet
-//}PCK_10_by_10;
-
-//typedef union UNION_req
-//{
-//  struct Data_req
-//  {
-//    uint8_t ST0;
-//    uint8_t ST1;
-//    uint8_t ST2;
-//    uint8_t ST3;
-//		uint8_t address1;
-//		uint8_t address2;
-//		uint8_t temp1;
-//		uint8_t temp2;
-//		uint8_t cksum;
-//		uint8_t stp;
-//  }Dist_PCK_req;														// Distributed packet
-
-//  uint8_t Ass_pck[Packet_Lenght];				// Associated  packet
-//}PCK_speak_req;
+  uint8_t ASS_PCK[Packet_Length];					// Associated  packet
+}PCK_CONV;
 
 // Variables
-//extern PCK_10_by_10 Send_pck;
-//extern PCK_10_by_10 Receive_pck;
-//extern PCK_speak_req Req_pck;
+extern PCK_CONV Send_pck;
+extern PCK_CONV Received_pck;
+extern PCK_CONV Req_pck;
+extern uint8_t PCK_RCV;
+extern SLAVE_PROGRAM_STATE state;
 
 // Functions
-//void init_10_by_10_pck(PCK_10_by_10 * pck,uint8_t address,uint8_t function,uint8_t data1,uint8_t data2,uint8_t data3,uint8_t data4);
-//void init_speak_req(uint8_t address);
+void Init_PCK(PCK_CONV * pck,uint8_t address,FUNCTION function,uint8_t data1,uint8_t data2,uint8_t data3,uint8_t data4);
+PCK_STATE Check_PCK(uint8_t * buff);
+PCK_STATE GetNewData(uint8_t data);
+HAL_StatusTypeDef Send_PCK(FUNCTION function,uint8_t data1,uint8_t data2,uint8_t data3,uint8_t data4);//,int timeout);
+uint8_t Send_Audio(uint8_t * audio,int audio_size);//,int timeout);
