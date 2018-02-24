@@ -1,0 +1,10 @@
+//includes
+#include "stm32f1xx_hal.h"
+
+
+//defines
+#define Packet_Lenght 10
+#define START_BYTE0 0xA5
+#define START_BYTE1 0x5A
+#define STOP_BYTE 0x80
+#define Buffer_Size Max_Packet_Lenght

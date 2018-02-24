@@ -54,30 +54,26 @@
 
 #include "Audio.h"
 
-
-//defines
-//#define Buff_size 800
-
-//#define NumSampleGiri			40
-//#define NumPerSampling		Buff_size
+#include "Master.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
-uint8_t Tx_buff[Buff_size];
-uint8_t Rx_buff[Buff_size];
+uint8_t b;
+uint8_t a;
 
-uint16_t adcBuff[2][Buff_size];
-uint8_t dacBuff[Buff_size];
-uint8_t recBuff[Buff_size];
+int8_t id;
+int8_t call_id;
+uint8_t temp;
 
-int counter=0;
-char flag=0;
-char Adc_p=0;
+MASTER_PROGRAM_STATE state=SENDING_HELLO;
+uint8_t Buff_get;
 
-int stat;
+uint8_t send_audio_buff[Buff_size];
+uint8_t receive_audio_buff[799];//Buff_size];
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -134,52 +130,77 @@ int main(void)
 	ILI9341_Fill_Screen(WHITE);
 	ILI9341_Set_Rotation(SCREEN_HORIZONTAL_1);
 
-	char buff[20];
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	ILI9341_Draw_Text("Debug", 32, 0, RED, 4, WHITE);
 	
+	id=4;
+	call_id=1;
 	
-	disk_initialize(0);
-	f_mount(&fs,"",1);
-	f_open(&fil,FF_FileName,FA_CREATE_NEW);
-	f_close(&fil);
-	
-	WavaRecorderHeaderInit((uint8_t *)SD_buff,NumSampleGiri*NumPerSampling+1);
-	
-	f_open(&fil,FF_FileName,FA_WRITE | FA_OPEN_ALWAYS);
-	f_write(&fil,(uint8_t *)SD_buff,44,(unsigned int *)&stat);
-	f_close(&fil);
-	
-	f_mount(&fs,"",1);
-	f_open(&fil,FF_FileName,FA_WRITE | FA_OPEN_ALWAYS);
-	
-	
-	HAL_TIM_Base_Start(&htim8);
-	HAL_ADC_Start_DMA(&hadc1,(uint32_t *)adcBuff[Adc_p],Buff_size);
-	HAL_DAC_Start_DMA(&hdac,DAC_CHANNEL_1,(uint32_t *)dacBuff,Buff_size,DAC_ALIGN_8B_R);
-	
-	HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_11);
 	while (1)
   {
-		if(flag==1){
+		switch(state){
+			case SENDING_HELLO:
+				id--;
+				if(id<0){
+					id=5;
+					state=SENDING_AUDIO;
+					break;
+				}
+				Send_PCK(id,Normal_conv,temp,temp+1,temp*2,0,1);
+				state=GETTING_HELLO;
+				break;
 			
-			flag=0;
+			case GETTING_HELLO:
+				switch(HAL_UART_Receive(&huart2,&Buff_get,1,10)){
+					
+					case HAL_OK:
+						if(GetNewData(Buff_get,id)==PCK_Data){
+							state=SENDING_HELLO;
+						}
+						break;
+						
+					case HAL_TIMEOUT:
+						state=SENDING_HELLO;
+						Received_pck[id].DIST_PCK.timeout++;
+						break;
+					
+					default :
+						HAL_UART_Abort(&huart2);
+					
+				}
+				break;
 			
-			counter++;
-			f_lseek(&fil,f_size(&fil));
-			f_write(&fil,(uint8_t *)recBuff,NumPerSampling,(unsigned int *)&stat);
+			case SENDING_AUDIO:
+				Send_Audio(call_id,send_audio_buff,Buff_size,1);
+				state=GETTING_AUDIO;
+				break;
 			
-			if(counter==NumSampleGiri){
-				HAL_ADC_Stop_DMA(&hadc1);
-				HAL_DAC_Stop_DMA(&hdac,DAC_CHANNEL_1);
-				f_close(&fil);
-				HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_11);
-			}
+			case GETTING_AUDIO:
+				switch(HAL_UART_Receive(&huart2,receive_audio_buff,Buff_size,100)){
+					
+					case HAL_OK:
+						HAL_Delay(100);
+						state=SENDING_HELLO;
+						break;
+						
+					case HAL_TIMEOUT:
+						HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_11);
+						HAL_Delay(100);
+						state=SENDING_HELLO;
+						break;
+					
+					default :
+						HAL_UART_Abort(&huart2);
+				}
+				break;
+			
+			default :
+				state=SENDING_HELLO;
 		}
-  /* USER CODE END WHILE */
+	/* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
 
@@ -245,40 +266,15 @@ void SystemClock_Config(void)
 
 /* USER CODE BEGIN 4 */
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
-	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_RESET);
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 }
 
 void HAL_DAC_ConvCpltCallbackCh1(DAC_HandleTypeDef* hdac1){
-	char j=0;
-	if(Adc_p==0)j=1;
-	
-	for(int f=0;f<Buff_size;f++){
-		Tx_buff[f]=adcBuff[j][f]>>4;
-		dacBuff[f]=Rx_buff[f];
-		recBuff[f]=(uint8_t)(((uint16_t)(Rx_buff[f]+Tx_buff[f]))>>1);//(uint8_t)aaa;
-	}
-	
-	HAL_UART_Abort(&huart2);
-	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_SET);
-	HAL_UART_Transmit_DMA(&huart2,Tx_buff,Buff_size);
-	HAL_UART_Receive_DMA(&huart2,Rx_buff,Buff_size);
-	
-	HAL_DAC_Stop_DMA(&hdac,DAC_CHANNEL_1);
-	HAL_DAC_Start_DMA(&hdac,DAC_CHANNEL_1,(uint32_t *)dacBuff,Buff_size,DAC_ALIGN_8B_R);
-	
-	flag=1;
-	
 }
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
-	if(Adc_p==0)Adc_p=1;
-	else Adc_p=0;
-	
-	HAL_ADC_Stop_DMA(&hadc1);
-	HAL_ADC_Start_DMA(&hadc1,(uint32_t *)adcBuff[Adc_p],Buff_size);
 }
 
 /* USER CODE END 4 */

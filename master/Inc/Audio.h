@@ -11,12 +11,12 @@
 #define NumChannels			1
 #define SampleRate 			8000
 
-#define Buff_size 800
+#define Buff_size 799
 
-#define NumSampleGiri			5000
+#define NumSampleGiri			100
 #define NumPerSampling		Buff_size
 
-#define	FF_FileName			"TESTREC.wav"
+#define	FF_FileName			"mishe.wav"
 
 //	Variables
 extern FRESULT fr;
@@ -33,7 +33,7 @@ extern FIL fil;
 
 //extern uint8_t play_audio[2][audio_size];
 
-//extern int flag;
+extern int flag;
 //extern int junk;
 
 //extern uint16_t ADC_buff[NumPerSampling];

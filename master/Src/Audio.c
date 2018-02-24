@@ -6,8 +6,7 @@ FIL fil;
 
 //uint8_t play_audio[2][audio_size];
 
-//int flag;
-
+int flag;
 uint16_t SD_buff[NumPerSampling];
 
 /**

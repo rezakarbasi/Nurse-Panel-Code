@@ -28,7 +28,7 @@
 "nurse board\ff.o"
 "nurse board\fat_sd_spi.o"
 "nurse board\diskio.o"
-"nurse board\trasmitter.o"
+"nurse board\master.o"
 "nurse board\audio.o"
 "nurse board\startup_stm32f103xe.o"
 "nurse board\system_stm32f1xx.o"

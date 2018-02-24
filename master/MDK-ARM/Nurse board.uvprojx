@@ -569,9 +569,9 @@
           <GroupName>Communication</GroupName>
           <Files>
             <File>
-              <FileName>trasmitter.c</FileName>
+              <FileName>Master.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Src\trasmitter.c</FilePath>
+              <FilePath>..\Src\Master.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -39,18 +39,28 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "stm32f1xx_hal.h"
+#include "dma.h"
+#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* USER CODE BEGIN Includes */
-
+#include "Slave.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
-uint8_t buff[800];
+uint8_t buff;
+
+int temp=0;
+int temp1=0;
+int temp2=0;
+uint8_t state_pck;
+uint8_t data;
+
+uint8_t audio_buff[800];
 
 /* USER CODE END PV */
 
@@ -61,6 +71,7 @@ void SystemClock_Config(void);
 /* Private function prototypes -----------------------------------------------*/
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart);
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -92,7 +103,9 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_USART1_UART_Init();
+  MX_TIM2_Init();
 
   /* USER CODE BEGIN 2 */
 
@@ -100,10 +113,13 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_11,GPIO_PIN_RESET);
-	HAL_UART_Receive_IT(&huart1,buff,800);
+	state=WAITING_PCK;
+	PCK_RCV=0;
+	HAL_UART_Receive_IT(&huart1,&buff,1);
+	
   while (1)
   {
+		HAL_Delay(10);
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
@@ -118,6 +134,7 @@ int main(void)
 void SystemClock_Config(void)
 {
 
+	
   RCC_OscInitTypeDef RCC_OscInitStruct;
   RCC_ClkInitTypeDef RCC_ClkInitStruct;
 
@@ -126,7 +143,9 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSICalibrationValue = 16;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI_DIV2;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL16;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
@@ -136,12 +155,12 @@ void SystemClock_Config(void)
     */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }
@@ -159,14 +178,59 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
-	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_11,GPIO_PIN_SET);
-	HAL_UART_Transmit_IT(&huart1,buff,800);
+	switch(state){
+		case WAITING_PCK:
+			state_pck= GetNewData(buff);
+			
+			if(state_pck==PCK_With_Me){
+				Send_PCK(Normal_conv,0,0,0,0);
+				state=SENDING_HELLO;
+			}
+			else if(state_pck==PCK_REQ_ME){
+				//timer start
+				HAL_TIM_Base_Stop_IT(&htim2);
+				HAL_TIM_Base_Start_IT(&htim2);
+				htim2.Instance->CNT=0;
+				
+				HAL_UART_Receive_DMA(&huart1,audio_buff,800);
+				state=GETTING_AUDIO;
+			}
+			else{
+				HAL_UART_Abort(&huart1);
+				HAL_UART_Receive_IT(&huart1,&buff,1);
+			}
+			break;
+		
+		case GETTING_AUDIO:
+			// timer end
+			HAL_TIM_Base_Stop_IT(&htim2);
+			htim2.Instance->CNT=0;
+			
+			Send_Audio(audio_buff,800);
+			state=SENDING_AUDIO;
+			break;
+		
+		default :
+			HAL_UART_Abort(&huart1);
+			HAL_UART_Receive_IT(&huart1,&buff,1);
+	}
 }
 
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
 	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_11,GPIO_PIN_RESET);
-	HAL_UART_Receive_IT(&huart1,buff,800);
+	state=WAITING_PCK;
+	HAL_UART_Abort(&huart1);
+	HAL_UART_Receive_IT(&huart1,&buff,1);	
+}
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
+	HAL_TIM_Base_Stop_IT(&htim2);
+	htim2.Instance->CNT=0;
+	
+	Send_Audio(audio_buff,800);
+	state=SENDING_AUDIO;
 }
 /* USER CODE END 4 */
 

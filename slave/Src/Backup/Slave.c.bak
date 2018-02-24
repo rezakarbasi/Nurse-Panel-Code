@@ -1,0 +1,40 @@
+#include "Slave.h"
+
+//variables
+//PCK_10_by_10 Send_pck;
+//PCK_10_by_10 Receive_pck;
+//PCK_speak_req Req_pck;
+
+// functions
+//void init_10_by_10_pck(PCK_10_by_10 * pck,uint8_t address,uint8_t function,uint8_t data1,uint8_t data2,uint8_t data3,uint8_t data4){
+//	pck->Dist_PCK_10.ST0=START_BYTE0;
+//	pck->Dist_PCK_10.ST1=START_BYTE1;
+//	pck->Dist_PCK_10.function=function;
+//	pck->Dist_PCK_10.address=address;
+//	pck->Dist_PCK_10.data1=data1;
+//	pck->Dist_PCK_10.data2=data2;
+//	pck->Dist_PCK_10.data3=data3;
+//	pck->Dist_PCK_10.data4=data4;
+//	
+//	int a=function+address+data1+data2+data3+data4;
+//	
+//	pck->Dist_PCK_10.cksum=a%256;
+//	pck->Dist_PCK_10.stp=STOP_BYTE;
+//}
+
+//void init_speak_req(uint8_t address){
+//	Req_pck.Dist_PCK_req.ST0=START_BYTE0;
+//	Req_pck.Dist_PCK_req.ST1=START_BYTE1;
+//	Req_pck.Dist_PCK_req.ST2=START_BYTE2;
+//	Req_pck.Dist_PCK_req.ST3=START_BYTE3;
+//	Req_pck.Dist_PCK_req.address1=address;
+//	Req_pck.Dist_PCK_req.address2=address;
+//	Req_pck.Dist_PCK_req.temp1=0;
+//	Req_pck.Dist_PCK_req.temp2=0;
+//	
+//	int a=address*2;
+//	
+//	Req_pck.Dist_PCK_req.cksum=a%256;
+//	Req_pck.Dist_PCK_req.stp=STOP_BYTE;
+//}
+
