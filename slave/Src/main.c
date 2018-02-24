@@ -46,6 +46,7 @@
 
 /* USER CODE BEGIN Includes */
 #include "Slave.h"
+
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -60,7 +61,7 @@ int temp2=0;
 uint8_t state_pck;
 uint8_t data;
 
-uint8_t audio_buff[800];
+uint8_t audio_buff[Date_Per_100ms];
 
 /* USER CODE END PV */
 
@@ -114,11 +115,9 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	state=WAITING_PCK;
-	PCK_RCV=0;
-	HAL_UART_Receive_IT(&huart1,&buff,1);
+	Slave_Init(1);
 	
-	HAL_TIM_Base_Start(&htim1);
+	HAL_UART_Receive_IT(&Slave_Uart,&buff,1);
 	
   while (1)
   {
@@ -182,58 +181,58 @@ void SystemClock_Config(void)
 /* USER CODE BEGIN 4 */
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
-	switch(state){
+	switch(slave.state){
 		case WAITING_PCK:
 			state_pck= GetNewData(buff);
 			
 			if(state_pck==PCK_With_Me){
 				Send_PCK(Normal_conv,0,0,0,0);
-				state=SENDING_HELLO;
+				slave.state=SENDING_HELLO;
 			}
 			else if(state_pck==PCK_REQ_ME){
 				//timer start
-				HAL_TIM_Base_Stop_IT(&htim2);
-				HAL_TIM_Base_Start_IT(&htim2);
-				htim2.Instance->CNT=0;
+				HAL_TIM_Base_Stop_IT(&Timeout_Timer);
+				HAL_TIM_Base_Start_IT(&Timeout_Timer);
+				Timeout_Timer.Instance->CNT=0;
 				
-				HAL_UART_Receive_DMA(&huart1,audio_buff,800);
-				state=GETTING_AUDIO;
+				HAL_UART_Receive_DMA(&Slave_Uart,audio_buff,Date_Per_100ms);
+				slave.state=GETTING_AUDIO;
 			}
 			else{
-				HAL_UART_Abort(&huart1);
-				HAL_UART_Receive_IT(&huart1,&buff,1);
+				HAL_UART_Abort(&Slave_Uart);
+				HAL_UART_Receive_IT(&Slave_Uart,&buff,1);
 			}
 			break;
 		
 		case GETTING_AUDIO:
 		
 			// timer end
-			HAL_TIM_Base_Stop_IT(&htim2);
-			htim2.Instance->CNT=0;
+			HAL_TIM_Base_Stop_IT(&Timeout_Timer);
+			Timeout_Timer.Instance->CNT=0;
 			
-		Send_Audio(audio_buff,800);
-			state=SENDING_AUDIO;
+		Send_Audio(audio_buff,Date_Per_100ms);
+			slave.state=SENDING_AUDIO;
 			break;
 		
 		default :
-			HAL_UART_Abort(&huart1);
-			HAL_UART_Receive_IT(&huart1,&buff,1);
+			HAL_UART_Abort(&Slave_Uart);
+			HAL_UART_Receive_IT(&Slave_Uart,&buff,1);
 	}
 }
 
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
-	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_11,GPIO_PIN_RESET);
-	state=WAITING_PCK;
-	HAL_UART_Abort(&huart1);
-	HAL_UART_Receive_IT(&huart1,&buff,1);	
+	HAL_GPIO_WritePin(RS485_GPIO_PORT,RS485_GPIO_PIN,GPIO_PIN_RESET);
+	slave.state=WAITING_PCK;
+	HAL_UART_Abort(&Slave_Uart);
+	HAL_UART_Receive_IT(&Slave_Uart,&buff,1);	
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
-	HAL_TIM_Base_Stop_IT(&htim2);
-	htim2.Instance->CNT=0;
+	HAL_TIM_Base_Stop_IT(&Timeout_Timer);
+	Timeout_Timer.Instance->CNT=0;
 	
-	Send_Audio(audio_buff,800);
-	state=SENDING_AUDIO;
+	Send_Audio(audio_buff,Date_Per_100ms);
+	slave.state=SENDING_AUDIO;
 }
 /* USER CODE END 4 */
 

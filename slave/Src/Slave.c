@@ -5,7 +5,7 @@ PCK_CONV Send_pck;
 PCK_CONV Received_pck;
 PCK_CONV Req_pck;
 uint8_t PCK_RCV;
-SLAVE_PROGRAM_STATE state;
+SLAVE_HANDLER slave;
 
 // functions
 void Init_PCK(PCK_CONV * pck,uint8_t address,FUNCTION function,uint8_t data1,uint8_t data2,uint8_t data3,uint8_t data4){
@@ -88,7 +88,7 @@ PCK_STATE GetNewData(uint8_t data){
 
 PCK_STATE Check_PCK(uint8_t * buff){
 	
-	if(buff[2]==ADDRESS){
+	if(buff[2]==slave.id){
 		if(buff[3]==Speak_req)return PCK_REQ_ME;
 		else if(buff[3]==Normal_conv) return PCK_With_Me;
 	}
@@ -98,18 +98,29 @@ PCK_STATE Check_PCK(uint8_t * buff){
 }
 
 HAL_StatusTypeDef Send_PCK(FUNCTION function,uint8_t data1,uint8_t data2,uint8_t data3,uint8_t data4){//,int timeout){
-	Init_PCK(&Send_pck,ADDRESS,function,data1,data2,data3,data4);
+	Init_PCK(&Send_pck,slave.id,function,data1,data2,data3,data4);
 		
-	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_11,GPIO_PIN_SET);
-	uint8_t out= HAL_UART_Transmit_DMA(&huart1,Send_pck.ASS_PCK,Packet_Length);
+	HAL_GPIO_WritePin(RS485_GPIO_PORT,RS485_GPIO_PIN,GPIO_PIN_SET);
+	uint8_t out= HAL_UART_Transmit_DMA(&Slave_Uart,Send_pck.ASS_PCK,Packet_Length);
 
 	return out;
 }
 
 uint8_t Send_Audio(uint8_t * audio,int audio_size){//,int timeout){
 	
-	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_11,GPIO_PIN_SET);
-	uint8_t out= HAL_UART_Transmit_DMA(&huart1,audio,audio_size);
+	HAL_GPIO_WritePin(RS485_GPIO_PORT,RS485_GPIO_PIN,GPIO_PIN_SET);
+	uint8_t out= HAL_UART_Transmit_DMA(&Slave_Uart,audio,audio_size);
 
 	return out;
+}
+
+void Set_Address(uint8_t add){
+	slave.id=add;
+}
+
+void Slave_Init(uint8_t add){
+	slave.id=add;
+	slave.state=WAITING_PCK;
+	Init_PCK(&slave.pck,add,0,0,0,0,0);
+	PCK_RCV=0;
 }

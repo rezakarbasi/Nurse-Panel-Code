@@ -435,7 +435,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Src/main.c)(0x5A919618)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Slave\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o repeater\main.o --omf_browse repeater\main.crf --depend repeater\main.d)
+F (../Src/main.c)(0x5A91B800)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Slave\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o repeater\main.o --omf_browse repeater\main.crf --depend repeater\main.d)
 I (../Inc/main.h)(0x5A9193D7)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
 I (../Inc/stm32f1xx_hal_conf.h)(0x5A9193D6)
@@ -466,7 +466,7 @@ I (../Inc/dma.h)(0x5A9193D6)
 I (../Inc/tim.h)(0x5A9193D6)
 I (../Inc/usart.h)(0x5A9193D6)
 I (../Inc/gpio.h)(0x5A9193D6)
-I (../Inc/Slave.h)(0x5A8EAA94)
+I (../Inc/Slave.h)(0x5A91B7DC)
 F (../Src/stm32f1xx_it.c)(0x5A9193D6)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Slave\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o repeater\stm32f1xx_it.o --omf_browse repeater\stm32f1xx_it.crf --depend repeater\stm32f1xx_it.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
 I (../Inc/stm32f1xx_hal_conf.h)(0x5A9193D6)
@@ -551,8 +551,8 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (..\Src\Slave.c)(0x5A919680)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Slave\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o repeater\slave.o --omf_browse repeater\slave.crf --depend repeater\slave.d)
-I (../Inc/Slave.h)(0x5A8EAA94)
+F (..\Src\Slave.c)(0x5A91B7DC)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include --C99-I "C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Telephone_hospital_Proj\Final\Slave\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o repeater\slave.o --omf_browse repeater\slave.crf --depend repeater\slave.d)
+I (../Inc/Slave.h)(0x5A91B7DC)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
 I (../Inc/stm32f1xx_hal_conf.h)(0x5A9193D6)
 I (../Inc/main.h)(0x5A9193D7)
