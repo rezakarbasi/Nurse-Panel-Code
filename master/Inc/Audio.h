@@ -11,7 +11,7 @@
 #define NumChannels			1
 #define SampleRate 			8000
 
-#define NumSampleGiri			100
+//#define NumSampleGiri			100
 #define Date_Per_100ms		800
 
 #define	FF_FileName			"mishe.wav"

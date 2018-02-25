@@ -12,11 +12,11 @@
 #define START_BYTE3 0xFF
 #define STOP_BYTE 0x80
 #define Buffer_Size Packet_Length
-#define USER_NUMBER	100
+#define USER_NUMBER	6
 
 #define HELLO_TIMEOUT	1
 
-#define HELLO_COUNTER_PER_CYCLE	5
+#define HELLO_COUNTER_PER_CYCLE	1
 
 #define MAX_TIMEOUT	10
 
@@ -45,8 +45,8 @@ typedef enum{
 }MASTER_PROGRAM_STATE;
 
 typedef enum{
-	FLAG_ENABLE,
-	FLAG_DISABLE,
+	FLAG_ENABLE=1,
+	FLAG_DISABLE=0,
 }FLAG;
 
 typedef struct{
@@ -55,6 +55,10 @@ typedef struct{
 	uint8_t call_id;
 	uint8_t hello_id;
 	uint8_t hello_counter;
+	FLAG empty_dac_flag;
+	FLAG save_2_SD_flag;
+	FLAG refresh_LCD_flag;
+	FLAG update_keypad_flag;
 }MASTER_HANDLER;
 
 //conversation packet struct and union

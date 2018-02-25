@@ -63,11 +63,18 @@
 /* Private variables ---------------------------------------------------------*/
 uint8_t Buff_get;
 
-uint8_t send_audio_buff[Date_Per_100ms];
-uint8_t receive_audio_buff[Date_Per_100ms];
-
 char lcd_buff[20];
 int cc=0;
+
+uint8_t Tx_buff[Date_Per_100ms];
+uint8_t Rx_buff[Date_Per_100ms];
+
+uint16_t adcBuff[2][Date_Per_100ms];
+uint8_t dacBuff[2][Date_Per_100ms];
+
+char Adc_p=0;
+char Dac_p=0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -136,6 +143,12 @@ int main(void)
 	
 	HAL_TIM_Base_Start_IT(&htim7);
 	
+	HAL_Delay(50);
+	
+	HAL_TIM_Base_Start(&htim8);
+	HAL_ADC_Start_DMA(&hadc1,(uint32_t *)adcBuff[Adc_p],Date_Per_100ms);
+	HAL_DAC_Start_DMA(&hdac,DAC_CHANNEL_1,(uint32_t *)dacBuff[Dac_p],Date_Per_100ms,DAC_ALIGN_8B_R);
+	
 	while (1)
   {
 		switch(master.state){
@@ -179,7 +192,7 @@ int main(void)
 				break;
 			
 			case SENDING_AUDIO:
-				Send_Audio(master.call_id,send_audio_buff,receive_audio_buff,Date_Per_100ms);
+				Send_Audio(master.call_id,Tx_buff,Rx_buff,Date_Per_100ms);
 				master.state=WAITING_FOR_SENDING_AUDIO;
 				break;
 			
@@ -187,6 +200,37 @@ int main(void)
 			case WAITING_FOR_SENDING_AUDIO:
 			case WAITING:
 				// SD			LCD			Keypad
+				if(master.empty_dac_flag==FLAG_ENABLE){
+					master.empty_dac_flag=FLAG_DISABLE;
+					
+					char j=0;
+					if(Adc_p==0)j=1;
+					
+					char jj=0;
+					if(Dac_p==0)jj=1;
+					
+					for(int f=0;f<Date_Per_100ms;f++){
+						Tx_buff[f]=adcBuff[j][f]>>4;
+						dacBuff[jj][f]=Rx_buff[f];
+//						recBuff[f]=(uint8_t)(((uint16_t)(Rx_buff[f]+Tx_buff[f]))>>1);//(uint8_t)aaa;
+					}
+					break;
+				}
+				
+				if(master.save_2_SD_flag==FLAG_ENABLE){
+					master.save_2_SD_flag=FLAG_DISABLE;
+					break;
+				}
+				
+				if(master.refresh_LCD_flag==FLAG_ENABLE){
+					master.refresh_LCD_flag=FLAG_DISABLE;
+					break;
+				}
+				
+				if(master.update_keypad_flag==FLAG_ENABLE){
+					master.update_keypad_flag=FLAG_DISABLE;
+					break;
+				}
 				
 				sprintf(lcd_buff,"received pck : %d",cc);
 				ILI9341_Draw_Text(lcd_buff,20,60,BLACK,2,WHITE);
@@ -268,9 +312,21 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 }
 
 void HAL_DAC_ConvCpltCallbackCh1(DAC_HandleTypeDef* hdac1){
+	if(Dac_p==0)Dac_p=1;
+	else Dac_p=0;
+	
+	HAL_DAC_Stop_DMA(&hdac,DAC_CHANNEL_1);
+	HAL_DAC_Start_DMA(&hdac,DAC_CHANNEL_1,(uint32_t *)dacBuff[Dac_p],Date_Per_100ms,DAC_ALIGN_8B_R);
+	
+	master.empty_dac_flag=FLAG_ENABLE;
 }
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
+	if(Adc_p==0)Adc_p=1;
+	else Adc_p=0;
+	
+	HAL_ADC_Stop_DMA(&hadc1);
+	HAL_ADC_Start_DMA(&hadc1,(uint32_t *)adcBuff[Adc_p],Date_Per_100ms);
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
