@@ -1,18 +1,25 @@
 //includes
 #include "stm32f1xx_hal.h"
 #include "usart.h"
+#include "tim.h"
 
 //defines
-#define ADDRESS		1
 
 #define Packet_Length 10
+
 #define START_BYTE0 0xA5
 #define START_BYTE1 0x5A
 #define START_BYTE2 0x00
 #define START_BYTE3 0xFF
 #define STOP_BYTE 0x80
-#define Buffer_Size Packet_Length
-#define USER_NUMBER	10
+
+#define USER_NUMBER	6
+
+#define HELLO_TIMEOUT	1
+
+#define HELLO_COUNTER_PER_CYCLE	2
+
+#define MAX_TIMEOUT	10
 
 //Types
 
@@ -31,13 +38,30 @@ typedef enum{
 
 typedef enum{
 	SENDING_HELLO,
-	GETTING_HELLO,
 	SENDING_AUDIO,
-	GETTING_AUDIO,
+	WAITING_FOR_SENDING_AUDIO,
+	WAITING_FOR_RECEIVING_AUDIO,
+	WAITING_FOR_SENDING_HELLO,
+	WAITING_FOR_RECEIVING_HELLO,
 	WAITING,
-	REFRESHING_LCD,
-	TRANSFERRING_SD
 }MASTER_PROGRAM_STATE;
+
+typedef enum{
+	FLAG_ENABLE=1,
+	FLAG_DISABLE=0,
+}FLAG;
+
+typedef struct{
+	MASTER_PROGRAM_STATE state;
+	FLAG call_flag;
+	uint8_t call_id;
+	uint8_t hello_id;
+	uint8_t hello_counter;
+	FLAG empty_dac_flag;
+	FLAG save_2_SD_flag;
+	FLAG refresh_LCD_flag;
+	FLAG update_keypad_flag;
+}MASTER_HANDLER;
 
 //conversation packet struct and union
 typedef union
@@ -62,13 +86,16 @@ typedef union
 
 // Variables
 extern PCK_CONV Send_pck;
-extern PCK_CONV Received_pck[USER_NUMBER];
-extern PCK_CONV Req_pck;
+extern PCK_CONV User_state[USER_NUMBER];
 extern uint8_t PCK_RCV;
+extern MASTER_HANDLER master;
 
 // Functions
 void Init_PCK(PCK_CONV * pck,uint8_t address,FUNCTION function,uint8_t data1,uint8_t data2,uint8_t data3,uint8_t data4);
 //PCK_STATE Check_PCK(uint8_t * buff);
 PCK_STATE GetNewData(uint8_t data,uint8_t id);
-HAL_StatusTypeDef Send_PCK(uint8_t address,FUNCTION function,uint8_t data1,uint8_t data2,uint8_t data3,uint8_t data4,int timeout);
-uint8_t Send_Audio(uint8_t address,uint8_t * audio,int audio_size,int timeout);
+HAL_StatusTypeDef Send_PCK(uint8_t address,FUNCTION function,uint8_t data1,uint8_t data2,uint8_t data3,uint8_t data4,uint8_t * buffer);
+uint8_t Send_Audio(uint8_t address,uint8_t * audio_send,uint8_t * audio_receive,int audio_size);
+void Master_Init(void);
+void Hello_Rx_cmplt_Callback(DMA_HandleTypeDef * dma);
+void Hello_Tx_cmplt_Callback(DMA_HandleTypeDef * dma);

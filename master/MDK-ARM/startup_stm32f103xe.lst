@@ -580,18 +580,17 @@ ARM Macro Assembler    Page 9
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend="nurse board\startup_stm32f103xe.d" -o"nurse board\startup_stm32f1
-03xe.o" -I"C:\Users\Reza Karbasi\Google Drive\Important Projects\Raiwan_Proj\Te
-lephone_hospital_Proj\Final\Master\MDK-ARM\RTE" -IC:\Keil_v5\ARM\PACK\ARM\CMSIS
-\5.1.0\CMSIS\Include -IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0 --predefine
+03xe.o" -I"F:\Reza Karbasi\Documents\Github\Nurse-Panel-Code\Master\MDK-ARM\RTE
+" -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include -IC:\Keil_v5\ARM\PACK\Kei
+l\STM32F1xx_DFP\2.2.0 --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VE
 
 
 
 ARM Macro Assembler    Page 10 
 
 
-="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 514" --predefine="_RTE
-_ SETA 1" --predefine="STM32F10X_HD SETA 1" --list=startup_stm32f103xe.lst star
-tup_stm32f103xe.s
+RSION SETA 514" --predefine="_RTE_ SETA 1" --predefine="STM32F10X_HD SETA 1" --
+list=startup_stm32f103xe.lst startup_stm32f103xe.s
 
 
 

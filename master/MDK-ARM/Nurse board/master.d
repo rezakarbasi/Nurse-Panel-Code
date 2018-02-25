@@ -33,3 +33,4 @@ nurse board\master.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 nurse board\master.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 nurse board\master.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 nurse board\master.o: ../Inc/usart.h
+nurse board\master.o: ../Inc/tim.h

@@ -11,10 +11,8 @@
 #define NumChannels			1
 #define SampleRate 			8000
 
-#define Buff_size 799
-
-#define NumSampleGiri			100
-#define NumPerSampling		Buff_size
+//#define NumSampleGiri			100
+#define Date_Per_100ms		800
 
 #define	FF_FileName			"mishe.wav"
 
@@ -36,8 +34,8 @@ extern FIL fil;
 extern int flag;
 //extern int junk;
 
-//extern uint16_t ADC_buff[NumPerSampling];
-extern uint16_t SD_buff[NumPerSampling];
+//extern uint16_t ADC_buff[Date_Per_100ms];
+extern uint16_t SD_buff[Date_Per_100ms];
 
 //	Functions
 uint8_t WavaRecorderHeaderInit(uint8_t* pHeadBuf,int NumSamples);//,uint8_t* audio)

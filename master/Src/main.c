@@ -61,7 +61,7 @@
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
-uint8_t Buff_get;
+uint8_t Buff_get[Packet_Length];
 
 char lcd_buff[20];
 int cc=0;
@@ -75,6 +75,7 @@ uint8_t dacBuff[2][Date_Per_100ms];
 char Adc_p=0;
 char Dac_p=0;
 
+uint8_t temp=0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -126,6 +127,7 @@ int main(void)
   MX_TIM8_Init();
   MX_USART2_UART_Init();
   MX_TIM7_Init();
+  MX_TIM5_Init();
 
   /* USER CODE BEGIN 2 */
 	ILI9341_Init();//initial driver setup to drive ili9341
@@ -143,7 +145,7 @@ int main(void)
 	
 	HAL_TIM_Base_Start_IT(&htim7);
 	
-	HAL_Delay(50);
+	HAL_Delay(2);
 	
 	HAL_TIM_Base_Start(&htim8);
 	HAL_ADC_Start_DMA(&hadc1,(uint32_t *)adcBuff[Adc_p],Date_Per_100ms);
@@ -153,11 +155,12 @@ int main(void)
   {
 		switch(master.state){
 			case SENDING_HELLO:
-				master.hello_counter++;
 				master.hello_id++;
 				if(master.hello_id>USER_NUMBER)master.hello_id=0;
 				
 				if(User_state[master.hello_id].DIST_PCK.timeout<MAX_TIMEOUT){
+					
+					master.hello_counter++;
 					if(master.hello_counter==HELLO_COUNTER_PER_CYCLE){
 						master.hello_counter=0;
 						if(master.call_flag==FLAG_ENABLE)master.state=SENDING_AUDIO;
@@ -165,31 +168,33 @@ int main(void)
 						
 						break;
 					}
-					Send_PCK(master.hello_id,Normal_conv,0,1,255,0,HELLO_TIMEOUT);
-					master.state=GETTING_HELLO;
+					Send_PCK(master.hello_id,Normal_conv,0,1,255,0,Buff_get);
+					master.state=WAITING_FOR_SENDING_HELLO;
 				}
 				break;
 			
-			case GETTING_HELLO:
-				switch(HAL_UART_Receive(&huart2,&Buff_get,1,HELLO_TIMEOUT)){
+				case WAITING_FOR_SENDING_HELLO:
+				case WAITING_FOR_RECEIVING_HELLO:
+					if(master.audio_rx_cplt_flag==FLAG_ENABLE){
+						master.audio_rx_cplt_flag=FLAG_DISABLE;
 					
-					case HAL_OK:
-						if(GetNewData(Buff_get,master.hello_id)==PCK_Data){
-							master.state=SENDING_HELLO;
-						}
+						char jj=0;
+						if(Dac_p==0)jj=1;
+						for(int f=0;f<Date_Per_100ms;f++)dacBuff[jj][f]=Rx_buff[f];
+					
 						break;
+					}
+				
+					if(master.audio_tx_cplt_flag==FLAG_ENABLE){
+						master.audio_tx_cplt_flag=FLAG_DISABLE;
+					
+						char j=0;
+						if(Adc_p==0)j=1;
+						for(int f=0;f<Date_Per_100ms;f++)Tx_buff[f]=adcBuff[j][f]>>4;
 						
-					case HAL_TIMEOUT:
-						master.state=SENDING_HELLO;
-						HAL_UART_Abort(&huart2);
-						User_state[master.hello_id].DIST_PCK.timeout++;
 						break;
-					
-					default :
-						HAL_UART_Abort(&huart2);
-					
-				}
-				break;
+					}
+					break;
 			
 			case SENDING_AUDIO:
 				Send_Audio(master.call_id,Tx_buff,Rx_buff,Date_Per_100ms);
@@ -200,20 +205,23 @@ int main(void)
 			case WAITING_FOR_SENDING_AUDIO:
 			case WAITING:
 				// SD			LCD			Keypad
-				if(master.empty_dac_flag==FLAG_ENABLE){
-					master.empty_dac_flag=FLAG_DISABLE;
-					
-					char j=0;
-					if(Adc_p==0)j=1;
+				if(master.audio_rx_cplt_flag==FLAG_ENABLE){
+					master.audio_rx_cplt_flag=FLAG_DISABLE;
 					
 					char jj=0;
 					if(Dac_p==0)jj=1;
+					for(int f=0;f<Date_Per_100ms;f++)dacBuff[jj][f]=Rx_buff[f];
 					
-					for(int f=0;f<Date_Per_100ms;f++){
-						Tx_buff[f]=adcBuff[j][f]>>4;
-						dacBuff[jj][f]=Rx_buff[f];
-//						recBuff[f]=(uint8_t)(((uint16_t)(Rx_buff[f]+Tx_buff[f]))>>1);//(uint8_t)aaa;
-					}
+					break;
+				}
+				
+				if(master.audio_tx_cplt_flag==FLAG_ENABLE){
+					master.audio_tx_cplt_flag=FLAG_DISABLE;
+					
+					char j=0;
+					if(Adc_p==0)j=1;
+					for(int f=0;f<Date_Per_100ms;f++)Tx_buff[f]=adcBuff[j][f]>>4;
+					
 					break;
 				}
 				
@@ -303,12 +311,32 @@ void SystemClock_Config(void)
 /* USER CODE BEGIN 4 */
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
 	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_RESET);
-	master.state=WAITING_FOR_RECEIVING_AUDIO;
+	if(master.state==WAITING_FOR_SENDING_AUDIO){		
+		master.audio_tx_cplt_flag=FLAG_ENABLE;
+		master.state=WAITING_FOR_RECEIVING_AUDIO;
+	}
+	else if(master.state==WAITING_FOR_SENDING_HELLO)master.state=WAITING_FOR_RECEIVING_HELLO;
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
-	HAL_UART_Abort(&huart2);
-	master.state=WAITING;
+	if(master.state==WAITING_FOR_RECEIVING_AUDIO){
+		HAL_UART_Abort(&huart2);
+		master.state=WAITING;
+		master.audio_rx_cplt_flag=FLAG_ENABLE;
+	}
+	else if(master.state==WAITING_FOR_RECEIVING_HELLO){
+		HAL_UART_Abort(&huart2);
+		master.state=SENDING_HELLO;
+		HAL_TIM_Base_Stop_IT(&htim5);
+		
+		for(uint8_t ii=0;ii<Packet_Length;ii++){
+			if(GetNewData(Buff_get[ii],master.hello_id)==PCK_Unknown){
+				User_state[master.hello_id].DIST_PCK.timeout++;
+				cc++;
+				break;
+			}
+		}
+	}
 }
 
 void HAL_DAC_ConvCpltCallbackCh1(DAC_HandleTypeDef* hdac1){
@@ -317,8 +345,6 @@ void HAL_DAC_ConvCpltCallbackCh1(DAC_HandleTypeDef* hdac1){
 	
 	HAL_DAC_Stop_DMA(&hdac,DAC_CHANNEL_1);
 	HAL_DAC_Start_DMA(&hdac,DAC_CHANNEL_1,(uint32_t *)dacBuff[Dac_p],Date_Per_100ms,DAC_ALIGN_8B_R);
-	
-	master.empty_dac_flag=FLAG_ENABLE;
 }
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
@@ -330,11 +356,22 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
-	if(master.state==WAITING_FOR_RECEIVING_AUDIO)cc++;
-	
-	HAL_UART_Abort(&huart2);
-	master.state=SENDING_HELLO;
+	if(htim->Instance==TIM7){
+		if(master.state==WAITING_FOR_RECEIVING_AUDIO)cc++;
+		HAL_UART_Abort(&huart2);
+		master.state=SENDING_HELLO;
+	}
+	else if(htim->Instance==TIM5){
+		temp++;
+		if(temp%2==0){
+			master.state=SENDING_HELLO;
+			HAL_UART_Abort(&huart2);
+			User_state[master.hello_id].DIST_PCK.timeout++;
+			HAL_TIM_Base_Stop_IT(&htim5);
+		}
+	}
 }
+
 /* USER CODE END 4 */
 
 /**

@@ -1,22 +1,23 @@
 //includes
 #include "stm32f1xx_hal.h"
 #include "usart.h"
+#include "tim.h"
 
 //defines
-#define ADDRESS		1
 
 #define Packet_Length 10
+
 #define START_BYTE0 0xA5
 #define START_BYTE1 0x5A
 #define START_BYTE2 0x00
 #define START_BYTE3 0xFF
 #define STOP_BYTE 0x80
-#define Buffer_Size Packet_Length
+
 #define USER_NUMBER	6
 
 #define HELLO_TIMEOUT	1
 
-#define HELLO_COUNTER_PER_CYCLE	1
+#define HELLO_COUNTER_PER_CYCLE	3
 
 #define MAX_TIMEOUT	10
 
@@ -37,10 +38,11 @@ typedef enum{
 
 typedef enum{
 	SENDING_HELLO,
-	GETTING_HELLO,
 	SENDING_AUDIO,
 	WAITING_FOR_SENDING_AUDIO,
 	WAITING_FOR_RECEIVING_AUDIO,
+	WAITING_FOR_SENDING_HELLO,
+	WAITING_FOR_RECEIVING_HELLO,
 	WAITING,
 }MASTER_PROGRAM_STATE;
 
@@ -55,7 +57,8 @@ typedef struct{
 	uint8_t call_id;
 	uint8_t hello_id;
 	uint8_t hello_counter;
-	FLAG empty_dac_flag;
+	FLAG audio_rx_cplt_flag;
+	FLAG audio_tx_cplt_flag;	
 	FLAG save_2_SD_flag;
 	FLAG refresh_LCD_flag;
 	FLAG update_keypad_flag;
@@ -92,6 +95,6 @@ extern MASTER_HANDLER master;
 void Init_PCK(PCK_CONV * pck,uint8_t address,FUNCTION function,uint8_t data1,uint8_t data2,uint8_t data3,uint8_t data4);
 //PCK_STATE Check_PCK(uint8_t * buff);
 PCK_STATE GetNewData(uint8_t data,uint8_t id);
-HAL_StatusTypeDef Send_PCK(uint8_t address,FUNCTION function,uint8_t data1,uint8_t data2,uint8_t data3,uint8_t data4,int timeout);
-uint8_t Send_Audio(uint8_t address,uint8_t * audio_send,uint8_t * audio_receive,int audio_size);//,int timeout);
+HAL_StatusTypeDef Send_PCK(uint8_t address,FUNCTION function,uint8_t data1,uint8_t data2,uint8_t data3,uint8_t data4,uint8_t * buffer);
+uint8_t Send_Audio(uint8_t address,uint8_t * audio_send,uint8_t * audio_receive,int audio_size);
 void Master_Init(void);

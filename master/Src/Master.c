@@ -89,17 +89,23 @@ PCK_STATE GetNewData(uint8_t data,uint8_t id){
 	return PCK_Wait;
 }
 
-HAL_StatusTypeDef Send_PCK(uint8_t address,FUNCTION function,uint8_t data1,uint8_t data2,uint8_t data3,uint8_t data4,int timeout){
+HAL_StatusTypeDef Send_PCK(uint8_t address,FUNCTION function,uint8_t data1,uint8_t data2,uint8_t data3,uint8_t data4,uint8_t * buffer){
 	Init_PCK(&Send_pck,address,function,data1,data2,data3,data4);
 		
 	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_SET);
-	uint8_t out= HAL_UART_Transmit(&huart2,Send_pck.ASS_PCK,Packet_Length,timeout);
-	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_RESET);
+	
+	HAL_UART_Abort(&huart2);
+	uint8_t out= HAL_UART_Transmit_DMA(&huart2,Send_pck.ASS_PCK,Packet_Length);
+	HAL_UART_Receive_DMA(&huart2,buffer,Packet_Length);
+	
+	htim5.Instance->CNT=0;
+	HAL_TIM_Base_Stop_IT(&htim5);
+	HAL_TIM_Base_Start_IT(&htim5);
 	
 	return out;
 }
 
-uint8_t Send_Audio(uint8_t address,uint8_t * audio_send,uint8_t * audio_receive,int audio_size){//,int timeout){
+uint8_t Send_Audio(uint8_t address,uint8_t * audio_send,uint8_t * audio_receive,int audio_size){
 	Init_PCK(&Send_pck,address,Speak_req,0,0,0,0);
 		
 	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_SET);
@@ -116,20 +122,8 @@ void Master_Init(void){
 	master.state=WAITING;
 	master.hello_id=0;
 	master.call_id=1;
-	master.call_flag=FLAG_ENABLE;
+	master.call_flag=FLAG_DISABLE;
 	master.hello_counter=0;
 	
 	PCK_RCV=0;
 }
-
-
-//PCK_STATE Check_PCK(uint8_t * buff){
-//	
-//	if(buff[2]==ADDRESS){
-//		if(buff[3]==Speak_req)return PCK_REQ_ME;
-//		else if(buff[3]==Normal_conv) return PCK_With_Me;
-//	}
-//	else return PCK_Without_Me;
-//	
-//	return PCK_Unknown;
-//}
