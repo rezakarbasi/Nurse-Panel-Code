@@ -92,15 +92,15 @@ PCK_STATE GetNewData(uint8_t data,uint8_t id){
 HAL_StatusTypeDef Send_PCK(uint8_t address,FUNCTION function,uint8_t data1,uint8_t data2,uint8_t data3,uint8_t data4,uint8_t * buffer){
 	Init_PCK(&Send_pck,address,function,data1,data2,data3,data4);
 		
-	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_SET);
+	Enable_RS485_Line;
 	
 	HAL_UART_Abort(&huart2);
 	uint8_t out= HAL_UART_Transmit_DMA(&huart2,Send_pck.ASS_PCK,Packet_Length);
 	HAL_UART_Receive_DMA(&huart2,buffer,Packet_Length);
 	
-	htim6.Instance->CNT=0;
-	HAL_TIM_Base_Stop_IT(&htim6);
-	HAL_TIM_Base_Start_IT(&htim6);
+	TimeOut_Timer.Instance->CNT=0;
+	HAL_TIM_Base_Stop_IT(&TimeOut_Timer);
+	HAL_TIM_Base_Start_IT(&TimeOut_Timer);
 	
 	return out;
 }
@@ -108,12 +108,15 @@ HAL_StatusTypeDef Send_PCK(uint8_t address,FUNCTION function,uint8_t data1,uint8
 uint8_t Send_Audio(uint8_t address,uint8_t * audio_send,uint8_t * audio_receive,int audio_size){
 	Init_PCK(&Send_pck,address,Speak_req,0,0,0,0);
 		
-	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_SET);
+	Enable_RS485_Line;
 	uint8_t out1= HAL_UART_Transmit(&huart2,Send_pck.ASS_PCK,Packet_Length,1);
 
 	HAL_UART_Abort(&huart2);
 	uint8_t out2= HAL_UART_Transmit_DMA(&huart2,audio_send,audio_size);
 	HAL_UART_Receive_DMA(&huart2,audio_receive,audio_size);
+	
+	Increase_Buffer_Pointer(& (master.tx_p));
+	Increase_Buffer_Pointer(& (master.rx_p));
 	
 	return ((out1<<1)+out2);
 }
@@ -121,17 +124,43 @@ uint8_t Send_Audio(uint8_t address,uint8_t * audio_send,uint8_t * audio_receive,
 void Master_Init(void){
 	master.state=WAITING;
 	master.hello_id=0;
-	master.call_id=1;
+	master.call_id=0;
 	master.call_flag=FLAG_DISABLE;
 	master.hello_counter=0;
-	
+	master.audio_adc_cplt_flag=FLAG_DISABLE;
+	master.audio_uart_cplt_flag=FLAG_DISABLE;
+	master.save_2_SD_flag=FLAG_DISABLE;
+	master.refresh_LCD_flag=FLAG_DISABLE;
+	master.update_keypad_flag=FLAG_DISABLE;
+	master.rx_p=0;
+	master.adc_p=0;
+	master.tx_p=0;
+	master.dac_p=0;
+	master.rec_rx_p=0;
+	master.rec_adc_p=0;
+
 	PCK_RCV=0;
 }
 
-
-__weak void Hello_Rx_cmplt_Callback(DMA_HandleTypeDef * dma){
+void Make_Call(uint8_t add,uint16_t * ADC_Buff,uint8_t * UART_Buff){
+	master.rx_p=0;
+	master.adc_p=0;
+	master.tx_p=0;
+	master.dac_p=0;
+	master.rec_rx_p=0;
+	master.rec_adc_p=0;
+	master.audio_adc_cplt_flag=FLAG_DISABLE;
+	master.audio_uart_cplt_flag=FLAG_DISABLE;
+	master.save_2_SD_flag=FLAG_DISABLE;
+	master.call_id=add;
+	master.call_flag=FLAG_ENABLE;
+	
+	HAL_TIM_Base_Start(&htim8);
+	HAL_ADC_Start_DMA(&hadc1,(uint32_t *)ADC_Buff,Date_Per_100ms);
+	HAL_DAC_Start_DMA(&hdac,DAC_CHANNEL_1,(uint32_t *)UART_Buff,Date_Per_100ms,DAC_ALIGN_8B_R);
 }
 
-
-__weak void Hello_Tx_cmplt_Callback(DMA_HandleTypeDef * dma){
+void Increase_Buffer_Pointer(int * p){
+	(*p)++;
+	if((*p)==audio_buffer_size)(*p)=0;
 }

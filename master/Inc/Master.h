@@ -1,7 +1,13 @@
 //includes
 #include "stm32f1xx_hal.h"
-#include "usart.h"
+#include "adc.h"
+#include "dac.h"
+#include "dma.h"
+#include "spi.h"
 #include "tim.h"
+#include "usart.h"
+#include "gpio.h"
+#include "Audio.h"
 
 //defines
 
@@ -20,6 +26,13 @@
 #define HELLO_COUNTER_PER_CYCLE	12
 
 #define MAX_TIMEOUT	10
+
+#define audio_buffer_size	10
+
+#define TimeOut_Timer	htim5
+
+#define Enable_RS485_Line			HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_SET)
+#define Disable_RS485_Line		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_RESET)
 
 //Types
 
@@ -62,7 +75,11 @@ typedef struct{
 	FLAG save_2_SD_flag;
 	FLAG refresh_LCD_flag;
 	FLAG update_keypad_flag;
-	FLAG fflag;
+	int rx_p;
+	int adc_p;
+	int tx_p;
+	int rec_rx_p;
+	int rec_adc_p;
 }MASTER_HANDLER;
 
 //conversation packet struct and union
@@ -99,3 +116,5 @@ PCK_STATE GetNewData(uint8_t data,uint8_t id);
 HAL_StatusTypeDef Send_PCK(uint8_t address,FUNCTION function,uint8_t data1,uint8_t data2,uint8_t data3,uint8_t data4,uint8_t * buffer);
 uint8_t Send_Audio(uint8_t address,uint8_t * audio_send,uint8_t * audio_receive,int audio_size);
 void Master_Init(void);
+void Make_Call(uint8_t add,uint16_t * ADC_Buff,uint8_t * UART_Buff);
+void Increase_Buffer_Pointer(int * p);
