@@ -1,13 +1,7 @@
 #include "Audio.h"
 
-FRESULT fr;
-FATFS fs;
-FIL fil;
-
-//uint8_t play_audio[2][audio_size];
-
-int flag;
-uint16_t SD_buff[Date_Per_100ms];
+AUDIO_FILE_HANDLER audio_file;
+char SD_buff[Date_Per_100ms];
 
 /**
   * @brief  Initialize the wave header file
@@ -122,4 +116,28 @@ uint8_t WavaRecorderHeaderInit(uint8_t* pHeadBuf,int NumSamples)//,uint8_t* audi
 //  
 //  /* Return 0 if all operations are OK */
   return 0;
+}
+
+FRESULT Start_Recording(uint16_t min,uint16_t hour, uint16_t day,uint16_t month){
+	uint8_t bb;
+	
+	audio_file.counter=0;
+	audio_file.buffer_counter=0;
+	
+	sprintf(audio_file.path,"%02d%02d%02d%02d.wav",month%100,day%100,hour%100,min%100);
+	
+	disk_initialize(0);
+	f_mount(&audio_file.fs,"", 1);
+	audio_file.fres= f_open(&audio_file.fil,audio_file.path,FA_CREATE_NEW);
+	f_close(&audio_file.fil);
+	
+	if(audio_file.fres==0){
+		disk_initialize(0);
+		f_mount(&audio_file.fs,"",1);
+		f_open(&audio_file.fil,audio_file.path,FA_WRITE | FA_OPEN_ALWAYS);
+		WavaRecorderHeaderInit((uint8_t *)SD_buff,10);
+		f_write(&audio_file.fil,(uint8_t *)SD_buff,44,(unsigned int *)&bb);
+	}
+	
+	return audio_file.fres;
 }

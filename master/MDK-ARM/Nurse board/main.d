@@ -46,7 +46,4 @@ nurse board\main.o: ../Inc/diskio.h
 nurse board\main.o: ../Inc/integer.h
 nurse board\main.o: ../Inc/ff.h
 nurse board\main.o: ../Inc/ffconf.h
-nurse board\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 nurse board\main.o: ../Inc/Master.h
-nurse board\main.o: ../Inc/Audio.h
-nurse board\main.o: ../Inc/SD_functions.h

@@ -1,3 +1,6 @@
+#ifndef MASTER_H
+#define MASTER_H
+
 //includes
 #include "stm32f1xx_hal.h"
 #include "adc.h"
@@ -27,7 +30,7 @@
 
 #define MAX_TIMEOUT	10
 
-#define audio_buffer_size	10
+#define audio_buffer_size	5
 
 #define TimeOut_Timer	htim5
 
@@ -67,6 +70,7 @@ typedef enum{
 typedef struct{
 	MASTER_PROGRAM_STATE state;
 	FLAG call_flag;
+	FLAG start_of_call_flag;
 	uint8_t call_id;
 	uint8_t hello_id;
 	uint8_t hello_counter;
@@ -116,5 +120,9 @@ PCK_STATE GetNewData(uint8_t data,uint8_t id);
 HAL_StatusTypeDef Send_PCK(uint8_t address,FUNCTION function,uint8_t data1,uint8_t data2,uint8_t data3,uint8_t data4,uint8_t * buffer);
 uint8_t Send_Audio(uint8_t address,uint8_t * audio_send,uint8_t * audio_receive,int audio_size);
 void Master_Init(void);
-void Make_Call(uint8_t add,uint16_t * ADC_Buff,uint8_t * UART_Buff);
+void Make_Call(uint8_t add,uint16_t * ADC_Buff,uint8_t * UART_Buff,uint16_t min,uint16_t hour, uint16_t day,uint16_t month);
+void Append_Record(char * buffer);
 void Increase_Buffer_Pointer(int * p);
+void End_Call(void);
+
+#endif

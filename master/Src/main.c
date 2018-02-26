@@ -63,7 +63,7 @@
 /* Private variables ---------------------------------------------------------*/
 uint8_t Buff_get[Packet_Length];
 
-char lcd_buff[20];
+char lcd_buff[30];
 int cc=0;
 
 uint16_t adcBuff[Date_Per_100ms];
@@ -72,6 +72,7 @@ uint8_t adc_audio_buff[Date_Per_100ms*audio_buffer_size];
 uint8_t uart_audio_buff[Date_Per_100ms*audio_buffer_size];
 
 uint8_t temp=0;
+uint8_t temp2=0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -134,14 +135,15 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	ILI9341_Draw_Text("Debug", 32, 0, RED, 4, WHITE);
-	
 	Master_Init();
 	
 	HAL_TIM_Base_Start_IT(&htim7);
 	
-	Make_Call(1,adcBuff,uart_audio_buff);
+	Make_Call(1,adcBuff,uart_audio_buff,10,12,1,5);
 	
+	ILI9341_Draw_Text("Debug", 32, 0, RED, 4, WHITE);
+	
+	HAL_GPIO_WritePin(GPIOC,GPIO_PIN_11,GPIO_PIN_SET);		
 	while (1)
   {
 		switch(master.state){
@@ -179,8 +181,21 @@ int main(void)
 			case WAITING:
 				// SD			LCD			Keypad
 				
-				if(master.save_2_SD_flag==FLAG_ENABLE){
+				if(master.save_2_SD_flag==FLAG_ENABLE && master.call_flag==FLAG_ENABLE){
 					master.save_2_SD_flag=FLAG_DISABLE;
+					
+					for(uint16_t ii=0;ii<Date_Per_100ms;ii++)SD_buff[ii]=(uint8_t)((uint16_t)(adc_audio_buff[Date_Per_100ms*audio_file.buffer_counter+ii]
+						+uart_audio_buff[Date_Per_100ms*audio_file.buffer_counter+ii])>>1);
+					
+					Append_Record(SD_buff);
+					
+					//end
+					if(audio_file.counter>200){
+						End_Call();
+						
+						HAL_GPIO_WritePin(GPIOC,GPIO_PIN_11,GPIO_PIN_RESET);
+					}
+					
 					break;
 				}
 				
@@ -193,7 +208,6 @@ int main(void)
 					master.update_keypad_flag=FLAG_DISABLE;
 					break;
 				}
-				
 		}
   /* USER CODE END WHILE */
 
@@ -273,6 +287,11 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 	if(master.state==WAITING_FOR_RECEIVING_AUDIO){
 		HAL_UART_Abort(&huart2);
 		master.state=WAITING;
+		
+		if(master.start_of_call_flag==FLAG_ENABLE){
+			master.start_of_call_flag=FLAG_DISABLE;
+			HAL_DAC_Start_DMA(&hdac,DAC_CHANNEL_1,(uint32_t *)uart_audio_buff,Date_Per_100ms*audio_buffer_size,DAC_ALIGN_8B_R);
+		}
 	}
 	else if(master.state==WAITING_FOR_RECEIVING_HELLO){
 		HAL_UART_Abort(&huart2);
@@ -302,9 +321,14 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	if(htim->Instance==TIM7){
-		if(master.state==WAITING_FOR_RECEIVING_AUDIO)cc++;
+		if(master.state==WAITING_FOR_RECEIVING_AUDIO && master.start_of_call_flag==FLAG_ENABLE){
+			master.start_of_call_flag=FLAG_DISABLE;
+			HAL_DAC_Start_DMA(&hdac,DAC_CHANNEL_1,(uint32_t *)uart_audio_buff,Date_Per_100ms*audio_buffer_size,DAC_ALIGN_8B_R);
+		}
 		HAL_UART_Abort(&huart2);
 		master.state=SENDING_HELLO;
+		
+		if(master.call_flag==FLAG_ENABLE)master.save_2_SD_flag=FLAG_ENABLE;
 	}
 	else if(htim->Instance==TIM5){
 		temp++;

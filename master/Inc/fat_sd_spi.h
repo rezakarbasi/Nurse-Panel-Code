@@ -1,3 +1,6 @@
+#ifndef FAT_SD_SPI_H
+#define FAT_SD_SPI_H
+
 #include "diskio.h"
 #include "spi.h"
 #include "gpio.h"
@@ -62,3 +65,5 @@ static const char *r2_strings[15] = {
 	"address error",
 	"parameter error",
 };
+
+#endif

@@ -1,4 +1,3 @@
-
 #include "SD_functions.h"
 
 char append_string(
@@ -23,10 +22,12 @@ char append_string(
 		fr=f_printf(&fil,fmt);
 	else	{
 		UINT* bw;
-		f_write(&fil,fmt,btw,bw);
+		fr=f_write(&fil,fmt,btw,bw);
 	}
 	/* Close the file */
   f_close(&fil);
+	
+	return fr;
 }
 
 

@@ -137,11 +137,12 @@ void Master_Init(void){
 	master.tx_p=0;
 	master.rec_rx_p=0;
 	master.rec_adc_p=0;
+	master.start_of_call_flag=FLAG_DISABLE;
 
 	PCK_RCV=0;
 }
 
-void Make_Call(uint8_t add,uint16_t * ADC_Buff,uint8_t * UART_Buff){
+void Make_Call(uint8_t add,uint16_t * ADC_Buff,uint8_t * UART_Buff,uint16_t min,uint16_t hour, uint16_t day,uint16_t month){
 	master.rx_p=0;
 	master.adc_p=0;
 	master.tx_p=0;
@@ -152,13 +153,43 @@ void Make_Call(uint8_t add,uint16_t * ADC_Buff,uint8_t * UART_Buff){
 	master.save_2_SD_flag=FLAG_DISABLE;
 	master.call_id=add;
 	master.call_flag=FLAG_ENABLE;
+	master.start_of_call_flag=FLAG_ENABLE;
+	
+	Start_Recording(min,hour,day,month);
 	
 	HAL_TIM_Base_Start(&htim8);
 	HAL_ADC_Start_DMA(&hadc1,(uint32_t *)ADC_Buff,Date_Per_100ms);
-	HAL_DAC_Start_DMA(&hdac,DAC_CHANNEL_1,(uint32_t *)UART_Buff,Date_Per_100ms*audio_buffer_size,DAC_ALIGN_8B_R);
+//	HAL_DAC_Start_DMA(&hdac,DAC_CHANNEL_1,(uint32_t *)UART_Buff,Date_Per_100ms*audio_buffer_size,DAC_ALIGN_8B_R);
+}
+
+void Append_Record(char* buffer){
+	int cc;
+	
+	f_lseek(&audio_file.fil,f_size(&audio_file.fil));
+	f_write(&audio_file.fil,(uint8_t *)buffer,Date_Per_100ms,(unsigned int *)&cc);
+	
+	audio_file.counter++;
+	Increase_Buffer_Pointer(&(audio_file.buffer_counter));
+}
+
+void End_Call(void){
+	int cc;
+	
+	HAL_TIM_Base_Stop(&htim8);
+	HAL_ADC_Stop_DMA(&hadc1);
+	HAL_DAC_Stop_DMA(&hdac,DAC_CHANNEL_1);
+	
+	f_close(&audio_file.fil);
+	f_mount(&audio_file.fs,"",1);
+						
+	f_open(&audio_file.fil,audio_file.path,FA_WRITE | FA_OPEN_ALWAYS);
+	WavaRecorderHeaderInit((uint8_t *)SD_buff,audio_file.counter*Date_Per_100ms);
+	f_write(&audio_file.fil,(uint8_t *)SD_buff,44,(unsigned int *)&cc);
+	f_close(&audio_file.fil);
 }
 
 void Increase_Buffer_Pointer(int * p){
 	(*p)++;
 	if((*p)==audio_buffer_size)(*p)=0;
 }
+

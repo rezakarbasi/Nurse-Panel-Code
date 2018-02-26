@@ -39,5 +39,3 @@ nurse board\audio.o: ../Inc/ff.h
 nurse board\audio.o: ../Inc/ffconf.h
 nurse board\audio.o: ../Inc/spi.h
 nurse board\audio.o: ../Inc/gpio.h
-nurse board\audio.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-nurse board\audio.o: ../Inc/dma.h
