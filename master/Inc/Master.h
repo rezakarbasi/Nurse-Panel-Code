@@ -13,11 +13,11 @@
 #define START_BYTE3 0xFF
 #define STOP_BYTE 0x80
 
-#define USER_NUMBER	6
+#define USER_NUMBER	120
 
 #define HELLO_TIMEOUT	1
 
-#define HELLO_COUNTER_PER_CYCLE	3
+#define HELLO_COUNTER_PER_CYCLE	12
 
 #define MAX_TIMEOUT	10
 
@@ -57,11 +57,12 @@ typedef struct{
 	uint8_t call_id;
 	uint8_t hello_id;
 	uint8_t hello_counter;
-	FLAG audio_rx_cplt_flag;
-	FLAG audio_tx_cplt_flag;	
+	FLAG audio_adc_cplt_flag;
+	FLAG audio_uart_cplt_flag;	
 	FLAG save_2_SD_flag;
 	FLAG refresh_LCD_flag;
 	FLAG update_keypad_flag;
+	FLAG fflag;
 }MASTER_HANDLER;
 
 //conversation packet struct and union

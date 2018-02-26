@@ -122,7 +122,7 @@ void Master_Init(void){
 	master.state=WAITING;
 	master.hello_id=0;
 	master.call_id=1;
-	master.call_flag=FLAG_DISABLE;
+	master.call_flag=FLAG_ENABLE;
 	master.hello_counter=0;
 	
 	PCK_RCV=0;
