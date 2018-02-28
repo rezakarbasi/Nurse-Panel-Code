@@ -1,3 +1,6 @@
+#ifndef SLAVE_H
+#define SLAVE_H
+
 //includes
 #include "stm32f1xx_hal.h"
 #include "usart.h"
@@ -85,3 +88,5 @@ HAL_StatusTypeDef Send_PCK(FUNCTION function,uint8_t data1,uint8_t data2,uint8_t
 uint8_t Send_Audio(uint8_t * audio,int audio_size);
 void Set_Address(uint8_t add);
 void Slave_Init(uint8_t add);
+
+#endif

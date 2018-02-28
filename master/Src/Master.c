@@ -130,6 +130,7 @@ void Master_Init(void){
 	master.audio_adc_cplt_flag=FLAG_DISABLE;
 	master.audio_uart_cplt_flag=FLAG_DISABLE;
 	master.save_2_SD_flag=FLAG_DISABLE;
+	master.save_2_SD_enable_flag=FLAG_DISABLE;
 	master.refresh_LCD_flag=FLAG_DISABLE;
 	master.update_keypad_flag=FLAG_DISABLE;
 	master.rx_p=0;
@@ -151,11 +152,14 @@ void Make_Call(uint8_t add,uint16_t * ADC_Buff,uint8_t * UART_Buff,uint16_t min,
 	master.audio_adc_cplt_flag=FLAG_DISABLE;
 	master.audio_uart_cplt_flag=FLAG_DISABLE;
 	master.save_2_SD_flag=FLAG_DISABLE;
+	//master.save_2_SD_enable_flag=FLAG_ENABLE;
+	master.save_2_SD_enable_flag=FLAG_DISABLE;
 	master.call_id=add;
 	master.call_flag=FLAG_ENABLE;
 	master.start_of_call_flag=FLAG_ENABLE;
 	
-	Start_Recording(min,hour,day,month);
+	master.temp= Start_Recording(min,hour,day,month);
+	//if(master.temp!=0)master.save_2_SD_enable_flag=FLAG_DISABLE;
 	
 	HAL_TIM_Base_Start(&htim8);
 	HAL_ADC_Start_DMA(&hadc1,(uint32_t *)ADC_Buff,Date_Per_100ms);

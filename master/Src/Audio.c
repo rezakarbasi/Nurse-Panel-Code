@@ -125,18 +125,20 @@ FRESULT Start_Recording(uint16_t min,uint16_t hour, uint16_t day,uint16_t month)
 	audio_file.buffer_counter=0;
 	
 	sprintf(audio_file.path,"%02d%02d%02d%02d.wav",month%100,day%100,hour%100,min%100);
-	
+
+	audio_file.fres=0;
+
 	disk_initialize(0);
 	f_mount(&audio_file.fs,"", 1);
-	audio_file.fres= f_open(&audio_file.fil,audio_file.path,FA_CREATE_NEW);
+	audio_file.fres|= f_open(&audio_file.fil,audio_file.path,FA_CREATE_NEW);
 	f_close(&audio_file.fil);
 	
 	if(audio_file.fres==0){
 		disk_initialize(0);
 		f_mount(&audio_file.fs,"",1);
-		f_open(&audio_file.fil,audio_file.path,FA_WRITE | FA_OPEN_ALWAYS);
+		audio_file.fres|=f_open(&audio_file.fil,audio_file.path,FA_WRITE | FA_OPEN_ALWAYS);
 		WavaRecorderHeaderInit((uint8_t *)SD_buff,10);
-		f_write(&audio_file.fil,(uint8_t *)SD_buff,44,(unsigned int *)&bb);
+		/*audio_file.fres|=*/audio_file.fres|=f_write(&audio_file.fil,(uint8_t *)SD_buff,44,(unsigned int *)&bb);
 	}
 	
 	return audio_file.fres;

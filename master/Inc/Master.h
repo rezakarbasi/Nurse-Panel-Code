@@ -26,7 +26,7 @@
 
 #define HELLO_TIMEOUT	1
 
-#define HELLO_COUNTER_PER_CYCLE	12
+#define HELLO_COUNTER_PER_CYCLE	13
 
 #define MAX_TIMEOUT	10
 
@@ -77,6 +77,7 @@ typedef struct{
 	FLAG audio_adc_cplt_flag;
 	FLAG audio_uart_cplt_flag;	
 	FLAG save_2_SD_flag;
+	FLAG save_2_SD_enable_flag;
 	FLAG refresh_LCD_flag;
 	FLAG update_keypad_flag;
 	int rx_p;
@@ -84,6 +85,8 @@ typedef struct{
 	int tx_p;
 	int rec_rx_p;
 	int rec_adc_p;
+	
+	uint16_t temp;
 }MASTER_HANDLER;
 
 //conversation packet struct and union

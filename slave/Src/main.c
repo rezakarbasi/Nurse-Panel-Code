@@ -55,7 +55,7 @@
 /* Private variables ---------------------------------------------------------*/
 uint8_t buff;
 
-int temp=0;
+int temp_TIMOUT_TIM=0;
 int temp1=0;
 int temp2=0;
 uint8_t state_pck;
@@ -115,7 +115,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	Slave_Init(1);
+	Slave_Init(2);
 	
 	HAL_UART_Receive_IT(&Slave_Uart,&buff,1);
 	
@@ -210,7 +210,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 			HAL_TIM_Base_Stop_IT(&Timeout_Timer);
 			Timeout_Timer.Instance->CNT=0;
 			
-		Send_Audio(audio_buff,Date_Per_100ms);
+			Send_Audio(audio_buff,Date_Per_100ms);
 			slave.state=SENDING_AUDIO;
 			break;
 		
@@ -228,11 +228,14 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
-	HAL_TIM_Base_Stop_IT(&Timeout_Timer);
-	Timeout_Timer.Instance->CNT=0;
+	if(temp_TIMOUT_TIM!=0){
+		HAL_TIM_Base_Stop_IT(&Timeout_Timer);
+		Timeout_Timer.Instance->CNT=0;
 	
-	Send_Audio(audio_buff,Date_Per_100ms);
-	slave.state=SENDING_AUDIO;
+		Send_Audio(audio_buff,Date_Per_100ms);
+		slave.state=SENDING_AUDIO;
+	}
+	else temp_TIMOUT_TIM=1;
 }
 /* USER CODE END 4 */
 

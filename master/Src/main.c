@@ -71,8 +71,8 @@ uint16_t adcBuff[Date_Per_100ms];
 uint8_t adc_audio_buff[Date_Per_100ms*audio_buffer_size];
 uint8_t uart_audio_buff[Date_Per_100ms*audio_buffer_size];
 
-uint8_t temp=0;
-uint8_t temp2=0;
+uint8_t temp_TIM5=0;
+uint8_t temp_TIM7=0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -139,7 +139,7 @@ int main(void)
 	
 	HAL_TIM_Base_Start_IT(&htim7);
 	
-	Make_Call(1,adcBuff,uart_audio_buff,10,12,1,5);
+	Make_Call(1,adcBuff,uart_audio_buff,88,90,45,58);
 	
 	ILI9341_Draw_Text("Debug", 32, 0, RED, 4, WHITE);
 	
@@ -151,7 +151,7 @@ int main(void)
 				master.hello_id++;
 				if(master.hello_id>USER_NUMBER)master.hello_id=0;
 				
-				if(User_state[master.hello_id].DIST_PCK.timeout<MAX_TIMEOUT){
+//				if(User_state[master.hello_id].DIST_PCK.timeout<MAX_TIMEOUT){
 					
 					master.hello_counter++;
 					if(master.hello_counter==HELLO_COUNTER_PER_CYCLE){
@@ -163,7 +163,7 @@ int main(void)
 					}
 					Send_PCK(master.hello_id,Normal_conv,0,1,255,0,Buff_get);
 					master.state=WAITING_FOR_SENDING_HELLO;
-				}
+//				}
 				break;
 			
 				case WAITING_FOR_SENDING_HELLO:
@@ -172,7 +172,7 @@ int main(void)
 					break;
 			
 			case SENDING_AUDIO:
-				Send_Audio(master.call_id,adc_audio_buff+master.tx_p*Date_Per_100ms,uart_audio_buff+master.rx_p*Date_Per_100ms,Date_Per_100ms);
+				Send_Audio(master.call_id,adc_audio_buff+master.tx_p*Date_Per_100ms,uart_audio_buff+master.rx_p*Date_Per_100ms,799);//Date_Per_100ms);
 				master.state=WAITING_FOR_SENDING_AUDIO;
 				break;
 			
@@ -181,7 +181,7 @@ int main(void)
 			case WAITING:
 				// SD			LCD			Keypad
 				
-				if(master.save_2_SD_flag==FLAG_ENABLE && master.call_flag==FLAG_ENABLE){
+				if(master.save_2_SD_flag==FLAG_ENABLE && master.save_2_SD_enable_flag==FLAG_ENABLE && master.call_flag==FLAG_ENABLE){
 					master.save_2_SD_flag=FLAG_DISABLE;
 					
 					for(uint16_t ii=0;ii<Date_Per_100ms;ii++)SD_buff[ii]=(uint8_t)((uint16_t)(adc_audio_buff[Date_Per_100ms*audio_file.buffer_counter+ii]
@@ -189,8 +189,13 @@ int main(void)
 					
 					Append_Record(SD_buff);
 					
+					if(audio_file.counter%12==11){
+						f_close(&audio_file.fil);
+						f_open(&audio_file.fil,audio_file.path,FA_WRITE | FA_OPEN_ALWAYS);
+					}
+					
 					//end
-					if(audio_file.counter>200){
+					if(audio_file.counter>100){
 						End_Call();
 						
 						HAL_GPIO_WritePin(GPIOC,GPIO_PIN_11,GPIO_PIN_RESET);
@@ -208,6 +213,9 @@ int main(void)
 					master.update_keypad_flag=FLAG_DISABLE;
 					break;
 				}
+				
+				sprintf(lcd_buff,"%d   %d  ",master.temp,audio_file.counter);
+				ILI9341_Draw_Text(lcd_buff,20,100,BLACK,2,WHITE);
 		}
   /* USER CODE END WHILE */
 
@@ -321,23 +329,26 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	if(htim->Instance==TIM7){
-		if(master.state==WAITING_FOR_RECEIVING_AUDIO && master.start_of_call_flag==FLAG_ENABLE){
-			master.start_of_call_flag=FLAG_DISABLE;
-			HAL_DAC_Start_DMA(&hdac,DAC_CHANNEL_1,(uint32_t *)uart_audio_buff,Date_Per_100ms*audio_buffer_size,DAC_ALIGN_8B_R);
-		}
-		HAL_UART_Abort(&huart2);
-		master.state=SENDING_HELLO;
+		if(temp_TIM7!=0){
+			if(master.state==WAITING_FOR_RECEIVING_AUDIO && master.start_of_call_flag==FLAG_ENABLE){
+				master.start_of_call_flag=FLAG_DISABLE;
+				HAL_DAC_Start_DMA(&hdac,DAC_CHANNEL_1,(uint32_t *)uart_audio_buff,Date_Per_100ms*audio_buffer_size,DAC_ALIGN_8B_R);
+			}
+			HAL_UART_Abort(&huart2);
+			master.state=SENDING_HELLO;
 		
-		if(master.call_flag==FLAG_ENABLE)master.save_2_SD_flag=FLAG_ENABLE;
+//			if(master.call_flag==FLAG_ENABLE)master.save_2_SD_flag=FLAG_ENABLE;
+		}
+		else temp_TIM7=1;
 	}
 	else if(htim->Instance==TIM5){
-		temp++;
-		if(temp%2==0){
+		if(temp_TIM5!=0){
 			master.state=SENDING_HELLO;
 			HAL_UART_Abort(&huart2);
 			User_state[master.hello_id].DIST_PCK.timeout++;
 			HAL_TIM_Base_Stop_IT(&TimeOut_Timer);
 		}
+		else temp_TIM5=1;
 	}
 }
 
