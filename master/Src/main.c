@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
-  * File Name          : main.c
-  * Description        : Main program body
+  * @file           : main.c
+  * @brief          : Main program body
   ******************************************************************************
   ** This notice applies to any and all portions of this file
   * that are not between comment pairs USER CODE BEGIN and
@@ -35,7 +35,6 @@
   *
   ******************************************************************************
   */
-
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "stm32f1xx_hal.h"
@@ -73,6 +72,9 @@ uint8_t uart_audio_buff[Date_Per_100ms*audio_buffer_size];
 
 uint8_t temp_TIM5=0;
 uint8_t temp_TIM7=0;
+
+KEY k;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -90,9 +92,13 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
 
 /* USER CODE END 0 */
 
+/**
+  * @brief  The application entry point.
+  *
+  * @retval None
+  */
 int main(void)
 {
-
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -124,99 +130,155 @@ int main(void)
   MX_USART2_UART_Init();
   MX_TIM7_Init();
   MX_TIM5_Init();
-
   /* USER CODE BEGIN 2 */
 	ILI9341_Init();//initial driver setup to drive ili9341
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, GPIO_PIN_RESET);
 	ILI9341_Fill_Screen(WHITE);
 	ILI9341_Set_Rotation(SCREEN_HORIZONTAL_1);
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	Master_Init();
-	
-	HAL_TIM_Base_Start_IT(&htim7);
-	
-	Make_Call(1,adcBuff,88,90,45,58);
-	
+//	Master_Init();
+//	
+//	HAL_TIM_Base_Start_IT(&htim7);
+//	
+//	Make_Call(1,adcBuff,88,90,45,58);
 	ILI9341_Draw_Text("Debug", 32, 0, RED, 4, WHITE);
-	
-	HAL_GPIO_WritePin(GPIOC,GPIO_PIN_11,GPIO_PIN_SET);		
+//	
+//	HAL_GPIO_WritePin(GPIOC,GPIO_PIN_11,GPIO_PIN_SET);		
 	while (1)
   {
-		switch(master.state){
-			case SENDING_HELLO:
-				master.hello_id++;
-				if(master.hello_id>USER_NUMBER)master.hello_id=0;
-				
-//				if(User_state[master.hello_id].DIST_PCK.timeout<MAX_TIMEOUT){
-					
-					master.hello_counter++;
-					if(master.hello_counter==HELLO_COUNTER_PER_CYCLE){
-						master.hello_counter=0;
-						if(master.call_flag==FLAG_ENABLE)master.state=SENDING_AUDIO;
-						else master.state=WAITING;
-						
-						break;
-					}
-					Send_PCK(master.hello_id,Normal_conv,0,1,255,0,Buff_get);
-					master.state=WAITING_FOR_SENDING_HELLO;
-//				}
-				break;
-			
-				case WAITING_FOR_SENDING_HELLO:
-				case WAITING_FOR_RECEIVING_HELLO:
+		
+		k=function();
+		
+//		kk=0;
+		
+//		GPIOC->CRH&=0xFFFFFFF0;
+//		GPIOC->CRH|=0x00000001;
+//		HAL_GPIO_WritePin(GPIOC,GPIO_PIN_8,GPIO_PIN_SET);
+//		HAL_Delay(1);
+//		//for(uint8_t ii=100;ii<1;ii++);
+//		
+//		if(HAL_GPIO_ReadPin(K8_PORT, K8_PIN))kk= M10;
+//		if(HAL_GPIO_ReadPin(K9_PORT, K9_PIN))kk= KEYTONE;
+//		
+//		HAL_GPIO_WritePin(GPIOC,GPIO_PIN_8,GPIO_PIN_RESET);
+//		HAL_Delay(1);
+//		//for(uint8_t ii=100;ii<1;ii++);
+//		
+//		GPIOC->CRH&=0xFFFFFFF0;
+//		GPIOC->CRH|=0x00000008;
+//		HAL_Delay(1);
+//		//for(uint8_t ii=100;ii<1;ii++);
+//		
+//		
+//		
+//		GPIOC->CRH&=0xFFFFFF0F;
+//		GPIOC->CRH|=0x00000020;
+//		HAL_GPIO_WritePin(K8_PORT, K8_PIN, GPIO_PIN_SET);
+//		HAL_Delay(1);
+//		//for(uint16_t ii=1000;ii<1;ii++);
+//		
+//		if(HAL_GPIO_ReadPin(K9_PORT, K9_PIN))kk= FLASHH;
+//		
+//		HAL_GPIO_WritePin(K8_PORT, K8_PIN, GPIO_PIN_RESET);
+//		HAL_Delay(1);
+//		//for(uint8_t ii=100;ii<1;ii++);
+//		
+//		GPIOC->CRH&=0xFFFFFF0F;
+//		GPIOC->CRH|=0x00000080;
+//		HAL_Delay(1);
+//		//for(uint8_t ii=100;ii<1;ii++);
+		
+		sprintf(lcd_buff,"%d   ",k);
+		ILI9341_Draw_Text(lcd_buff,10,30,BLACK,2,WHITE);
+		
+		uint8_t f;
+		f=GPIOC->CRH&0x0F;
 
-					break;
-			
-			case SENDING_AUDIO:
-				Send_Audio(master.call_id,adc_audio_buff+master.tx_p*Date_Per_100ms,uart_audio_buff+master.rx_p*Date_Per_100ms,Date_Per_100ms);
-				master.state=WAITING_FOR_SENDING_AUDIO;
-				break;
-			
-			case WAITING_FOR_RECEIVING_AUDIO:
-			case WAITING_FOR_SENDING_AUDIO:
-			case WAITING:
-				// SD			LCD			Keypad
-				
-				if(master.save_2_SD_flag==FLAG_ENABLE && master.save_2_SD_enable_flag==FLAG_ENABLE && master.call_flag==FLAG_ENABLE){
-					master.save_2_SD_flag=FLAG_DISABLE;
-					
-					for(uint16_t ii=0;ii<Date_Per_100ms;ii++)SD_buff[ii]=(uint8_t)((uint16_t)(adc_audio_buff[Date_Per_100ms*audio_file.buffer_counter+ii]
-						+uart_audio_buff[Date_Per_100ms*audio_file.buffer_counter+ii])>>1);
-					
-					Append_Record(SD_buff);
-					
-					if(audio_file.counter%12==11){
-						f_close(&audio_file.fil);
-						f_open(&audio_file.fil,audio_file.path,FA_WRITE | FA_OPEN_ALWAYS);
-					}
-					
-					//end
-					if(audio_file.counter>100){
-						End_Call();
-						
-						HAL_GPIO_WritePin(GPIOC,GPIO_PIN_11,GPIO_PIN_RESET);
-					}
-					
-					break;
-				}
-				
-				if(master.refresh_LCD_flag==FLAG_ENABLE){
-					master.refresh_LCD_flag=FLAG_DISABLE;
-					break;
-				}
-				
-				if(master.update_keypad_flag==FLAG_ENABLE){
-					master.update_keypad_flag=FLAG_DISABLE;
-					break;
-				}
-				
-				sprintf(lcd_buff,"%d   %d  ",master.temp,audio_file.counter);
-				ILI9341_Draw_Text(lcd_buff,20,100,BLACK,2,WHITE);
-		}
+		sprintf(lcd_buff,"%d",f);
+		ILI9341_Draw_Text(lcd_buff,10,60,BLACK,2,WHITE);
+
+		f=GPIOC->CRH&0xF0>>4;
+
+		sprintf(lcd_buff,"%d",f);
+		ILI9341_Draw_Text(lcd_buff,10,90,BLACK,2,WHITE);
+		
+		
+		//HAL_Delay(1000);
+		
+//		switch(master.state){
+//			case SENDING_HELLO:
+//				master.hello_id++;
+//				if(master.hello_id>USER_NUMBER)master.hello_id=0;
+//				
+////				if(User_state[master.hello_id].DIST_PCK.timeout<MAX_TIMEOUT){
+//					
+//					master.hello_counter++;
+//					if(master.hello_counter==HELLO_COUNTER_PER_CYCLE){
+//						master.hello_counter=0;
+//						if(master.call_flag==FLAG_ENABLE)master.state=SENDING_AUDIO;
+//						else master.state=WAITING;
+//						
+//						break;
+//					}
+//					Send_PCK(master.hello_id,Normal_conv,0,1,255,0,Buff_get);
+//					master.state=WAITING_FOR_SENDING_HELLO;
+////				}
+//				break;
+//			
+//				case WAITING_FOR_SENDING_HELLO:
+//				case WAITING_FOR_RECEIVING_HELLO:
+
+//					break;
+//			
+//			case SENDING_AUDIO:
+//				Send_Audio(master.call_id,adc_audio_buff+master.tx_p*Date_Per_100ms,uart_audio_buff+master.rx_p*Date_Per_100ms,Date_Per_100ms);
+//				master.state=WAITING_FOR_SENDING_AUDIO;
+//				break;
+//			
+//			case WAITING_FOR_RECEIVING_AUDIO:
+//			case WAITING_FOR_SENDING_AUDIO:
+//			case WAITING:
+//				// SD			LCD			Keypad
+//				
+//				if(master.save_2_SD_flag==FLAG_ENABLE && master.save_2_SD_enable_flag==FLAG_ENABLE && master.call_flag==FLAG_ENABLE){
+//					master.save_2_SD_flag=FLAG_DISABLE;
+//					
+//					for(uint16_t ii=0;ii<Date_Per_100ms;ii++)SD_buff[ii]=(uint8_t)((uint16_t)(adc_audio_buff[Date_Per_100ms*audio_file.buffer_counter+ii]
+//						+uart_audio_buff[Date_Per_100ms*audio_file.buffer_counter+ii])>>1);
+//					
+//					Append_Record(SD_buff);
+//					
+//					if(audio_file.counter%12==11){
+//						f_close(&audio_file.fil);
+//						f_open(&audio_file.fil,audio_file.path,FA_WRITE | FA_OPEN_ALWAYS);
+//					}
+//					
+//					//end
+//					if(audio_file.counter>100){
+//						End_Call();
+//						
+//						HAL_GPIO_WritePin(GPIOC,GPIO_PIN_11,GPIO_PIN_RESET);
+//					}
+//					
+//					break;
+//				}
+//				
+//				if(master.refresh_LCD_flag==FLAG_ENABLE){
+//					master.refresh_LCD_flag=FLAG_DISABLE;
+//					break;
+//				}
+//				
+//				if(master.update_keypad_flag==FLAG_ENABLE){
+//					master.update_keypad_flag=FLAG_DISABLE;
+//					break;
+//				}
+//				
+//				sprintf(lcd_buff,"%d   %d  ",master.temp,audio_file.counter);
+//				ILI9341_Draw_Text(lcd_buff,20,100,BLACK,2,WHITE);
+//		}
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
@@ -226,8 +288,10 @@ int main(void)
 
 }
 
-/** System Clock Configuration
-*/
+/**
+  * @brief System Clock Configuration
+  * @retval None
+  */
 void SystemClock_Config(void)
 {
 
@@ -356,45 +420,43 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 
 /**
   * @brief  This function is executed in case of error occurrence.
-  * @param  None
+  * @param  file: The file name as string.
+  * @param  line: The line in file as a number.
   * @retval None
   */
-void _Error_Handler(char * file, int line)
+void _Error_Handler(char *file, int line)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
   while(1) 
   {
   }
-  /* USER CODE END Error_Handler_Debug */ 
+  /* USER CODE END Error_Handler_Debug */
 }
 
-#ifdef USE_FULL_ASSERT
-
+#ifdef  USE_FULL_ASSERT
 /**
-   * @brief Reports the name of the source file and the source line number
-   * where the assert_param error has occurred.
-   * @param file: pointer to the source file name
-   * @param line: assert_param error line source number
-   * @retval None
-   */
+  * @brief  Reports the name of the source file and the source line number
+  *         where the assert_param error has occurred.
+  * @param  file: pointer to the source file name
+  * @param  line: assert_param error line source number
+  * @retval None
+  */
 void assert_failed(uint8_t* file, uint32_t line)
-{
+{ 
   /* USER CODE BEGIN 6 */
   /* User can add his own implementation to report the file name and line number,
     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
   /* USER CODE END 6 */
-
 }
-
-#endif
-
-/**
-  * @}
-  */ 
+#endif /* USE_FULL_ASSERT */
 
 /**
   * @}
-*/ 
+  */
+
+/**
+  * @}
+  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

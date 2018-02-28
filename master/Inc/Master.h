@@ -11,6 +11,7 @@
 #include "usart.h"
 #include "gpio.h"
 #include "Audio.h"
+#include "Keypad.h"
 
 //defines
 
