@@ -3,7 +3,12 @@
 
 //includes
 #include "stm32f1xx_hal.h"
+#include "adc.h"
+#include "dac.h"
+#include "dma.h"
+#include "tim.h"
 #include "usart.h"
+#include "gpio.h"
 
 //defines
 
@@ -40,14 +45,21 @@ typedef enum {
 	PCK_Unknown =1,
 	PCK_Without_Me=2 ,
 	PCK_With_Me=3 ,
-	PCK_REQ_ME=4
+	PCK_REQ_SP_ME=4,
+	PCK_END_SP=5
 }PCK_STATE;
 
 typedef enum{
 	Normal_conv,
-	Speak_req
+	Speak_req,
+	end_speak,
+	Get_ID
 }FUNCTION;
 
+typedef enum{
+	FLAG_ENABLE=1,
+	FLAG_DISABLE=0,
+}FLAG;
 //conversation packet struct and union
 typedef union
 {
@@ -72,6 +84,10 @@ typedef struct{
 	PCK_CONV pck;
 	uint8_t id;
 	SLAVE_PROGRAM_STATE state;
+	uint8_t rx_p;
+	uint8_t tx_p;
+	uint8_t adc_p;
+	FLAG call_flag;
 }SLAVE_HANDLER;
 
 // Variables
@@ -89,5 +105,7 @@ HAL_StatusTypeDef Send_PCK(FUNCTION function,uint8_t data1,uint8_t data2,uint8_t
 uint8_t Send_Audio(uint8_t * audio,int audio_size);
 void Set_Address(uint8_t add);
 void Slave_Init(uint8_t add);
+void Make_Call(uint16_t * ADC_Buffer,uint8_t * UART_Buffer);
+void Increase_Buffer_Pointer(uint8_t * p);
 
 #endif

@@ -143,7 +143,7 @@ void Master_Init(void){
 	PCK_RCV=0;
 }
 
-void Make_Call(uint8_t add,uint16_t * ADC_Buff,uint8_t * UART_Buff,uint16_t min,uint16_t hour, uint16_t day,uint16_t month){
+void Make_Call(uint8_t add,uint16_t * ADC_Buff,uint16_t min,uint16_t hour, uint16_t day,uint16_t month){
 	master.rx_p=0;
 	master.adc_p=0;
 	master.tx_p=0;
@@ -160,6 +160,8 @@ void Make_Call(uint8_t add,uint16_t * ADC_Buff,uint8_t * UART_Buff,uint16_t min,
 	
 	master.temp= Start_Recording(min,hour,day,month);
 	//if(master.temp!=0)master.save_2_SD_enable_flag=FLAG_DISABLE;
+	
+	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_SET);
 	
 	HAL_TIM_Base_Start(&htim8);
 	HAL_ADC_Start_DMA(&hadc1,(uint32_t *)ADC_Buff,Date_Per_100ms);
@@ -178,6 +180,8 @@ void Append_Record(char* buffer){
 
 void End_Call(void){
 	int cc;
+	
+	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_RESET);
 	
 	HAL_TIM_Base_Stop(&htim8);
 	HAL_ADC_Stop_DMA(&hadc1);

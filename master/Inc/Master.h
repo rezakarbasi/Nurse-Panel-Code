@@ -49,8 +49,19 @@ typedef enum {
 
 typedef enum{
 	Normal_conv,
-	Speak_req
+	Speak_req,
+	end_speak,
+	Get_ID
 }FUNCTION;
+
+//typedef enum {
+//	PCK_WAIT=0,
+//	PCK_Unknown =1,
+//	PCK_Without_Me=2 ,
+//	PCK_With_Me=3 ,
+//	PCK_REQ_SP_ME=4,
+//	PCK_END_SP=5
+//}PCK_STATE;
 
 typedef enum{
 	SENDING_HELLO,
@@ -123,7 +134,7 @@ PCK_STATE GetNewData(uint8_t data,uint8_t id);
 HAL_StatusTypeDef Send_PCK(uint8_t address,FUNCTION function,uint8_t data1,uint8_t data2,uint8_t data3,uint8_t data4,uint8_t * buffer);
 uint8_t Send_Audio(uint8_t address,uint8_t * audio_send,uint8_t * audio_receive,int audio_size);
 void Master_Init(void);
-void Make_Call(uint8_t add,uint16_t * ADC_Buff,uint8_t * UART_Buff,uint16_t min,uint16_t hour, uint16_t day,uint16_t month);
+void Make_Call(uint8_t add,uint16_t * ADC_Buff,uint16_t min,uint16_t hour, uint16_t day,uint16_t month);
 void Append_Record(char * buffer);
 void Increase_Buffer_Pointer(int * p);
 void End_Call(void);

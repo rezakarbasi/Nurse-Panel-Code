@@ -69,10 +69,6 @@ uint16_t adcBuff[Date_Per_100ms];
 
 uint8_t uart_audio_buff[Date_Per_100ms*audio_buffer_size];
 uint8_t adc_audio_buff[Date_Per_100ms*audio_buffer_size];
-
-uint16_t rx_p=0;
-uint16_t tx_p=0;
-uint16_t adc_p=0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -132,12 +128,9 @@ int main(void)
 	Slave_Init(1);
 	
 	HAL_UART_Receive_IT(&Slave_Uart,&buff,1);
-	
-	HAL_TIM_Base_Start(&htim8);
-	HAL_ADC_Start_DMA(&hadc1,(uint32_t *)adcBuff,Date_Per_100ms);
-	HAL_DAC_Start_DMA(&hdac,DAC_CHANNEL_2,(uint32_t *)uart_audio_buff,Date_Per_100ms*audio_buffer_size,DAC_ALIGN_8B_R);
-	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_7,GPIO_PIN_SET);
   
+	
+	
 	while (1)
   {
   /* USER CODE END WHILE */
@@ -214,7 +207,9 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 				Send_PCK(Normal_conv,0,0,0,0);
 				slave.state=SENDING_HELLO;
 			}
-			else if(state_pck==PCK_REQ_ME){
+			else if(state_pck==PCK_REQ_SP_ME){
+				if(slave.call_flag==FLAG_DISABLE)Make_Call(adcBuff,uart_audio_buff);
+				
 				//timer start
 				HAL_TIM_Base_Stop(&htim1);
 				htim1.Instance->CNT=0;
@@ -224,9 +219,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 				HAL_TIM_Base_Start_IT(&Timeout_Timer);
 				Timeout_Timer.Instance->CNT=0;
 				
-				HAL_UART_Receive_DMA(&Slave_Uart,uart_audio_buff+Date_Per_100ms*rx_p,Date_Per_100ms);
-				rx_p++;
-				if(rx_p==audio_buffer_size)rx_p=0;
+				HAL_UART_Receive_DMA(&Slave_Uart,uart_audio_buff+Date_Per_100ms*slave.rx_p,Date_Per_100ms);
+				Increase_Buffer_Pointer(& (slave.rx_p));
 				
 				slave.state=GETTING_AUDIO;
 			}
@@ -242,9 +236,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 			HAL_TIM_Base_Stop_IT(&Timeout_Timer);
 			Timeout_Timer.Instance->CNT=0;
 			
-			Send_Audio(adc_audio_buff+Date_Per_100ms*tx_p,Date_Per_100ms);
-			tx_p++;
-			if(tx_p==audio_buffer_size)tx_p=0;
+			Send_Audio(adc_audio_buff+Date_Per_100ms*slave.tx_p,Date_Per_100ms);
+			Increase_Buffer_Pointer(& (slave.tx_p));
 		
 			slave.state=SENDING_AUDIO;
 			break;
@@ -270,9 +263,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 		if(htim1.Instance->CNT<1000)HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_11);
 		htim1.Instance->CNT=0;
 		
-		Send_Audio(adc_audio_buff+Date_Per_100ms*tx_p,Date_Per_100ms);
-		tx_p++;
-		if(tx_p==audio_buffer_size)tx_p=0;
+		Send_Audio(adc_audio_buff+Date_Per_100ms*slave.tx_p,Date_Per_100ms);
+		Increase_Buffer_Pointer(& (slave.tx_p));
 		
 		slave.state=SENDING_AUDIO;
 	}
@@ -283,9 +275,8 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 	HAL_ADC_Stop_DMA(&hadc1);
 	HAL_ADC_Start_DMA(&hadc1,(uint32_t *)(adcBuff),Date_Per_100ms);
 	
-	for(int ii=0;ii<Date_Per_100ms;ii++)adc_audio_buff[adc_p*Date_Per_100ms+ii]=adcBuff[ii]>>4;
-	adc_p++;
-	if(adc_p==audio_buffer_size)adc_p=0;
+	for(int ii=0;ii<Date_Per_100ms;ii++)adc_audio_buff[slave.adc_p*Date_Per_100ms+ii]=adcBuff[ii]>>4;
+	Increase_Buffer_Pointer(& (slave.adc_p));
 }
 /* USER CODE END 4 */
 

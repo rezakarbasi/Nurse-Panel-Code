@@ -31,4 +31,9 @@ slave2\slave.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 slave2\slave.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 slave2\slave.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 slave2\slave.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
+slave2\slave.o: ../Inc/adc.h
+slave2\slave.o: ../Inc/dac.h
+slave2\slave.o: ../Inc/dma.h
+slave2\slave.o: ../Inc/tim.h
 slave2\slave.o: ../Inc/usart.h
+slave2\slave.o: ../Inc/gpio.h

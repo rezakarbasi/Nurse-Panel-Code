@@ -89,8 +89,9 @@ PCK_STATE GetNewData(uint8_t data){
 PCK_STATE Check_PCK(uint8_t * buff){
 	
 	if(buff[2]==slave.id){
-		if(buff[3]==Speak_req)return PCK_REQ_ME;
-		else if(buff[3]==Normal_conv) return PCK_With_Me;
+		if(buff[3]==Normal_conv) return PCK_With_Me;
+		else if(buff[3]==Speak_req)return PCK_REQ_SP_ME;
+		else if(buff[3]==end_speak)return PCK_END_SP;
 	}
 	else return PCK_Without_Me;
 	
@@ -121,6 +122,38 @@ void Set_Address(uint8_t add){
 void Slave_Init(uint8_t add){
 	slave.id=add;
 	slave.state=WAITING_PCK;
-	Init_PCK(&slave.pck,add,0,0,0,0,0);
+	Init_PCK(&slave.pck,add,Normal_conv,0,0,0,0);
 	PCK_RCV=0;
+	
+	slave.rx_p=0;
+	slave.adc_p=0;
+	slave.tx_p=0;
+	slave.call_flag=FLAG_DISABLE;
+}
+
+void Make_Call(uint16_t * ADC_Buffer,uint8_t * UART_Buffer){
+	slave.rx_p=0;
+	slave.adc_p=0;
+	slave.tx_p=0;
+	
+	slave.call_flag=FLAG_ENABLE;
+	
+	HAL_TIM_Base_Start(&htim8);
+	HAL_ADC_Start_DMA(&hadc1,(uint32_t *)ADC_Buffer,Date_Per_100ms);
+	HAL_DAC_Start_DMA(&hdac,DAC_CHANNEL_2,(uint32_t *)UART_Buffer,Date_Per_100ms*audio_buffer_size,DAC_ALIGN_8B_R);
+	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_7,GPIO_PIN_SET);
+}
+
+void End_Call(){
+	slave.call_flag=FLAG_DISABLE;
+	
+	HAL_TIM_Base_Stop(&htim8);
+	HAL_ADC_Stop_DMA(&hadc1);
+	HAL_DAC_Stop_DMA(&hdac,DAC_CHANNEL_2);
+	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_7,GPIO_PIN_RESET);
+}
+
+void Increase_Buffer_Pointer(uint8_t * p){
+	(*p)++;
+	if((*p)==audio_buffer_size)(*p)=0;
 }

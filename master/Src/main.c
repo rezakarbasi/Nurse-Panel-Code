@@ -139,7 +139,7 @@ int main(void)
 	
 	HAL_TIM_Base_Start_IT(&htim7);
 	
-	Make_Call(1,adcBuff,uart_audio_buff,88,90,45,58);
+	Make_Call(1,adcBuff,88,90,45,58);
 	
 	ILI9341_Draw_Text("Debug", 32, 0, RED, 4, WHITE);
 	
@@ -172,7 +172,7 @@ int main(void)
 					break;
 			
 			case SENDING_AUDIO:
-				Send_Audio(master.call_id,adc_audio_buff+master.tx_p*Date_Per_100ms,uart_audio_buff+master.rx_p*Date_Per_100ms,799);//Date_Per_100ms);
+				Send_Audio(master.call_id,adc_audio_buff+master.tx_p*Date_Per_100ms,uart_audio_buff+master.rx_p*Date_Per_100ms,Date_Per_100ms);
 				master.state=WAITING_FOR_SENDING_AUDIO;
 				break;
 			
