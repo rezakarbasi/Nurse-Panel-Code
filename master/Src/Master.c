@@ -82,7 +82,9 @@ PCK_STATE GetNewData(uint8_t data,uint8_t id){
 		PCK_RCV=0;
 		if (data == STOP_BYTE && User_state[id].DIST_PCK.addr == id){
 			User_state[id].DIST_PCK.timeout=0;
-			return PCK_Data;
+			if(User_state[id].DIST_PCK.func==Normal_conv)return PCK_Data;
+			if(User_state[id].DIST_PCK.func==Speak_req)return PCK_DATA_PLUS_SPEAK_REQ;
+			if(User_state[id].DIST_PCK.func==end_speak)return PCK_END_SPEAK;
 		}
 		return PCK_Unknown;
 	}
@@ -132,7 +134,7 @@ void Master_Init(void){
 	master.save_2_SD_flag=FLAG_DISABLE;
 	master.save_2_SD_enable_flag=FLAG_DISABLE;
 	master.refresh_LCD_flag=FLAG_DISABLE;
-	master.update_keypad_flag=FLAG_DISABLE;
+	//master.update_keypad_flag=FLAG_DISABLE;
 	master.rx_p=0;
 	master.adc_p=0;
 	master.tx_p=0;
@@ -140,6 +142,10 @@ void Master_Init(void){
 	master.rec_adc_p=0;
 	master.start_of_call_flag=FLAG_DISABLE;
 
+	HAL_TIM_Base_Stop(&htim8);
+	HAL_ADC_Stop_DMA(&hadc1);
+	HAL_DAC_Stop_DMA(&hdac,DAC_CHANNEL_1);
+	
 	PCK_RCV=0;
 }
 
@@ -194,6 +200,21 @@ void End_Call(void){
 	WavaRecorderHeaderInit((uint8_t *)SD_buff,audio_file.counter*Date_Per_100ms);
 	f_write(&audio_file.fil,(uint8_t *)SD_buff,44,(unsigned int *)&cc);
 	f_close(&audio_file.fil);
+	
+	master.rx_p=0;
+	master.adc_p=0;
+	master.tx_p=0;
+	master.rec_rx_p=0;
+	master.rec_adc_p=0;
+	master.audio_adc_cplt_flag=FLAG_DISABLE;
+	master.audio_uart_cplt_flag=FLAG_DISABLE;
+	master.save_2_SD_flag=FLAG_DISABLE;
+	//master.save_2_SD_enable_flag=FLAG_ENABLE;
+	master.save_2_SD_enable_flag=FLAG_DISABLE;
+	master.call_id=0;
+	master.call_flag=FLAG_DISABLE;
+	master.start_of_call_flag=FLAG_DISABLE;
+	
 }
 
 void Increase_Buffer_Pointer(int * p){

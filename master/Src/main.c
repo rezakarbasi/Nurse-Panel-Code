@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
-  * File Name          : main.c
-  * Description        : Main program body
+  * @file           : main.c
+  * @brief          : Main program body
   ******************************************************************************
   ** This notice applies to any and all portions of this file
   * that are not between comment pairs USER CODE BEGIN and
@@ -35,7 +35,6 @@
   *
   ******************************************************************************
   */
-
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "stm32f1xx_hal.h"
@@ -73,6 +72,8 @@ uint8_t uart_audio_buff[Date_Per_100ms*audio_buffer_size];
 
 uint8_t temp_TIM5=0;
 uint8_t temp_TIM7=0;
+
+uint32_t input_number=0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -90,9 +91,13 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
 
 /* USER CODE END 0 */
 
+/**
+  * @brief  The application entry point.
+  *
+  * @retval None
+  */
 int main(void)
 {
-
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -124,13 +129,11 @@ int main(void)
   MX_USART2_UART_Init();
   MX_TIM7_Init();
   MX_TIM5_Init();
-
   /* USER CODE BEGIN 2 */
 	ILI9341_Init();//initial driver setup to drive ili9341
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, GPIO_PIN_RESET);
 	ILI9341_Fill_Screen(WHITE);
 	ILI9341_Set_Rotation(SCREEN_HORIZONTAL_1);
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -139,9 +142,10 @@ int main(void)
 	
 	HAL_TIM_Base_Start_IT(&htim7);
 	
-	Make_Call(1,adcBuff,88,90,45,58);
-	
+	//Make_Call(120,adcBuff,88,90,45,58);
 	ILI9341_Draw_Text("Debug", 32, 0, RED, 4, WHITE);
+	
+	Keypad_Init(& master.keypad);
 	
 	HAL_GPIO_WritePin(GPIOC,GPIO_PIN_11,GPIO_PIN_SET);		
 	while (1)
@@ -168,7 +172,7 @@ int main(void)
 			
 				case WAITING_FOR_SENDING_HELLO:
 				case WAITING_FOR_RECEIVING_HELLO:
-
+					Keypad_Update(& master.keypad);
 					break;
 			
 			case SENDING_AUDIO:
@@ -180,6 +184,8 @@ int main(void)
 			case WAITING_FOR_SENDING_AUDIO:
 			case WAITING:
 				// SD			LCD			Keypad
+				
+				Keypad_Update(& master.keypad);
 				
 				if(master.save_2_SD_flag==FLAG_ENABLE && master.save_2_SD_enable_flag==FLAG_ENABLE && master.call_flag==FLAG_ENABLE){
 					master.save_2_SD_flag=FLAG_DISABLE;
@@ -209,12 +215,10 @@ int main(void)
 					break;
 				}
 				
-				if(master.update_keypad_flag==FLAG_ENABLE){
-					master.update_keypad_flag=FLAG_DISABLE;
-					break;
-				}
+				//if gooshi ro gozash sare gash
+				if(HAL_GPIO_ReadPin(GPIOC,GPIO_PIN_2))End_Call();
 				
-				sprintf(lcd_buff,"%d   %d  ",master.temp,audio_file.counter);
+				sprintf(lcd_buff,"%d   %d  %d  ",master.keypad.Number,master.call_id,HAL_GPIO_ReadPin(GPIOC,GPIO_PIN_2));
 				ILI9341_Draw_Text(lcd_buff,20,100,BLACK,2,WHITE);
 		}
   /* USER CODE END WHILE */
@@ -226,8 +230,10 @@ int main(void)
 
 }
 
-/** System Clock Configuration
-*/
+/**
+  * @brief System Clock Configuration
+  * @retval None
+  */
 void SystemClock_Config(void)
 {
 
@@ -307,9 +313,23 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 		HAL_TIM_Base_Stop_IT(&TimeOut_Timer);
 		
 		for(uint8_t ii=0;ii<Packet_Length;ii++){
-			if(GetNewData(Buff_get[ii],master.hello_id)==PCK_Unknown){
-				User_state[master.hello_id].DIST_PCK.timeout++;
-				break;
+			switch(GetNewData(Buff_get[ii],master.hello_id)){
+				case PCK_Wait:
+				case PCK_Data:
+					break;
+				
+				case PCK_DATA_PLUS_SPEAK_REQ:
+					Make_Call(master.hello_id,adcBuff,2,1,5,3);
+					break;
+				
+				case PCK_END_SPEAK:
+					HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_11);
+					End_Call();
+					break;
+				
+				default:
+					User_state[master.hello_id].DIST_PCK.timeout++;
+					break;
 			}
 		}
 	}
@@ -332,11 +352,14 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 		if(temp_TIM7!=0){
 			if(master.state==WAITING_FOR_RECEIVING_AUDIO && master.start_of_call_flag==FLAG_ENABLE){
 				master.start_of_call_flag=FLAG_DISABLE;
-				HAL_DAC_Start_DMA(&hdac,DAC_CHANNEL_1,(uint32_t *)uart_audio_buff,Date_Per_100ms*audio_buffer_size,DAC_ALIGN_8B_R);
+				HAL_DAC_Start_DMA(&hdac,DAC_CHANNEL_1,(uint32_t *)uart_audio_buff
+				,Date_Per_100ms*audio_buffer_size,DAC_ALIGN_8B_R);
 			}
 			HAL_UART_Abort(&huart2);
 			master.state=SENDING_HELLO;
-		
+			
+			Keypad_Restart(&master.keypad);
+			if(master.keypad.number_state==END_OF_NUM)Make_Call(master.keypad.Number,adcBuff,1,3,4,6);
 //			if(master.call_flag==FLAG_ENABLE)master.save_2_SD_flag=FLAG_ENABLE;
 		}
 		else temp_TIM7=1;
@@ -356,45 +379,43 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 
 /**
   * @brief  This function is executed in case of error occurrence.
-  * @param  None
+  * @param  file: The file name as string.
+  * @param  line: The line in file as a number.
   * @retval None
   */
-void _Error_Handler(char * file, int line)
+void _Error_Handler(char *file, int line)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
   while(1) 
   {
   }
-  /* USER CODE END Error_Handler_Debug */ 
+  /* USER CODE END Error_Handler_Debug */
 }
 
-#ifdef USE_FULL_ASSERT
-
+#ifdef  USE_FULL_ASSERT
 /**
-   * @brief Reports the name of the source file and the source line number
-   * where the assert_param error has occurred.
-   * @param file: pointer to the source file name
-   * @param line: assert_param error line source number
-   * @retval None
-   */
+  * @brief  Reports the name of the source file and the source line number
+  *         where the assert_param error has occurred.
+  * @param  file: pointer to the source file name
+  * @param  line: assert_param error line source number
+  * @retval None
+  */
 void assert_failed(uint8_t* file, uint32_t line)
-{
+{ 
   /* USER CODE BEGIN 6 */
   /* User can add his own implementation to report the file name and line number,
     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
   /* USER CODE END 6 */
-
 }
-
-#endif
-
-/**
-  * @}
-  */ 
+#endif /* USE_FULL_ASSERT */
 
 /**
   * @}
-*/ 
+  */
+
+/**
+  * @}
+  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

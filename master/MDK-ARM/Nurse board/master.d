@@ -45,3 +45,4 @@ nurse board\master.o: ../Inc/diskio.h
 nurse board\master.o: ../Inc/integer.h
 nurse board\master.o: ../Inc/ff.h
 nurse board\master.o: ../Inc/ffconf.h
+nurse board\master.o: ../Inc/Keypad.h

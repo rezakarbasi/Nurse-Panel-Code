@@ -52,7 +52,7 @@ typedef enum {
 typedef enum{
 	Normal_conv,
 	Speak_req,
-	end_speak,
+	End_speak,
 	Get_ID
 }FUNCTION;
 
@@ -107,5 +107,6 @@ void Set_Address(uint8_t add);
 void Slave_Init(uint8_t add);
 void Make_Call(uint16_t * ADC_Buffer,uint8_t * UART_Buffer);
 void Increase_Buffer_Pointer(uint8_t * p);
+void End_Call();
 
 #endif

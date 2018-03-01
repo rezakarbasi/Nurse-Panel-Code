@@ -11,6 +11,7 @@
 #include "usart.h"
 #include "gpio.h"
 #include "Audio.h"
+#include "Keypad.h"
 
 //defines
 
@@ -22,7 +23,7 @@
 #define START_BYTE3 0xFF
 #define STOP_BYTE 0x80
 
-#define USER_NUMBER	120
+#define USER_NUMBER	130
 
 #define HELLO_TIMEOUT	1
 
@@ -30,7 +31,7 @@
 
 #define MAX_TIMEOUT	10
 
-#define audio_buffer_size	5
+#define audio_buffer_size	10
 
 #define TimeOut_Timer	htim5
 
@@ -44,7 +45,9 @@ typedef enum {
 	PCK_Wait,
 	PCK_Unknown ,
 	PCK_Data ,
-	PCK_Audio
+	PCK_Audio,
+	PCK_DATA_PLUS_SPEAK_REQ,
+	PCK_END_SPEAK
 }PCK_STATE;
 
 typedef enum{
@@ -90,12 +93,12 @@ typedef struct{
 	FLAG save_2_SD_flag;
 	FLAG save_2_SD_enable_flag;
 	FLAG refresh_LCD_flag;
-	FLAG update_keypad_flag;
 	int rx_p;
 	int adc_p;
 	int tx_p;
 	int rec_rx_p;
 	int rec_adc_p;
+	KEYPAD_HANDLER keypad;
 	
 	uint16_t temp;
 }MASTER_HANDLER;

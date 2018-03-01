@@ -91,7 +91,7 @@ PCK_STATE Check_PCK(uint8_t * buff){
 	if(buff[2]==slave.id){
 		if(buff[3]==Normal_conv) return PCK_With_Me;
 		else if(buff[3]==Speak_req)return PCK_REQ_SP_ME;
-		else if(buff[3]==end_speak)return PCK_END_SP;
+		else if(buff[3]==End_speak)return PCK_END_SP;
 	}
 	else return PCK_Without_Me;
 	
