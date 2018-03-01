@@ -91,12 +91,12 @@ typedef struct{
 	FLAG save_2_SD_flag;
 	FLAG save_2_SD_enable_flag;
 	FLAG refresh_LCD_flag;
-	FLAG update_keypad_flag;
 	int rx_p;
 	int adc_p;
 	int tx_p;
 	int rec_rx_p;
 	int rec_adc_p;
+	KEYPAD_HANDLER keypad;
 	
 	uint16_t temp;
 }MASTER_HANDLER;

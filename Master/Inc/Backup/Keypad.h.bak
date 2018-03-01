@@ -5,32 +5,32 @@
 #include "gpio.h"
 
 //defines
-#define K1_PORT GPIOC
-#define K1_PIN GPIO_PIN_10
+#define K2_PORT GPIOC
+#define K2_PIN GPIO_PIN_10
 
-#define K2_PORT GPIOA
-#define K2_PIN GPIO_PIN_12
-
-#define K3_PORT GPIOA
-#define K3_PIN GPIO_PIN_11
+#define K1_PORT GPIOA
+#define K1_PIN GPIO_PIN_12
 
 #define K4_PORT GPIOA
-#define K4_PIN GPIO_PIN_10
+#define K4_PIN GPIO_PIN_11
 
-#define K5_PORT GPIOA
-#define K5_PIN GPIO_PIN_9
+#define K3_PORT GPIOA
+#define K3_PIN GPIO_PIN_10
 
 #define K6_PORT GPIOA
-#define K6_PIN GPIO_PIN_8
+#define K6_PIN GPIO_PIN_9
 
-#define K7_PORT GPIOC
-#define K7_PIN GPIO_PIN_9
+#define K5_PORT GPIOA
+#define K5_PIN GPIO_PIN_8
 
 #define K8_PORT GPIOC
-#define K8_PIN GPIO_PIN_8
+#define K8_PIN GPIO_PIN_9
+
+#define K7_PORT GPIOC
+#define K7_PIN GPIO_PIN_8
 
 #define K9_PORT GPIOC
-#define K9_PIN GPIO_PIN_7
+#define K9_PIN GPIO_PIN_6
 
 //types
 typedef enum {
@@ -73,5 +73,8 @@ typedef enum {
 
 //functions
 KEY function(void);
+
+//variables
+//extern KEY kk;
 
 #endif

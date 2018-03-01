@@ -132,7 +132,7 @@ void Master_Init(void){
 	master.save_2_SD_flag=FLAG_DISABLE;
 	master.save_2_SD_enable_flag=FLAG_DISABLE;
 	master.refresh_LCD_flag=FLAG_DISABLE;
-	master.update_keypad_flag=FLAG_DISABLE;
+	//master.update_keypad_flag=FLAG_DISABLE;
 	master.rx_p=0;
 	master.adc_p=0;
 	master.tx_p=0;

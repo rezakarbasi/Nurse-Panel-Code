@@ -135,7 +135,6 @@ int main(void)
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, GPIO_PIN_RESET);
 	ILI9341_Fill_Screen(WHITE);
 	ILI9341_Set_Rotation(SCREEN_HORIZONTAL_1);
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -145,7 +144,6 @@ int main(void)
 //	HAL_TIM_Base_Start_IT(&htim7);
 //	
 //	Make_Call(1,adcBuff,88,90,45,58);
-	
 	ILI9341_Draw_Text("Debug", 32, 0, RED, 4, WHITE);
 //	
 //	HAL_GPIO_WritePin(GPIOC,GPIO_PIN_11,GPIO_PIN_SET);		
@@ -154,8 +152,59 @@ int main(void)
 		
 		k=function();
 		
-		sprintf(lcd_buff,"%d",k);
-		ILI9341_Draw_Text(lcd_buff,10,50,BLACK,2,WHITE);
+//		kk=0;
+		
+//		GPIOC->CRH&=0xFFFFFFF0;
+//		GPIOC->CRH|=0x00000001;
+//		HAL_GPIO_WritePin(GPIOC,GPIO_PIN_8,GPIO_PIN_SET);
+//		HAL_Delay(1);
+//		//for(uint8_t ii=100;ii<1;ii++);
+//		
+//		if(HAL_GPIO_ReadPin(K8_PORT, K8_PIN))kk= M10;
+//		if(HAL_GPIO_ReadPin(K9_PORT, K9_PIN))kk= KEYTONE;
+//		
+//		HAL_GPIO_WritePin(GPIOC,GPIO_PIN_8,GPIO_PIN_RESET);
+//		HAL_Delay(1);
+//		//for(uint8_t ii=100;ii<1;ii++);
+//		
+//		GPIOC->CRH&=0xFFFFFFF0;
+//		GPIOC->CRH|=0x00000008;
+//		HAL_Delay(1);
+//		//for(uint8_t ii=100;ii<1;ii++);
+//		
+//		
+//		
+//		GPIOC->CRH&=0xFFFFFF0F;
+//		GPIOC->CRH|=0x00000020;
+//		HAL_GPIO_WritePin(K8_PORT, K8_PIN, GPIO_PIN_SET);
+//		HAL_Delay(1);
+//		//for(uint16_t ii=1000;ii<1;ii++);
+//		
+//		if(HAL_GPIO_ReadPin(K9_PORT, K9_PIN))kk= FLASHH;
+//		
+//		HAL_GPIO_WritePin(K8_PORT, K8_PIN, GPIO_PIN_RESET);
+//		HAL_Delay(1);
+//		//for(uint8_t ii=100;ii<1;ii++);
+//		
+//		GPIOC->CRH&=0xFFFFFF0F;
+//		GPIOC->CRH|=0x00000080;
+//		HAL_Delay(1);
+//		//for(uint8_t ii=100;ii<1;ii++);
+		
+		sprintf(lcd_buff,"%d   ",k);
+		ILI9341_Draw_Text(lcd_buff,10,30,BLACK,2,WHITE);
+		
+		uint8_t f;
+		f=GPIOC->CRH&0x0F;
+
+		sprintf(lcd_buff,"%d",f);
+		ILI9341_Draw_Text(lcd_buff,10,60,BLACK,2,WHITE);
+
+		f=GPIOC->CRH&0xF0>>4;
+
+		sprintf(lcd_buff,"%d",f);
+		ILI9341_Draw_Text(lcd_buff,10,90,BLACK,2,WHITE);
+		
 		
 		//HAL_Delay(1000);
 		
