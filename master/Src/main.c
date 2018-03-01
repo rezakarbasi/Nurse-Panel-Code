@@ -73,6 +73,7 @@ uint8_t uart_audio_buff[Date_Per_100ms*audio_buffer_size];
 uint8_t temp_TIM5=0;
 uint8_t temp_TIM7=0;
 
+uint32_t input_number=0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -401,16 +402,18 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 //			master.state=SENDING_HELLO;
 //			
 
-			sprintf(lcd_buff,"%d   ",master.keypad.Key);
+			
+			
+			Keypad_Restart(&master.keypad);
+			
+			sprintf(lcd_buff,"%d   ",master.keypad.Pre_Key);
 			ILI9341_Draw_Text(lcd_buff,10,30,BLACK,2,WHITE);
 			
-			sprintf(lcd_buff,"%d",master.keypad.state);
+			sprintf(lcd_buff,"%d   ",master.keypad.Number);
 			ILI9341_Draw_Text(lcd_buff,10,60,BLACK,2,WHITE);
 			
-			Keypad_Start(&master.keypad);
-			
-//			sprintf(lcd_buff,"%d",master.keypad.flag);
-//			ILI9341_Draw_Text(lcd_buff,10,90,BLACK,2,WHITE);
+			sprintf(lcd_buff,"%d   ",master.keypad.number_state);
+			ILI9341_Draw_Text(lcd_buff,10,90,BLACK,2,WHITE);
 //				
 			
 //			if(master.call_flag==FLAG_ENABLE)master.save_2_SD_flag=FLAG_ENABLE;
