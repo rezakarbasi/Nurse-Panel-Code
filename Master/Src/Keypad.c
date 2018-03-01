@@ -36,7 +36,8 @@ void Keypad_Init(KEYPAD_HANDLER * key){
 }
 
 void Keypad_Update(KEYPAD_HANDLER * key){
-	if(key->reading_state==MAKE_OUTPUT){
+	if(key->reading_state==END_OF_CYCLE);
+	else if(key->reading_state==MAKE_OUTPUT){
 		
 		GPIO_InitTypeDef init;
 		
@@ -134,9 +135,11 @@ void Keypad_Restart(KEYPAD_HANDLER * key){
 			
 			case HF:
 				key->number_state=END_OF_NUM;
+				break;
 			
 			case DEL:
 				key->Number/=10;
+				break;
 			
 			default:
 				key->Number=key->Number;

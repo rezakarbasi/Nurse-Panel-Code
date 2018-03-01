@@ -23,7 +23,7 @@
 #define START_BYTE3 0xFF
 #define STOP_BYTE 0x80
 
-#define USER_NUMBER	120
+#define USER_NUMBER	130
 
 #define HELLO_TIMEOUT	1
 
