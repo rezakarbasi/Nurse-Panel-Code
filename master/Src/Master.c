@@ -132,7 +132,7 @@ void Master_Init(void){
 	master.save_2_SD_flag=FLAG_DISABLE;
 	master.save_2_SD_enable_flag=FLAG_DISABLE;
 	master.refresh_LCD_flag=FLAG_DISABLE;
-	master.update_keypad_flag=FLAG_DISABLE;
+	//master.update_keypad_flag=FLAG_DISABLE;
 	master.rx_p=0;
 	master.adc_p=0;
 	master.tx_p=0;
@@ -140,6 +140,10 @@ void Master_Init(void){
 	master.rec_adc_p=0;
 	master.start_of_call_flag=FLAG_DISABLE;
 
+	HAL_TIM_Base_Stop(&htim8);
+	HAL_ADC_Stop_DMA(&hadc1);
+	HAL_DAC_Stop_DMA(&hdac,DAC_CHANNEL_1);
+	
 	PCK_RCV=0;
 }
 

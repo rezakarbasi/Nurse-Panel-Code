@@ -30,6 +30,7 @@
 "nurse board\diskio.o"
 "nurse board\master.o"
 "nurse board\audio.o"
+"nurse board\keypad.o"
 "nurse board\startup_stm32f103xe.o"
 "nurse board\system_stm32f1xx.o"
 "nurse board\dac.o"
