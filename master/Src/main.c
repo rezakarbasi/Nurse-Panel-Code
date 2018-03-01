@@ -70,7 +70,6 @@ uint16_t adcBuff[Date_Per_100ms];
 uint8_t adc_audio_buff[Date_Per_100ms*audio_buffer_size];
 uint8_t uart_audio_buff[Date_Per_100ms*audio_buffer_size];
 
-uint8_t temp_TIM4=0;
 uint8_t temp_TIM5=0;
 uint8_t temp_TIM7=0;
 
@@ -129,8 +128,6 @@ int main(void)
   MX_USART2_UART_Init();
   MX_TIM7_Init();
   MX_TIM5_Init();
-  MX_TIM4_Init();
-	
   /* USER CODE BEGIN 2 */
 	ILI9341_Init();//initial driver setup to drive ili9341
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, GPIO_PIN_RESET);
@@ -410,13 +407,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 			sprintf(lcd_buff,"%d",master.keypad.state);
 			ILI9341_Draw_Text(lcd_buff,10,60,BLACK,2,WHITE);
 			
-			sprintf(lcd_buff,"%d",master.keypad.flag);
-			ILI9341_Draw_Text(lcd_buff,10,90,BLACK,2,WHITE);
-				
-			master.keypad.state=MAKE_OUTPUT;
-			master.keypad.flag=CONTINUE;
-			master.keypad.Key=HICH;
-			master.keypad.output_number=0;
+			Keypad_Start(&master.keypad);
+			
+//			sprintf(lcd_buff,"%d",master.keypad.flag);
+//			ILI9341_Draw_Text(lcd_buff,10,90,BLACK,2,WHITE);
+//				
+			
 //			if(master.call_flag==FLAG_ENABLE)master.save_2_SD_flag=FLAG_ENABLE;
 		}
 		else temp_TIM7=1;
@@ -429,14 +425,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 			HAL_TIM_Base_Stop_IT(&TimeOut_Timer);
 		}
 		else temp_TIM5=1;
-	}
-	else if(htim->Instance==Keypad_Timer){
-		if(temp_TIM4!=0){
-			master.keypad.flag=CONTINUE;
-			HAL_TIM_Base_Stop_IT(&Keypad_HAL_Timer);
-			Keypad_HAL_Timer.Instance->CNT=0;
-		}
-		else temp_TIM4=1;
 	}
 }
 

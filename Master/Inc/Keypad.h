@@ -35,10 +35,6 @@
 #define K9_PIN GPIO_PIN_6
 
 
-#define Keypad_HAL_Timer	htim4
-#define Keypad_Timer 			TIM4
-
-
 //types
 typedef enum {
 	SEFR= 17,
@@ -79,11 +75,6 @@ typedef enum {
 }KEY;
 
 typedef enum{
-	CONTINUE=0,
-	WAIT=1,
-}KEYPAD_FLAG;
-
-typedef enum{
 	MAKE_OUTPUT=0,
 	SET_1=1,
 	CHECK=2,
@@ -102,14 +93,13 @@ typedef struct{
 	uint8_t output_number;
 	KEY_STATE state;
 	KEY_GPIO k_pin[9];
-	KEYPAD_FLAG flag;
 }KEYPAD_HANDLER;
 
 //functions
 void Keypad_Update(KEYPAD_HANDLER * key);
 void Keypad_Init(KEYPAD_HANDLER * key);
+void Keypad_Start(KEYPAD_HANDLER * key);
 
 //variables
-//extern KEY kk;
 
 #endif
