@@ -117,8 +117,8 @@ uint8_t Send_Audio(uint8_t address,uint8_t * audio_send,uint8_t * audio_receive,
 	uint8_t out2= HAL_UART_Transmit_DMA(&huart2,audio_send,audio_size);
 	HAL_UART_Receive_DMA(&huart2,audio_receive,audio_size);
 	
-	Increase_Buffer_Pointer(& (master.tx_p));
-	Increase_Buffer_Pointer(& (master.rx_p));
+//	Increase_Buffer_Pointer(& (master.tx_p));
+//	Increase_Buffer_Pointer(& (master.rx_p));
 	
 	return ((out1<<1)+out2);
 }
@@ -129,18 +129,18 @@ void Master_Init(void){
 	master.call_id=0;
 	master.call_flag=FLAG_DISABLE;
 	master.hello_counter=0;
-	master.audio_adc_cplt_flag=FLAG_DISABLE;
-	master.audio_uart_cplt_flag=FLAG_DISABLE;
+//	master.audio_adc_cplt_flag=FLAG_DISABLE;
+//	master.audio_uart_cplt_flag=FLAG_DISABLE;
 	master.save_2_SD_flag=FLAG_DISABLE;
 	master.save_2_SD_enable_flag=FLAG_DISABLE;
 	master.refresh_LCD_flag=FLAG_DISABLE;
 	//master.update_keypad_flag=FLAG_DISABLE;
 	master.rx_p=0;
 	master.adc_p=0;
-	master.tx_p=0;
+//	master.tx_p=0;
 	master.rec_rx_p=0;
 	master.rec_adc_p=0;
-	master.start_of_call_flag=FLAG_DISABLE;
+//	master.start_of_call_flag=FLAG_DISABLE;
 
 	HAL_TIM_Base_Stop(&htim8);
 	HAL_ADC_Stop_DMA(&hadc1);
@@ -152,17 +152,17 @@ void Master_Init(void){
 void Make_Call(uint8_t add,uint16_t * ADC_Buff,uint16_t min,uint16_t hour, uint16_t day,uint16_t month){
 	master.rx_p=0;
 	master.adc_p=0;
-	master.tx_p=0;
+//	master.tx_p=0;
 	master.rec_rx_p=0;
 	master.rec_adc_p=0;
-	master.audio_adc_cplt_flag=FLAG_DISABLE;
-	master.audio_uart_cplt_flag=FLAG_DISABLE;
+//	master.audio_adc_cplt_flag=FLAG_DISABLE;
+//	master.audio_uart_cplt_flag=FLAG_DISABLE;
 	master.save_2_SD_flag=FLAG_DISABLE;
 	//master.save_2_SD_enable_flag=FLAG_ENABLE;
 	master.save_2_SD_enable_flag=FLAG_DISABLE;
 	master.call_id=add;
 	master.call_flag=FLAG_ENABLE;
-	master.start_of_call_flag=FLAG_ENABLE;
+//	master.start_of_call_flag=FLAG_ENABLE;
 	
 	master.temp= Start_Recording(min,hour,day,month);
 	//if(master.temp!=0)master.save_2_SD_enable_flag=FLAG_DISABLE;
@@ -203,17 +203,17 @@ void End_Call(void){
 	
 	master.rx_p=0;
 	master.adc_p=0;
-	master.tx_p=0;
+//	master.tx_p=0;
 	master.rec_rx_p=0;
 	master.rec_adc_p=0;
-	master.audio_adc_cplt_flag=FLAG_DISABLE;
-	master.audio_uart_cplt_flag=FLAG_DISABLE;
+//	master.audio_adc_cplt_flag=FLAG_DISABLE;
+//	master.audio_uart_cplt_flag=FLAG_DISABLE;
 	master.save_2_SD_flag=FLAG_DISABLE;
 	//master.save_2_SD_enable_flag=FLAG_ENABLE;
 	master.save_2_SD_enable_flag=FLAG_DISABLE;
 	master.call_id=0;
 	master.call_flag=FLAG_DISABLE;
-	master.start_of_call_flag=FLAG_DISABLE;
+//	master.start_of_call_flag=FLAG_DISABLE;
 	
 }
 

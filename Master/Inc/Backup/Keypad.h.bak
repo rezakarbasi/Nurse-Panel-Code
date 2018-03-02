@@ -88,17 +88,26 @@ typedef struct{
 	uint16_t pin;
 }KEY_GPIO;
 
+typedef enum{
+	START_OF_NUM,
+	MIDDLE_OF_NUM,
+	END_OF_NUM
+}STATE_OF_NUMBER;
+
 typedef struct{
+	KEY Pre_Key;
 	KEY Key;
-	uint8_t output_number;
-	KEY_STATE state;
+	uint8_t output_turn;
+	KEY_STATE reading_state;
 	KEY_GPIO k_pin[9];
+	uint16_t Number;
+	STATE_OF_NUMBER number_state;
 }KEYPAD_HANDLER;
 
 //functions
 void Keypad_Update(KEYPAD_HANDLER * key);
 void Keypad_Init(KEYPAD_HANDLER * key);
-void Keypad_Start(KEYPAD_HANDLER * key);
+void Keypad_Restart(KEYPAD_HANDLER * key);
 
 //variables
 

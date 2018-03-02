@@ -3,8 +3,8 @@
  * Auto generated Run-Time-Environment Component Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'Nurse board' 
- * Target:  'Nurse board' 
+ * Project: 'Master' 
+ * Target:  'Master' 
  */
 
 #ifndef RTE_COMPONENTS_H

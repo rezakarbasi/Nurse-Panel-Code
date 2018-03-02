@@ -33,7 +33,7 @@
 
 #define audio_buffer_size	10
 
-#define TimeOut_Timer	htim5
+#define TimeOut_Timer	htim6
 
 #define Enable_RS485_Line			HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_SET)
 #define Disable_RS485_Line		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_1,GPIO_PIN_RESET)
@@ -83,19 +83,23 @@ typedef enum{
 
 typedef struct{
 	MASTER_PROGRAM_STATE state;
+	
 	FLAG call_flag;
-	FLAG start_of_call_flag;
+	FLAG adc_enabled;
+	FLAG dac_enabled;
+	FLAG audio_adc_ready_flag;
+	FLAG audio_uart_ready_flag;	
+	
 	uint8_t call_id;
 	uint8_t hello_id;
 	uint8_t hello_counter;
-	FLAG audio_adc_cplt_flag;
-	FLAG audio_uart_cplt_flag;	
 	FLAG save_2_SD_flag;
 	FLAG save_2_SD_enable_flag;
 	FLAG refresh_LCD_flag;
 	int rx_p;
 	int adc_p;
-	int tx_p;
+//	int dac_p;
+//	int tx_p;
 	int rec_rx_p;
 	int rec_adc_p;
 	KEYPAD_HANDLER keypad;
