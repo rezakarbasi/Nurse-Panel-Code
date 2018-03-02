@@ -153,7 +153,10 @@ void Master_Init(void){
 	
 	PCK_RCV=0;
 	
+	LCD_Init();
 	Keypad_Init(& master.keypad);
+	
+	HAL_Delay(1);
 }
 
 void Make_Call(uint8_t add,uint16_t * ADC_Buff,uint16_t min,uint16_t hour, uint16_t day,uint16_t month){

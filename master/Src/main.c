@@ -129,14 +129,14 @@ int main(void)
   MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
 	
-	LCD_Init();
-	
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	Master_Init();
-	master.state=SENDING_HELLO;
+
+
+	master.state=WAITING;
 	
   while (1)
   {
@@ -184,7 +184,7 @@ int main(void)
 				// SD			LCD			Keypad
 				
 				Keypad_Update(& master.keypad);
-				sprintf(lcd_buff,"rp:%d   ap:%d   af:%d   rf:%d  ",master.call_id,master.adc_p,master.audio_adc_ready_flag,master.audio_uart_ready_flag);
+				sprintf(lcd_buff,"input num:%d  ",master.keypad.Number);
 				ILI9341_Draw_Text(lcd_buff,10,50,BLACK,2,WHITE);
 				break;
 			
@@ -340,7 +340,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 			master.state=SENDING_HELLO;
 			
 			Keypad_Restart(&master.keypad);
-			/************************	felaaan	****************************/
+			/************************	felaaan	Hazf****************************/
 			//if(master.keypad.number_state==END_OF_NUM)Make_Call(master.keypad.Number,adcBuff,1,3,4,6);
 				
 		}

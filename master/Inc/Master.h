@@ -12,6 +12,7 @@
 #include "gpio.h"
 #include "Audio.h"
 #include "Keypad.h"
+#include "LCD.h"
 
 //defines
 

@@ -46,3 +46,6 @@ master\master.o: ../Inc/integer.h
 master\master.o: ../Inc/ff.h
 master\master.o: ../Inc/ffconf.h
 master\master.o: ../Inc/Keypad.h
+master\master.o: ../Inc/LCD.h
+master\master.o: ../Inc/ILI9341_STM32_Driver.h
+master\master.o: ../Inc/ILI9341_GFX.h

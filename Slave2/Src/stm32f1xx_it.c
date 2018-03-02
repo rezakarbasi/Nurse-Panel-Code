@@ -42,7 +42,6 @@
 /* External variables --------------------------------------------------------*/
 extern DMA_HandleTypeDef hdma_adc1;
 extern DMA_HandleTypeDef hdma_dac_ch2;
-extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;
 extern DMA_HandleTypeDef hdma_usart2_rx;
 extern DMA_HandleTypeDef hdma_usart2_tx;
@@ -238,20 +237,6 @@ void DMA1_Channel7_IRQHandler(void)
   /* USER CODE BEGIN DMA1_Channel7_IRQn 1 */
 
   /* USER CODE END DMA1_Channel7_IRQn 1 */
-}
-
-/**
-* @brief This function handles TIM1 update interrupt.
-*/
-void TIM1_UP_IRQHandler(void)
-{
-  /* USER CODE BEGIN TIM1_UP_IRQn 0 */
-
-  /* USER CODE END TIM1_UP_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim1);
-  /* USER CODE BEGIN TIM1_UP_IRQn 1 */
-
-  /* USER CODE END TIM1_UP_IRQn 1 */
 }
 
 /**

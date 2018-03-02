@@ -85,9 +85,13 @@ typedef struct{
 	uint8_t id;
 	SLAVE_PROGRAM_STATE state;
 	uint8_t rx_p;
-	uint8_t tx_p;
+	//uint8_t tx_p;
 	uint8_t adc_p;
 	FLAG call_flag;
+	
+	FLAG rx_flag;
+	FLAG start_call_flag;
+	
 }SLAVE_HANDLER;
 
 // Variables
@@ -96,6 +100,10 @@ extern PCK_CONV Send_pck;
 extern PCK_CONV Received_pck;
 extern PCK_CONV Req_pck;
 extern uint8_t PCK_RCV;
+extern uint8_t buff_1byte;
+extern uint16_t adcBuff[Date_Per_100ms];
+extern uint8_t uart_audio_buff[Date_Per_100ms*2];
+extern uint8_t adc_audio_buff[Date_Per_100ms*2];
 
 // Functions
 void Init_PCK(PCK_CONV * pck,uint8_t address,FUNCTION function,uint8_t data1,uint8_t data2,uint8_t data3,uint8_t data4);
