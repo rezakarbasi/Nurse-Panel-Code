@@ -71,8 +71,8 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
 I (../Inc/spi.h)(0x5A98D174)
 I (../Inc/gpio.h)(0x5A98D172)
-F (..\Src\LCD\LCD.c)(0x5A9852EB)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include-I "F:\Reza Karbasi\Documents\Github\Nurse-Panel-Code\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o master\lcd.o --omf_browse master\lcd.crf --depend master\lcd.d)
-I (../Inc/LCD.h)(0x5A9852EE)
+F (..\Src\LCD\LCD.c)(0x5A98DC4E)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include-I "F:\Reza Karbasi\Documents\Github\Nurse-Panel-Code\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o master\lcd.o --omf_browse master\lcd.crf --depend master\lcd.d)
+I (../Inc/LCD.h)(0x5A98DC4D)
 I (../Inc/ILI9341_STM32_Driver.h)(0x5A76FAC7)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
 I (../Inc/stm32f1xx_hal_conf.h)(0x5A98D175)
@@ -440,7 +440,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-I (../Inc/tim.h)(0x5A98D174)
+I (../Inc/tim.h)(0x5A98DC4E)
 F (..\Src\Audio.c)(0x5A940948)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include-I "F:\Reza Karbasi\Documents\Github\Nurse-Panel-Code\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o master\audio.o --omf_browse master\audio.crf --depend master\audio.d)
 I (../Inc/Audio.h)(0x5A93DDC6)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
@@ -481,7 +481,7 @@ I (../Inc/ff.h)(0x5A7AC1F0)
 I (../Inc/ffconf.h)(0x5A7AD745)
 I (../Inc/spi.h)(0x5A98D174)
 I (../Inc/gpio.h)(0x5A98D172)
-F (../Src/gpio.c)(0x5A98D172)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include-I "F:\Reza Karbasi\Documents\Github\Nurse-Panel-Code\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o master\gpio.o --omf_browse master\gpio.crf --depend master\gpio.d)
+F (../Src/gpio.c)(0x5A98DC4E)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include-I "F:\Reza Karbasi\Documents\Github\Nurse-Panel-Code\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o master\gpio.o --omf_browse master\gpio.crf --depend master\gpio.d)
 I (../Inc/gpio.h)(0x5A98D172)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
 I (../Inc/stm32f1xx_hal_conf.h)(0x5A98D175)
@@ -514,7 +514,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Src/stm32f1xx_it.c)(0x5A98D174)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include-I "F:\Reza Karbasi\Documents\Github\Nurse-Panel-Code\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o master\stm32f1xx_it.o --omf_browse master\stm32f1xx_it.crf --depend master\stm32f1xx_it.d)
+F (../Src/stm32f1xx_it.c)(0x5A98DC4E)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include-I "F:\Reza Karbasi\Documents\Github\Nurse-Panel-Code\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o master\stm32f1xx_it.o --omf_browse master\stm32f1xx_it.crf --depend master\stm32f1xx_it.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
 I (../Inc/stm32f1xx_hal_conf.h)(0x5A98D175)
 I (../Inc/main.h)(0x5A98D175)
@@ -546,8 +546,8 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-I (../Inc/stm32f1xx_it.h)(0x5A98D174)
-F (../Src/dma.c)(0x5A98D173)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include-I "F:\Reza Karbasi\Documents\Github\Nurse-Panel-Code\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o master\dma.o --omf_browse master\dma.crf --depend master\dma.d)
+I (../Inc/stm32f1xx_it.h)(0x5A98DC4E)
+F (../Src/dma.c)(0x5A98DC4E)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include-I "F:\Reza Karbasi\Documents\Github\Nurse-Panel-Code\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o master\dma.o --omf_browse master\dma.crf --depend master\dma.d)
 I (../Inc/dma.h)(0x5A98D174)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
 I (../Inc/stm32f1xx_hal_conf.h)(0x5A98D175)
@@ -580,8 +580,8 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Src/tim.c)(0x5A98D174)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include-I "F:\Reza Karbasi\Documents\Github\Nurse-Panel-Code\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o master\tim.o --omf_browse master\tim.crf --depend master\tim.d)
-I (../Inc/tim.h)(0x5A98D174)
+F (../Src/tim.c)(0x5A98DC4E)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include-I "F:\Reza Karbasi\Documents\Github\Nurse-Panel-Code\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o master\tim.o --omf_browse master\tim.crf --depend master\tim.d)
+I (../Inc/tim.h)(0x5A98DC4E)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
 I (../Inc/stm32f1xx_hal_conf.h)(0x5A98D175)
 I (../Inc/main.h)(0x5A98D175)
@@ -613,7 +613,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (../Src/adc.c)(0x5A98D173)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include-I "F:\Reza Karbasi\Documents\Github\Nurse-Panel-Code\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o master\adc.o --omf_browse master\adc.crf --depend master\adc.d)
+F (../Src/adc.c)(0x5A98DC4E)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include-I "F:\Reza Karbasi\Documents\Github\Nurse-Panel-Code\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o master\adc.o --omf_browse master\adc.crf --depend master\adc.d)
 I (../Inc/adc.h)(0x5A98D173)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
 I (../Inc/stm32f1xx_hal_conf.h)(0x5A98D175)
@@ -648,7 +648,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
 I (../Inc/gpio.h)(0x5A98D172)
 I (../Inc/dma.h)(0x5A98D174)
-F (../Src/usart.c)(0x5A98D705)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include-I "F:\Reza Karbasi\Documents\Github\Nurse-Panel-Code\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o master\usart.o --omf_browse master\usart.crf --depend master\usart.d)
+F (../Src/usart.c)(0x5A98DC4E)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include-I "F:\Reza Karbasi\Documents\Github\Nurse-Panel-Code\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o master\usart.o --omf_browse master\usart.crf --depend master\usart.d)
 I (../Inc/usart.h)(0x5A98D174)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
 I (../Inc/stm32f1xx_hal_conf.h)(0x5A98D175)
@@ -683,7 +683,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
 I (../Inc/gpio.h)(0x5A98D172)
 I (../Inc/dma.h)(0x5A98D174)
-F (../Src/dac.c)(0x5A98D173)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include-I "F:\Reza Karbasi\Documents\Github\Nurse-Panel-Code\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o master\dac.o --omf_browse master\dac.crf --depend master\dac.d)
+F (../Src/dac.c)(0x5A98DC4E)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include-I "F:\Reza Karbasi\Documents\Github\Nurse-Panel-Code\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o master\dac.o --omf_browse master\dac.crf --depend master\dac.d)
 I (../Inc/dac.h)(0x5A98D173)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
 I (../Inc/stm32f1xx_hal_conf.h)(0x5A98D175)
@@ -752,7 +752,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
 I (../Inc/gpio.h)(0x5A98D172)
-F (../Src/main.c)(0x5A98D970)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include-I "F:\Reza Karbasi\Documents\Github\Nurse-Panel-Code\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o master\main.o --omf_browse master\main.crf --depend master\main.d)
+F (../Src/main.c)(0x5A98E2AF)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include-I "F:\Reza Karbasi\Documents\Github\Nurse-Panel-Code\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o master\main.o --omf_browse master\main.crf --depend master\main.d)
 I (../Inc/main.h)(0x5A98D175)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
 I (../Inc/stm32f1xx_hal_conf.h)(0x5A98D175)
@@ -788,10 +788,10 @@ I (../Inc/adc.h)(0x5A98D173)
 I (../Inc/dac.h)(0x5A98D173)
 I (../Inc/dma.h)(0x5A98D174)
 I (../Inc/spi.h)(0x5A98D174)
-I (../Inc/tim.h)(0x5A98D174)
+I (../Inc/tim.h)(0x5A98DC4E)
 I (../Inc/usart.h)(0x5A98D174)
 I (../Inc/gpio.h)(0x5A98D172)
-I (../Inc/Master.h)(0x5A98C784)
+I (../Inc/Master.h)(0x5A98DC4E)
 I (../Inc/Audio.h)(0x5A93DDC6)
 I (../Inc/SD_functions.h)(0x5A93D6F2)
 I (../Inc/diskio.h)(0x5A8169CE)
@@ -799,7 +799,7 @@ I (../Inc/integer.h)(0x570CB85E)
 I (../Inc/ff.h)(0x5A7AC1F0)
 I (../Inc/ffconf.h)(0x5A7AD745)
 I (../Inc/Keypad.h)(0x5A97C289)
-I (../Inc/LCD.h)(0x5A9852EE)
+I (../Inc/LCD.h)(0x5A98DC4D)
 I (../Inc/ILI9341_STM32_Driver.h)(0x5A76FAC7)
 I (../Inc/ILI9341_GFX.h)(0x5A76FC4F)
 F (../Src/stm32f1xx_hal_msp.c)(0x5A98D175)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include-I "F:\Reza Karbasi\Documents\Github\Nurse-Panel-Code\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o master\stm32f1xx_hal_msp.o --omf_browse master\stm32f1xx_hal_msp.crf --depend master\stm32f1xx_hal_msp.d)
@@ -834,8 +834,8 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5A78088A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5A78088A)
-F (..\Src\Master.c)(0x5A98CDBA)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include-I "F:\Reza Karbasi\Documents\Github\Nurse-Panel-Code\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o master\master.o --omf_browse master\master.crf --depend master\master.d)
-I (../Inc/Master.h)(0x5A98C784)
+F (..\Src\Master.c)(0x5A98DE7D)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include-I "F:\Reza Karbasi\Documents\Github\Nurse-Panel-Code\Master\MDK-ARM\RTE"-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.1.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o master\master.o --omf_browse master\master.crf --depend master\master.d)
+I (../Inc/Master.h)(0x5A98DC4E)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5A78088A)
 I (../Inc/stm32f1xx_hal_conf.h)(0x5A98D175)
 I (../Inc/main.h)(0x5A98D175)
@@ -871,7 +871,7 @@ I (../Inc/adc.h)(0x5A98D173)
 I (../Inc/dac.h)(0x5A98D173)
 I (../Inc/dma.h)(0x5A98D174)
 I (../Inc/spi.h)(0x5A98D174)
-I (../Inc/tim.h)(0x5A98D174)
+I (../Inc/tim.h)(0x5A98DC4E)
 I (../Inc/usart.h)(0x5A98D174)
 I (../Inc/gpio.h)(0x5A98D172)
 I (../Inc/Audio.h)(0x5A93DDC6)

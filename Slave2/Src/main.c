@@ -127,11 +127,10 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	Slave_Init(120);
+	Slave_Init(10);
 	
 	HAL_UART_Receive_IT(&Slave_Uart,&buff,1);
   
-	
 	
 	while (1)
   {
