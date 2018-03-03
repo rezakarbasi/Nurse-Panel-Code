@@ -52,6 +52,12 @@
 
 #include "Master.h"
 #include "LCD.h"
+
+#define RX_PIN			GPIO_PIN_12
+#define TX_PIN			GPIO_PIN_11
+#define ADC_PIN			GPIO_PIN_10
+#define DAC_PIN 		GPIO_PIN_9
+#define TIM_PIN			GPIO_PIN_8
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -133,10 +139,17 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+	/****************	keypad code rempved	****************/
 	Master_Init();
 
 
 	master.state=WAITING;
+	
+	HAL_GPIO_WritePin(GPIOA,RX_PIN,GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA,TX_PIN,GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA,ADC_PIN,GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA,DAC_PIN,GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA,TIM_PIN,GPIO_PIN_RESET);
 	
   while (1)
   {
@@ -156,13 +169,16 @@ int main(void)
 						break;
 					}
 					Send_PCK(master.hello_id,Normal_conv,0,1,255,0,Buff_get);
+					
+					HAL_GPIO_WritePin(GPIOA,TX_PIN,GPIO_PIN_SET);
+					
 					master.state=WAITING_FOR_SENDING_HELLO;
 //				}
 				break;
 
 			case WAITING_FOR_SENDING_HELLO:
 			case WAITING_FOR_RECEIVING_HELLO:
-				Keypad_Update(& master.keypad);
+				//Keypad_Update(& master.keypad);
 				break;
 			
 			case SENDING_AUDIO:
@@ -174,6 +190,8 @@ int main(void)
 					
 					Send_Audio(master.call_id,adc_audio_buff+jj*Date_Per_100ms,uart_audio_buff+master.rx_p*Date_Per_100ms,Date_Per_100ms);
 					
+					HAL_GPIO_WritePin(GPIOA,TX_PIN,GPIO_PIN_SET);
+					
 					master.state=WAITING_FOR_SENDING_AUDIO;
 				}
 				break;
@@ -183,14 +201,14 @@ int main(void)
 			case WAITING:
 				// SD			LCD			Keypad
 				
-				Keypad_Update(& master.keypad);
+				//Keypad_Update(& master.keypad);
 				sprintf(lcd_buff,"input num:%d  ",master.keypad.Number);
 				ILI9341_Draw_Text(lcd_buff,10,50,BLACK,2,WHITE);
 				break;
 			
 		}			
 
-		/* USER CODE END WHILE */
+  /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
 
@@ -258,14 +276,26 @@ void SystemClock_Config(void)
 
 /* USER CODE BEGIN 4 */
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
+	
+	HAL_GPIO_WritePin(GPIOA,TX_PIN,GPIO_PIN_RESET);
+	
 	Disable_RS485_Line;
 	
-	if(master.state==WAITING_FOR_SENDING_AUDIO)master.state=WAITING_FOR_RECEIVING_AUDIO;
+	if(master.state==WAITING_FOR_SENDING_AUDIO){
+		HAL_GPIO_WritePin(GPIOA,TX_PIN,GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOA,RX_PIN,GPIO_PIN_SET);
+		
+		master.state=WAITING_FOR_RECEIVING_AUDIO;
+	}
 	else if(master.state==WAITING_FOR_SENDING_HELLO)master.state=WAITING_FOR_RECEIVING_HELLO;
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
+	HAL_GPIO_WritePin(GPIOA,RX_PIN,GPIO_PIN_RESET);
+	
 	if(master.state==WAITING_FOR_RECEIVING_HELLO){
+		HAL_GPIO_TogglePin(GPIOA,RX_PIN);
+		
 		HAL_UART_Abort(&huart2);
 		master.state=SENDING_HELLO;
 		HAL_TIM_Base_Stop_IT(&TimeOut_Timer);
@@ -278,6 +308,11 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 		}
 	}
 	else if(master.state==WAITING_FOR_RECEIVING_AUDIO){
+		
+		
+					HAL_GPIO_WritePin(GPIOA,RX_PIN,GPIO_PIN_RESET);
+		
+		
 		if(master.rx_p==1)master.rx_p=0;
 		else master.rx_p=1;
 		HAL_UART_Abort(&huart2);
@@ -288,6 +323,15 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 }
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
+	
+	
+	
+	//taghiiiir dadam
+//	HAL_ADC_Stop_DMA(&hadc1);
+//	HAL_ADC_Start_DMA(&hadc1,(uint32_t *)(adcBuff),Date_Per_100ms);
+	
+	HAL_GPIO_TogglePin(GPIOA,ADC_PIN);
+	
 	uint8_t jj=0;
 	if(master.adc_p==1){
 		jj=1;
@@ -295,8 +339,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 	}
 	else master.adc_p=1;
 	
-	HAL_ADC_Stop_DMA(&hadc1);
-	HAL_ADC_Start_DMA(&hadc1,(uint32_t *)(adcBuff),Date_Per_100ms);
+	
 	
 	for(int ii=0;ii<Date_Per_100ms;ii++)adc_audio_buff[jj*Date_Per_100ms+ii]=adcBuff[ii]>>4;
 	
@@ -304,10 +347,13 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 }
 
 void HAL_DAC_ConvCpltCallbackCh1(DAC_HandleTypeDef* hdac1){
-	uint8_t jj=0;
-	if(master.rx_p==0)jj=1;
-	HAL_DAC_Start_DMA(&hdac,DAC_CHANNEL_1,(uint32_t *)(uart_audio_buff+jj*Date_Per_100ms)
-													,Date_Per_100ms,DAC_ALIGN_8B_R);
+	
+			HAL_GPIO_TogglePin(GPIOA,DAC_PIN);
+	
+//	uint8_t jj=0;
+//	if(master.rx_p==0)jj=1;
+//	HAL_DAC_Start_DMA(&hdac,DAC_CHANNEL_1,(uint32_t *)(uart_audio_buff+jj*Date_Per_100ms)
+//													,Date_Per_100ms,DAC_ALIGN_8B_R);
 	master.audio_uart_ready_flag=FLAG_DISABLE;
 }
 
@@ -315,7 +361,14 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	if(htim->Instance==TIM7){
 		if(timer7_temp!=0){
 			
+			HAL_GPIO_TogglePin(GPIOA,TIM_PIN);
+			
 			if(master.state==WAITING_FOR_RECEIVING_AUDIO){
+				
+				
+					HAL_GPIO_WritePin(GPIOA,RX_PIN,GPIO_PIN_RESET);
+				
+				
 				if(master.rx_p==1)master.rx_p=0;
 				else master.rx_p=1;
 				HAL_UART_Abort(&huart2);
@@ -326,20 +379,21 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 				master.adc_enabled=FLAG_ENABLE;
 				master.adc_p=0;
 				HAL_ADC_Start_DMA(&hadc1,(uint32_t *)adcBuff,Date_Per_100ms);
+				//HAL_Delay(1);
 			}
 			
 			if(master.dac_enabled==FLAG_DISABLE && master.call_flag==FLAG_ENABLE && master.audio_uart_ready_flag==FLAG_ENABLE){
 				master.dac_enabled=FLAG_ENABLE;
 				uint8_t jj=0;
 				if(master.rx_p==0)jj=1;
-				HAL_DAC_Start_DMA(&hdac,DAC_CHANNEL_1,(uint32_t *)uart_audio_buff+jj*Date_Per_100ms
-													,Date_Per_100ms,DAC_ALIGN_8B_R);
+				HAL_DAC_Start_DMA(&hdac,DAC_CHANNEL_1,(uint32_t *)uart_audio_buff/*+jj*Date_Per_100ms*/
+													,Date_Per_100ms*2,DAC_ALIGN_8B_R);
 			}
 			
 			HAL_UART_Abort(&huart2);
 			master.state=SENDING_HELLO;
 			
-			Keypad_Restart(&master.keypad);
+			//Keypad_Restart(&master.keypad);
 			/************************	felaaan	Hazf****************************/
 			//if(master.keypad.number_state==END_OF_NUM)Make_Call(master.keypad.Number,adcBuff,1,3,4,6);
 				
@@ -348,6 +402,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	}
 	else if(htim->Instance==TIM6){
 		if(timer6_temp!=0){
+			
+			HAL_GPIO_WritePin(GPIOA,RX_PIN,GPIO_PIN_RESET);
+			
 			master.state=SENDING_HELLO;
 			HAL_UART_Abort(&huart2);
 			User_state[master.hello_id].DIST_PCK.timeout++;

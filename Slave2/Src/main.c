@@ -47,6 +47,11 @@
 
 /* USER CODE BEGIN Includes */
 #include "Slave.h"
+
+#define ADC_pin	GPIO_PIN_15
+#define DAC_pin	GPIO_PIN_12
+#define RX_pin	GPIO_PIN_13
+#define TX_pin	GPIO_PIN_14
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -66,7 +71,7 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart);
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc);
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
-void HAL_DAC_ConvCpltCallbackCh1(DAC_HandleTypeDef* hdac11);
+void HAL_DACEx_ConvCpltCallbackCh2(DAC_HandleTypeDef* hdac11);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -115,9 +120,16 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	Slave_Init(10);
+	
+	HAL_GPIO_WritePin(GPIOB,ADC_pin,GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOB,DAC_pin,GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOB,RX_pin,GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOB,TX_pin,GPIO_PIN_RESET);
+		
 	while (1)
   {
-  /* USER CODE END WHILE */
+		HAL_Delay(1);
+	/* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
 
@@ -192,6 +204,9 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 			if(state_pck==PCK_With_Me){
 				Send_PCK(slave.pck.DIST_PCK.func,slave.pck.DIST_PCK.data1,
 				slave.pck.DIST_PCK.data2,slave.pck.DIST_PCK.data3,slave.pck.DIST_PCK.data4);
+				
+				HAL_GPIO_WritePin(GPIOB,TX_pin,GPIO_PIN_SET);
+				
 				slave.pck.DIST_PCK.func=Normal_conv;
 				slave.state=SENDING_HELLO;
 			}
@@ -204,6 +219,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 				Timeout_Timer.Instance->CNT=0;
 				
 				HAL_UART_Receive_DMA(&Slave_Uart,uart_audio_buff+Date_Per_100ms*slave.rx_p,Date_Per_100ms);
+				HAL_GPIO_WritePin(GPIOB,RX_pin,GPIO_PIN_SET);
 				
 				slave.state=GETTING_AUDIO;
 			}
@@ -222,6 +238,9 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 			uint8_t jj=0;
 			if(slave.adc_p==0)jj=1;
 		
+			HAL_GPIO_WritePin(GPIOB,RX_pin,GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIOB,TX_pin,GPIO_PIN_SET);
+			
 			Send_Audio(adc_audio_buff+Date_Per_100ms*jj,Date_Per_100ms);
 			slave.rx_flag=FLAG_ENABLE;
 		
@@ -235,6 +254,9 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 }
 
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
+	
+	HAL_GPIO_WritePin(GPIOB,TX_pin,GPIO_PIN_RESET);
+	
 	HAL_GPIO_WritePin(RS485_GPIO_PORT,RS485_GPIO_PIN,GPIO_PIN_RESET);
 	slave.state=WAITING_PCK;
 	HAL_UART_Abort(&Slave_Uart);
@@ -251,6 +273,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 		uint8_t jj=0;
 		if(slave.adc_p==0)jj=1;
 		
+		HAL_GPIO_WritePin(GPIOB,RX_pin,GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOB,TX_pin,GPIO_PIN_SET);
+		HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_11);
+		
 		Send_Audio(adc_audio_buff+Date_Per_100ms*jj,Date_Per_100ms);
 		
 		slave.state=SENDING_AUDIO;
@@ -259,8 +285,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 }
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
-	HAL_ADC_Stop_DMA(&hadc1);
-	HAL_ADC_Start_DMA(&hadc1,(uint32_t *)(adcBuff),Date_Per_100ms);
+//	HAL_ADC_Stop_DMA(&hadc1);
+//	HAL_ADC_Start_DMA(&hadc1,(uint32_t *)(adcBuff),Date_Per_100ms);
+	HAL_GPIO_TogglePin(GPIOB,ADC_pin);
 	
 	uint8_t jj=slave.adc_p;
 	if(slave.adc_p==0)slave.adc_p=1;
@@ -275,18 +302,25 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 		uint8_t jj=0;
 		if(slave.rx_p==0)jj=1;
 		
-		HAL_DAC_Start_DMA(&hdac,DAC_CHANNEL_2,(uint32_t *)uart_audio_buff+jj*Date_Per_100ms,Date_Per_100ms,DAC_ALIGN_8B_R);
+		//HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_11);
+		
+		HAL_DAC_Start_DMA(&hdac,DAC_CHANNEL_2,(uint32_t *)uart_audio_buff,2*Date_Per_100ms,DAC_ALIGN_8B_R);
 	}
 	else if(slave.call_flag==FLAG_DISABLE)HAL_DAC_Stop_DMA(&hdac,DAC_CHANNEL_2);
 }
 
-void HAL_DAC_ConvCpltCallbackCh1(DAC_HandleTypeDef* hdac11){
-	HAL_DAC_Stop_DMA(&hdac,DAC_CHANNEL_2);
+void HAL_DACEx_ConvCpltCallbackCh2(DAC_HandleTypeDef* hdac11){
 	
-	uint8_t jj=0;
-	if(slave.rx_p==0)jj=1;
-		
-	HAL_DAC_Start_DMA(&hdac,DAC_CHANNEL_2,(uint32_t *)uart_audio_buff+jj*Date_Per_100ms,Date_Per_100ms,DAC_ALIGN_8B_R);
+	HAL_GPIO_TogglePin(GPIOB,DAC_pin);
+	
+//	HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_11);
+	
+//	HAL_DAC_Stop_DMA(&hdac,DAC_CHANNEL_2);
+//	
+//	uint8_t jj=0;
+//	if(slave.rx_p==0)jj=1;
+//		
+//	HAL_DAC_Start_DMA(&hdac,DAC_CHANNEL_2,(uint32_t *)uart_audio_buff+jj*Date_Per_100ms,Date_Per_100ms,DAC_ALIGN_8B_R);
 }
 /* USER CODE END 4 */
 

@@ -154,7 +154,7 @@ void Master_Init(void){
 	PCK_RCV=0;
 	
 	LCD_Init();
-	Keypad_Init(& master.keypad);
+//	Keypad_Init(& master.keypad);
 	
 	HAL_Delay(1);
 }

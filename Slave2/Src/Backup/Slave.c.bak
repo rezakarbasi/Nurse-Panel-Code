@@ -133,6 +133,7 @@ void Slave_Init(uint8_t add){
 	slave.adc_p=0;
 	
 	slave.call_flag=FLAG_DISABLE;
+	slave.start_call_flag=FLAG_DISABLE;
 	
 	HAL_UART_Receive_IT(&Slave_Uart,&buff_1byte,1);
 	
@@ -143,23 +144,15 @@ void Slave_Init(uint8_t add){
 
 void Make_Call(uint16_t * ADC_Buffer,uint8_t * UART_Buffer){
 	slave.rx_p=0;
-	//slave.adc_p=0;
-	//slave.tx_p=0;
 	
 	slave.call_flag=FLAG_ENABLE;
-	
 	slave.start_call_flag=FLAG_ENABLE;
-//	HAL_TIM_Base_Start(&htim8);
-//	HAL_ADC_Start_DMA(&hadc1,(uint32_t *)ADC_Buffer,Date_Per_100ms);
-//	HAL_DAC_Start_DMA(&hdac,DAC_CHANNEL_2,(uint32_t *)UART_Buffer,Date_Per_100ms*audio_buffer_size,DAC_ALIGN_8B_R);
-//	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_7,GPIO_PIN_SET);
 }
 
 void End_Call(){
 	slave.call_flag=FLAG_DISABLE;
+	slave.start_call_flag=FLAG_DISABLE;
 	
-	HAL_TIM_Base_Stop(&htim8);
-	HAL_ADC_Stop_DMA(&hadc1);
 	HAL_DAC_Stop_DMA(&hdac,DAC_CHANNEL_2);
 	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_7,GPIO_PIN_RESET);
 }
